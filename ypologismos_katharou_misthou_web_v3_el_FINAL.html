@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Υπολογισμός Καθαρού Μισθού — Ελλάδα (2025 / 2026)</title>
+  <style>
+    :root { --bg:#f7f7fb; --card:#ffffff; --pri:#1f4b99; --mut:#6b7280; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial; background:var(--bg); color:#0f172a; }
+    header { padding: 20px; background: linear-gradient(90deg,#e6eefc,#f7f7fb); border-bottom:1px solid #e5e7eb; }
+    h1 { margin:0; color:var(--pri); font-size: 20px; }
+    main { padding: 16px; max-width: 1100px; margin: 0 auto; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .card { background:var(--card); border:1px solid #e5e7eb; border-radius: 14px; padding: 16px; box-shadow:0 1px 2px rgba(0,0,0,0.04); }
+    .card h2 { margin-top:0; font-size: 16px; }
+    label { display:block; font-weight:600; margin-top:10px; }
+    input[type="number"], select { width: 100%; padding: 10px 12px; border:1px solid #d1d5db; border-radius: 10px; font-size: 14px; background:#f8fafc; }
+    .help { color: var(--mut); font-size: 12px; margin-top: 4px; }
+    .row { display:grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .result { display:flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed #e5e7eb; }
+    .result .val { font-variant-numeric: tabular-nums; }
+    .result.total { font-weight:700; background:#fff9db; padding: 10px 8px; border:1px solid #fde68a; border-radius:8px; }
+    .muted { color: var(--mut); }
+    .fineprint { font-size:12px; color:var(--mut); margin-top:10px; }
+    .foot { margin-top: 18px; display:flex; gap:10px; flex-wrap: wrap; }
+    button { background: var(--pri); color:#fff; border:none; padding:10px 14px; border-radius:12px; font-weight:600; cursor:pointer; }
+    button.secondary { background:#e5e7eb; color:#111827; }
+    .pill { display:inline-block; padding:4px 8px; border-radius:999px; background:#eef2ff; color:#3730a3; font-size:12px; }
+    @media (max-width: 880px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Υπολογισμός Καθαρού Μισθού — Ελλάδα (2025 / 2026)</h1>
+    <div class="muted">Web εφαρμογή που τρέχει τοπικά (τα δεδομένα δεν αποστέλλονται).</div>
+  </header>
+  <main>
+    <div class="grid">
+      <section class="card">
+        <h2>Είσοδος</h2>
+        <label>Μικτός Μηνιαίος Μισθός (€)</label>
+        <input id="gross" type="number" min="0" step="0.01" placeholder="π.χ. 2000" />
+        <div class="row">
+          <div>
+            <label>Μισθοί ανά έτος</label>
+            <select id="payMonths">
+              <option value="14">14</option>
+              <option value="12">12</option>
+            </select>
+          </div>
+          <div>
+            <label>Φορολογικό έτος</label>
+            <select id="taxYear">
+              <option value="2025" selected>2025</option>
+              <option value="2026">2026</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label>Εξαρτώμενα τέκνα</label>
+            <select id="children">
+              <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option>
+              <option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+            </select>
+            <div class="help">Για 5+ τέκνα δεν εφαρμόζεται η μείωση της έκπτωσης φόρου.</div>
+          </div>
+          <div>
+            <label>Ηλικία (έτη)</label>
+            <input id="age" type="number" min="15" max="100" placeholder="π.χ. 29 (χρήσιμο για 2026)" />
+          </div>
+        </div>
+        <details style="margin-top:12px;">
+          <summary><strong>Προχωρημένα (συντελεστές)</strong></summary>
+          <div class="row" style="margin-top:8px;">
+            <div>
+              <label>Εισφορές εργαζομένου (ΕΦΚΑ)</label>
+              <input id="efkaEmployee" type="number" step="0.0001" min="0" max="1" value="0.1337" />
+              <div class="help">Ποσοστό (π.χ. 0.1337 = 13,37%)</div>
+            </div>
+            <div>
+              <label>Εισφορές εργοδότη (ΕΦΚΑ)</label>
+              <input id="efkaEmployer" type="number" step="0.0001" min="0" max="1" value="0.2179" />
+              <div class="help">Ποσοστό (π.χ. 0.2179 = 21,79%)</div>
+            </div>
+          </div>
+          <div class="row" style="margin-top:8px;">
+            <div>
+              <label>Μηνιαίο ανώτατο όριο ασφαλιστέων αποδοχών (€)</label>
+              <input id="efkaCap" type="number" step="0.01" min="0" value="7572.62" />
+              <div class="help">Οι εισφορές υπολογίζονται σε MIN(Μικτός Μηνιαίος, Πλαφόν).</div>
+            </div>
+            <div>
+              <label>Εισφορά αλληλεγγύης</label>
+              <input id="solidarity" type="number" step="0.0001" min="0" max="1" value="0" />
+              <div class="help">Ποσοστό επί του φορολογητέου (σήμερα 0%)</div>
+            </div>
+          </div>
+        </details>
+        <div class="foot">
+          <button id="resetBtn" class="secondary">Επαναφορά</button>
+          <button id="exampleBtn">Υπολογισμός</button>
+        </div>
+        <div class="fineprint">Τα ποσά είναι ενδεικτικά. Ενημερώστε συντελεστές/κλίμακες αν αλλάξει η νομοθεσία.</div>
+      </section>
+
+      <section class="card">
+        <h2>Αποτελέσματα <span id="badge" class="pill"></span></h2>
+        <div id="results"><div class="muted">Συμπλήρωσε στοιχεία στα αριστερά…</div></div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const fmt = new Intl.NumberFormat('el-GR', { minimumFractionDigits:2, maximumFractionDigits:2 });
+
+    function n(val, fallback=0) {
+      const x = Number(val);
+      return isFinite(x) ? x : fallback;
+    }
+
+    function computeRates(year, age, children) {
+      const r = [0,0,0,0,0,0];
+      const childRate10_20 = (children>=4) ? 0 : (children===3?0.09:(children===2?0.16:(children===1?0.18:0.20)));
+      if (year === 2026) {
+        // 0–10k
+        r[0] = (age && age <= 25) ? 0 : 0.09;
+        // 10–20k
+        if (age && age <= 25) r[1] = 0;
+        else if (age && age >=26 && age <=30) r[1] = Math.min(0.09, childRate10_20);
+        else r[1] = childRate10_20;
+        // 20–30k (προσαρμογή ανά τέκνα 26%→16%)
+        r[2] = (children>=5)?0.16:(children===4?0.18:(children===3?0.20:(children===2?0.22:(children===1?0.24:0.26))));
+        // 30–40k
+        r[3] = 0.34;
+        // 40–60k
+        r[4] = 0.39;
+        // 60k+
+        r[5] = 0.44;
+      } else {
+        // 2025
+        r[0] = 0.09;
+        r[1] = 0.22;
+        r[2] = 0.28;
+        r[3] = 0.36;
+        r[4] = 0.44;
+        r[5] = 0.44;
+      }
+      return r;
+    }
+
+    function taxCredit(children, taxable) {
+      const baseArr = [777, 810, 900, 1120, 1340];
+      const base = (children<=4) ? baseArr[children] : (1340 + 220*(children-4));
+      const reduction = (children>=5) ? 0 : (taxable>12000 ? Math.floor((taxable-12000)/1000)*20 : 0);
+      return Math.max(0, base - reduction);
+    }
+
+    function calc() {
+      const gross = n(document.getElementById('gross').value);
+      const payMonths = n(document.getElementById('payMonths').value, 14);
+      const year = n(document.getElementById('taxYear').value, 2025);
+      const children = n(document.getElementById('children').value, 0);
+      const age = n(document.getElementById('age').value, NaN);
+      const efkaEmp = n(document.getElementById('efkaEmployee').value, 0.1337);
+      const efkaErg = n(document.getElementById('efkaEmployer').value, 0.2179);
+      const efkaCap = n(document.getElementById('efkaCap').value, 7572.62);
+      const solidarity = n(document.getElementById('solidarity').value, 0);
+
+      const cappedMonthly = Math.min(gross, efkaCap);
+      const annualGross = gross * payMonths;
+      const annualContrib = cappedMonthly * efkaEmp * payMonths;
+      const taxable = Math.max(0, annualGross - annualContrib);
+
+      // Κλίμακες
+      const bounds = [0,10000,20000,30000,40000,60000,Infinity];
+      const widths = [];
+      for (let i=0; i<6; i++) {
+        const from = bounds[i];
+        const to = bounds[i+1];
+        widths[i] = Math.max(0, Math.min(taxable, to) - from);
+      }
+      const rates = computeRates(year, age, children);
+      let taxBeforeCredit = 0;
+      for (let i=0; i<6; i++) taxBeforeCredit += widths[i] * rates[i];
+
+      const credit = taxCredit(children, taxable);
+      const taxAfterCredit = Math.max(0, taxBeforeCredit - credit);
+      const solidarityAnnual = taxable * solidarity;
+
+      const monthlyContrib = cappedMonthly * efkaEmp;
+      const monthlyWithholding = (taxAfterCredit + solidarityAnnual) / payMonths;
+      const netMonthly = gross - monthlyContrib - monthlyWithholding;
+
+      const employerMonthly = cappedMonthly * efkaErg;
+      const employerTotalMonthly = gross + employerMonthly;
+      const employerAnnualContrib = employerMonthly * payMonths;
+      const employerTotalAnnual = annualGross + employerAnnualContrib;
+
+      // Σήμανση έτους
+      const badge = document.getElementById('badge');
+      badge.textContent = (year===2026) ? 'Έτος: 2026' : 'Έτος: 2025';
+
+      const res = document.getElementById('results');
+      res.innerHTML = `
+        <div class="result"><div>Εισφορές εργαζομένου (μηνιαίες)</div><div class="val">€ ${fmt.format(monthlyContrib)}</div></div>
+        <div class="result"><div>Παρακρατούμενος φόρος (μηνιαίος)</div><div class="val">€ ${fmt.format(monthlyWithholding)}</div></div>
+        <div class="result total"><div>Καθαρός μηνιαίος</div><div class="val">€ ${fmt.format(netMonthly)}</div></div>
+        <h3>Ετήσια εικόνα</h3>
+        <div class="result"><div>Μικτές ετήσιες αποδοχές</div><div class="val">€ ${fmt.format(annualGross)}</div></div>
+        <div class="result"><div>Ετήσιες εισφορές εργαζομένου</div><div class="val">€ ${fmt.format(annualContrib)}</div></div>
+        <div class="result"><div>Ετήσιο φορολογητέο</div><div class="val">€ ${fmt.format(taxable)}</div></div>
+        <div class="result"><div>Φόρος εισοδήματος (πριν την έκπτωση)</div><div class="val">€ ${fmt.format(taxBeforeCredit)}</div></div>
+        <div class="result"><div>Έκπτωση φόρου (άρθρο 16)</div><div class="val">€ ${fmt.format(credit)}</div></div>
+        <div class="result"><div>Φόρος εισοδήματος (μετά την έκπτωση)</div><div class="val">€ ${fmt.format(taxAfterCredit)}</div></div>
+        <div class="result"><div>Εισφορά αλληλεγγύης (ετήσια)</div><div class="val">€ ${fmt.format(solidarityAnnual)}</div></div>
+        <div class="result total"><div>Καθαρές ετήσιες αποδοχές</div><div class="val">€ ${fmt.format(annualGross - annualContrib - taxAfterCredit - solidarityAnnual)}</div></div>
+        <h3>Κόστος εργοδότη</h3>
+        <div class="result"><div>Εισφορές εργοδότη (μηνιαίες)</div><div class="val">€ ${fmt.format(employerMonthly)}</div></div>
+        <div class="result"><div>Συνολικό κόστος εργοδότη (μηνιαίο)</div><div class="val">€ ${fmt.format(employerTotalMonthly)}</div></div>
+        <div class="result"><div>Εισφορές εργοδότη (ετήσιες)</div><div class="val">€ ${fmt.format(employerAnnualContrib)}</div></div>
+        <div class="result"><div>Συνολικό κόστος εργοδότη (ετήσιο)</div><div class="val">€ ${fmt.format(employerTotalAnnual)}</div></div>
+      `;
+    }
+
+    function bind() {
+      ['gross','payMonths','taxYear','children','age','efkaEmployee','efkaEmployer','efkaCap','solidarity']
+        .forEach(id => document.getElementById(id).addEventListener('input', calc));
+      ['payMonths','taxYear','children'].forEach(id => document.getElementById(id).addEventListener('change', calc));
+      document.getElementById('resetBtn').addEventListener('click', () => {
+        document.getElementById('gross').value = '';
+        document.getElementById('payMonths').value = '14';
+        document.getElementById('taxYear').value = '2025';
+        document.getElementById('children').value = '0';
+        document.getElementById('age').value = '';
+        document.getElementById('efkaEmployee').value = '0.1337';
+        document.getElementById('efkaEmployer').value = '0.2179';
+        document.getElementById('efkaCap').value = '7572.62';
+        document.getElementById('solidarity').value = '0';
+        calc();
+      });
+      // The blue button now just runs calc() without prefilling any example values.
+      document.getElementById('exampleBtn').addEventListener('click', () => {
+        calc();
+      });
+      calc();
+    }
+    bind();
+  </script>
+</body>
+</html>
