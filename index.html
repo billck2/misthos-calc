@@ -33,6 +33,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Υπολογισμός Καθαρού Μισθού — Ελλάδα (2025 / 2026)</title>
   <style>
+    /* Μικρότερη γραμματοσειρά για όλα τα αποτελέσματα εκτός από τα total */
+.result { font-size: 14px; }
+.result:not(.total) .val { font-size: 14px; }
+
+/* Κράτα τα total (Καθαρός μηνιαίος & Καθαρές ετήσιες) λίγο μεγαλύτερα */
+.result.total { font-size: 16px; }  /* ήδη έχεις και το απαλό πράσινο */
+
     :root { --bg:#f7f7fb; --card:#ffffff; --pri:#1f4b99; --mut:#6b7280; }
     * { box-sizing: border-box; }
     body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial; background:var(--bg); color:#0f172a; }
