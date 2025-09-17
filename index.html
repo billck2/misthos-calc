@@ -1,45 +1,27 @@
-
 <!doctype html>
 <html lang="el">
 <head>
-  <head>
-  <meta charset="utf-8">
-  <title>Υπολογισμός Καθαρού Μισθού</title>
-  <meta name="description" content="...">
-
-  <!-- AdSense verification -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4164020794215422"
-     crossorigin="anonymous"></script>
-</head>
-
-  <html lang="el">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- SEO meta tags -->
-  <title>Υπολογισμός Καθαρού Μισθού — Ελλάδα (2025 / 2026)</title>
-  <meta name="description" content="Υπολογισμός καθαρού μισθού στην Ελλάδα για το 2026. Δωρεάν online εφαρμογή που υπολογίζει ΕΦΚΑ, φόρο εισοδήματος, καθαρό μισθό και κόστος εργοδότη, αύξηση μισθού απο 01/01/2026.">
-  <meta name="keywords" content="υπολογισμός μισθού, καθαρός μισθός,afkisi mithou, neos misthos, νεος μισθος, φόρος εισοδήματος, ΕΦΚΑ, μισθός Ελλάδα, εργοδότης, παρακράτηση, 2025, koulis, foros, misthos, αυξηση, 2026">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://misthos2026.gr/">
-
-  <!-- Open Graph tags -->
-  <meta property="og:title" content="Υπολογισμός Καθαρού Μισθού — Ελλάδα (2025/2026)">
-  <meta property="og:description" content="Δωρεάν online εργαλείο: υπολογισμός καθαρού μισθού, ΕΦΚΑ, φόρου και κόστους εργοδότη για Ελλάδα.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://misthos2026.gr/">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Υπολογισμός Καθαρού Μισθού — Ελλάδα (2025 / 2026)</title>
+
+  <!-- SEO meta tags -->
+  <meta name="description" content="Υπολογισμός καθαρού μισθού στην Ελλάδα για το 2025/2026. Δωρεάν online εφαρμογή που υπολογίζει ΕΦΚΑ, φόρο εισοδήματος, καθαρό μισθό και κόστος εργοδότη." />
+  <meta name="keywords" content="υπολογισμός μισθού, καθαρός μισθός, φόρος εισοδήματος, ΕΦΚΑ, μισθός Ελλάδα, εργοδότης, παρακράτηση, 2025, 2026" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://misthos2026.gr/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Υπολογισμός Καθαρού Μισθού — Ελλάδα (2025/2026)" />
+  <meta property="og:description" content="Δωρεάν online εργαλείο: υπολογισμός καθαρού μισθού, ΕΦΚΑ, φόρου και κόστους εργοδότη για Ελλάδα." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://misthos2026.gr/" />
+
+  <!-- AdSense verification -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4164020794215422" crossorigin="anonymous"></script>
+
   <style>
-    /* Μικρότερη γραμματοσειρά για όλα τα αποτελέσματα εκτός από τα total */
-.result { font-size: 14px; }
-.result:not(.total) .val { font-size: 14px; }
-
-/* Κράτα τα total (Καθαρός μηνιαίος & Καθαρές ετήσιες) λίγο μεγαλύτερα */
-.result.total { font-size: 16px; }  /* ήδη έχεις και το απαλό πράσινο */
-
     :root { --bg:#f7f7fb; --card:#ffffff; --pri:#1f4b99; --mut:#6b7280; }
     * { box-sizing: border-box; }
     body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial; background:var(--bg); color:#0f172a; }
@@ -53,9 +35,16 @@
     input[type="number"], select { width: 100%; padding: 10px 12px; border:1px solid #d1d5db; border-radius: 10px; font-size: 14px; background:#f8fafc; }
     .help { color: var(--mut); font-size: 12px; margin-top: 4px; }
     .row { display:grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .result { display:flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed #e5e7eb; }
+    .result { display:flex; justify-content: space-between; align-items:center; padding: 8px 0; border-bottom: 1px dashed #e5e7eb; }
     .result .val { font-variant-numeric: tabular-nums; }
-    .result.total { font-weight:700; background:#ecfdf5; padding: 10px 8px; border:1px solid #bbf7d0; border-radius:8px; }
+
+    /* Πιο μικρές γραμματοσειρές στα αποτελέσματα, εκτός από τα total */
+    #results .result { font-size: 13.5px; }
+    #results .result .val { font-size: 13.5px; }
+
+    /* Τα total (Καθαρός μηνιαίος & Καθαρές ετήσιες) μεγαλύτερα */
+    .result.total { font-size: 17px; background:#ecfdf5; padding: 10px 8px; border:1px solid #bbf7d0; border-radius:8px; font-weight:700; }
+
     .muted { color: var(--mut); }
     .fineprint { font-size:12px; color:var(--mut); margin-top:10px; }
     .foot { margin-top: 18px; display:flex; gap:10px; flex-wrap: wrap; }
@@ -63,24 +52,17 @@
     button.secondary { background:#e5e7eb; color:#133827; }
     .pill { display:inline-block; padding:4px 8px; border-radius:999px; background:#eef2ff; color:#3730a3; font-size:12px; }
     @media (max-width: 880px) { .grid { grid-template-columns: 1fr; } }
-    /* --- ΟΡΑΤΗ ΔΙΑΦΟΡΑ ΓΡΑΜΜΑΤΟΣΕΙΡΩΝ --- */
-#results .result { 
-  font-size: 13.5px !important;     /* μικρότερο για όλα */
-}
-#results .result .val { 
-  font-size: 13.5px !important; 
-}
 
-/* Κράτα/τονίσε τα totals μεγαλύτερα */
-#results .result.total {
-  font-size: 17px !important;       /* μεγαλύτερο από τα υπόλοιπα */
-}
+    /* εμφάνιση με fade/slide των αποτελεσμάτων */
+    #results { opacity: 0; transform: translateY(6px); transition: opacity .35s ease, transform .35s ease; }
+    #results.show { opacity: 1; transform: translateY(0); }
 
-/* Ειδικά για "Καθαρός μηνιαίος" (πράσινο) αν θες extra έμφαση */
-#net-monthly.result.total .val { 
-  font-weight: 800 !important; 
-}
-
+    /* παλμός στον Καθαρό μηνιαίο */
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(16,185,129,.45); }
+      100% { box-shadow: 0 0 0 16px rgba(16,185,129,0); }
+    }
+    .pulse { animation: pulse .6s ease; }
   </style>
 </head>
 <body>
@@ -88,12 +70,15 @@
     <h1>Υπολογισμός Καθαρού Μισθού — Ελλάδα (2025 / 2026)</h1>
     <div class="muted">Web εφαρμογή υπολογισμού καθαρού μισθού.</div>
   </header>
+
   <main>
     <div class="grid">
       <section class="card">
         <h2>Είσοδος</h2>
+
         <label>Μικτός Μηνιαίος Μισθός (€)</label>
         <input id="gross" type="number" min="0" step="0.01" placeholder="π.χ. 2000" />
+
         <div class="row">
           <div>
             <label>Μισθοί ανά έτος</label>
@@ -110,6 +95,7 @@
             </select>
           </div>
         </div>
+
         <div class="row">
           <div>
             <label>Εξαρτώμενα τέκνα</label>
@@ -121,9 +107,10 @@
           </div>
           <div>
             <label>Ηλικία (έτη)</label>
-            <input id="age" type="number" min="15" max="100" placeholder="π.χ. 29 " />
+            <input id="age" type="number" min="15" max="100" placeholder="π.χ. 29" />
           </div>
         </div>
+
         <details style="margin-top:12px;">
           <summary><strong>Προχωρημένα (συντελεστές)</strong></summary>
           <div class="row" style="margin-top:8px;">
@@ -151,6 +138,7 @@
             </div>
           </div>
         </details>
+
         <div class="foot">
           <button id="resetBtn" class="secondary">Επαναφορά</button>
           <button id="exampleBtn">Υπολογισμός</button>
@@ -160,7 +148,7 @@
 
       <section class="card">
         <h2>Αποτελέσματα <span id="badge" class="pill"></span></h2>
-        <div id="results"><div class="muted">Συμπλήρωσε στοιχεία στα αριστερά…</div></div>
+        <div id="results"><div class="muted">Συμπλήρωσε στοιχεία και πάτα «Υπολογισμός»…</div></div>
       </section>
     </div>
   </main>
@@ -177,22 +165,15 @@
       const r = [0,0,0,0,0,0];
       const childRate10_20 = (children>=4) ? 0 : (children===3?0.09:(children===2?0.16:(children===1?0.18:0.20)));
       if (year === 2026) {
-        // 0–10k
         r[0] = (age && age <= 25) ? 0 : 0.09;
-        // 10–20k
         if (age && age <= 25) r[1] = 0;
         else if (age && age >=26 && age <=30) r[1] = Math.min(0.09, childRate10_20);
         else r[1] = childRate10_20;
-        // 20–30k (προσαρμογή ανά τέκνα 26%→16%)
         r[2] = (children>=5)?0.16:(children===4?0.18:(children===3?0.20:(children===2?0.22:(children===1?0.24:0.26))));
-        // 30–40k
         r[3] = 0.34;
-        // 40–60k
         r[4] = 0.39;
-        // 60k+
         r[5] = 0.44;
       } else {
-        // 2025
         r[0] = 0.09;
         r[1] = 0.22;
         r[2] = 0.28;
@@ -226,7 +207,6 @@
       const annualContrib = cappedMonthly * efkaEmp * payMonths;
       const taxable = Math.max(0, annualGross - annualContrib);
 
-      // Κλίμακες
       const bounds = [0,10000,20000,30000,40000,60000,Infinity];
       const widths = [];
       for (let i=0; i<6; i++) {
@@ -251,36 +231,105 @@
       const employerAnnualContrib = employerMonthly * payMonths;
       const employerTotalAnnual = annualGross + employerAnnualContrib;
 
-      // Σήμανση έτους
       const badge = document.getElementById('badge');
       badge.textContent = (year===2026) ? 'Έτος: 2026' : 'Έτος: 2025';
 
       const res = document.getElementById('results');
       res.innerHTML = `
-        <div class="result"><div>Εισφορές εργαζομένου (μηνιαίες)</div><div class="val">€ ${fmt.format(monthlyContrib)}</div></div>
-        <div class="result"><div>Παρακρατούμενος φόρος (μηνιαίος)</div><div class="val">€ ${fmt.format(monthlyWithholding)}</div></div>
-        <div class="result total"><div>Καθαρός μηνιαίος</div><div class="val">€ ${fmt.format(netMonthly)}</div></div>
+        <div class="result"><div>Εισφορές εργαζομένου (μηνιαίες)</div>
+          <div class="val"><span class="num" data-amount="${monthlyContrib}">€ 0,00</span></div></div>
+
+        <div class="result"><div>Παρακρατούμενος φόρος (μηνιαίος)</div>
+          <div class="val"><span class="num" data-amount="${monthlyWithholding}">€ 0,00</span></div></div>
+
+        <div id="net-monthly" class="result total"><div>Καθαρός μηνιαίος</div>
+          <div class="val"><span class="num" data-amount="${netMonthly}">€ 0,00</span></div></div>
+
         <h3>Ετήσια εικόνα</h3>
-        <div class="result"><div>Μικτές ετήσιες αποδοχές</div><div class="val">€ ${fmt.format(annualGross)}</div></div>
-        <div class="result"><div>Ετήσιες εισφορές εργαζομένου</div><div class="val">€ ${fmt.format(annualContrib)}</div></div>
-        <div class="result"><div>Ετήσιο φορολογητέο</div><div class="val">€ ${fmt.format(taxable)}</div></div>
-        <div class="result"><div>Φόρος εισοδήματος (πριν την έκπτωση)</div><div class="val">€ ${fmt.format(taxBeforeCredit)}</div></div>
-        <div class="result"><div>Έκπτωση φόρου (άρθρο 16)</div><div class="val">€ ${fmt.format(credit)}</div></div>
-        <div class="result"><div>Φόρος εισοδήματος (μετά την έκπτωση)</div><div class="val">€ ${fmt.format(taxAfterCredit)}</div></div>
-        <div class="result"><div>Εισφορά αλληλεγγύης (ετήσια)</div><div class="val">€ ${fmt.format(solidarityAnnual)}</div></div>
-        <div class="result total"><div>Καθαρές ετήσιες αποδοχές</div><div class="val">€ ${fmt.format(annualGross - annualContrib - taxAfterCredit - solidarityAnnual)}</div></div>
+
+        <div class="result"><div>Μικτές ετήσιες αποδοχές</div>
+          <div class="val"><span class="num" data-amount="${annualGross}">€ 0,00</span></div></div>
+
+        <div class="result"><div>Ετήσιες εισφορές εργαζομένου</div>
+          <div class="val"><span class="num" data-amount="${annualContrib}">€ 0,00</span></div></div>
+
+        <div class="result"><div>Ετήσιο φορολογητέο</div>
+          <div class="val"><span class="num" data-amount="${taxable}">€ 0,00</span></div></div>
+
+        <div class="result"><div>Φόρος εισοδήματος (πριν την έκπτωση)</div>
+          <div class="val"><span class="num" data-amount="${taxBeforeCredit}">€ 0,00</span></div></div>
+
+        <div class="result"><div>Έκπτωση φόρου (άρθρο 16)</div>
+          <div class="val"><span class="num" data-amount="${credit}">€ 0,00</span></div></div>
+
+        <div class="result"><div>Φόρος εισοδήματος (μετά την έκπτωση)</div>
+          <div class="val"><span class="num" data-amount="${taxAfterCredit}">€ 0,00</span></div></div>
+
+        <div class="result"><div>Εισφορά αλληλεγγύης (ετήσια)</div>
+          <div class="val"><span class="num" data-amount="${solidarityAnnual}">€ 0,00</span></div></div>
+
+        <div class="result total"><div>Καθαρές ετήσιες αποδοχές</div>
+          <div class="val"><span class="num" data-amount="${annualGross - annualContrib - taxAfterCredit - solidarityAnnual}">€ 0,00</span></div></div>
+
         <h3>Κόστος εργοδότη</h3>
-        <div class="result"><div>Εισφορές εργοδότη (μηνιαίες)</div><div class="val">€ ${fmt.format(employerMonthly)}</div></div>
-        <div class="result"><div>Συνολικό κόστος εργοδότη (μηνιαίο)</div><div class="val">€ ${fmt.format(employerTotalMonthly)}</div></div>
-        <div class="result"><div>Εισφορές εργοδότη (ετήσιες)</div><div class="val">€ ${fmt.format(employerAnnualContrib)}</div></div>
-        <div class="result"><div>Συνολικό κόστος εργοδότη (ετήσιο)</div><div class="val">€ ${fmt.format(employerTotalAnnual)}</div></div>
+
+        <div class="result"><div>Εισφορές εργοδότη (μηνιαίες)</div>
+          <div class="val"><span class="num" data-amount="${employerMonthly}">€ 0,00</span></div></div>
+
+        <div class="result"><div>Συνολικό κόστος εργοδότη (μηνιαίο)</div>
+          <div class="val"><span class="num" data-amount="${employerTotalMonthly}">€ 0,00</span></div></div>
+
+        <div class="result"><div>Εισφορές εργοδότη (ετήσιες)</div>
+          <div class="val"><span class="num" data-amount="${employerAnnualContrib}">€ 0,00</span></div></div>
+
+        <div class="result"><div>Συνολικό κόστος εργοδότη (ετήσιο)</div>
+          <div class="val"><span class="num" data-amount="${employerTotalAnnual}">€ 0,00</span></div></div>
       `;
     }
 
+    /* count-up animation για τις τιμές */
+    function animateNumbers(root) {
+      const els = root.querySelectorAll('.num');
+      els.forEach(el => {
+        const end = Number(el.dataset.amount) || 0;
+        const start = 0;
+        const dur = 700;
+        const t0 = performance.now();
+        function tick(t){
+          const p = Math.min(1, (t - t0) / dur);
+          const val = start + (end - start) * p;
+          el.textContent = '€ ' + fmt.format(val);
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }
+
+    /* υπολογισμός + εμφάνιση με εφέ */
+    function calcWithFX() {
+      calc();
+      const box = document.getElementById('results');
+      box.classList.add('show');           // fade/slide
+      animateNumbers(box);                 // count-up
+      const nm = document.getElementById('net-monthly');
+      if (nm) { nm.classList.remove('pulse'); void nm.offsetWidth; nm.classList.add('pulse'); } // pulse
+    }
+
+    function markDirty() {
+      document.getElementById('results').classList.remove('show'); // κρύψε μέχρι να πατηθεί "Υπολογισμός"
+    }
+
     function bind() {
+      // όταν αλλάζουν τιμές, απλώς κρύβουμε τα αποτελέσματα
       ['gross','payMonths','taxYear','children','age','efkaEmployee','efkaEmployer','efkaCap','solidarity']
-        .forEach(id => document.getElementById(id).addEventListener('input', calc));
-      ['payMonths','taxYear','children'].forEach(id => document.getElementById(id).addEventListener('change', calc));
+        .forEach(id => document.getElementById(id).addEventListener('input', markDirty));
+      ['payMonths','taxYear','children']
+        .forEach(id => document.getElementById(id).addEventListener('change', markDirty));
+
+      // κουμπί Υπολογισμός
+      document.getElementById('exampleBtn').addEventListener('click', calcWithFX);
+
+      // επαναφορά
       document.getElementById('resetBtn').addEventListener('click', () => {
         document.getElementById('gross').value = '';
         document.getElementById('payMonths').value = '14';
@@ -291,14 +340,13 @@
         document.getElementById('efkaEmployer').value = '0.2179';
         document.getElementById('efkaCap').value = '7572.62';
         document.getElementById('solidarity').value = '0';
-        calc();
+        markDirty();
       });
-      // The blue button now just runs calc() without prefilling any example values.
-      document.getElementById('exampleBtn').addEventListener('click', () => {
-        calc();
-      });
-      calc();
+
+      // αρχικά κρυφό
+      markDirty();
     }
+
     bind();
   </script>
 </body>
