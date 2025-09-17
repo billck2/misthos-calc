@@ -35,14 +35,13 @@
     input[type="number"], select { width: 100%; padding: 10px 12px; border:1px solid #d1d5db; border-radius: 10px; font-size: 14px; background:#f8fafc; }
     .help { color: var(--mut); font-size: 12px; margin-top: 4px; }
     .row { display:grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
     .result { display:flex; justify-content: space-between; align-items:center; padding: 8px 0; border-bottom: 1px dashed #e5e7eb; }
     .result .val { font-variant-numeric: tabular-nums; }
-
-    /* Πιο μικρές γραμματοσειρές στα αποτελέσματα, εκτός από τα total */
+    /* μικρότερες γραμματοσειρές για όλα τα αποτελέσματα… */
     #results .result { font-size: 13.5px; }
     #results .result .val { font-size: 13.5px; }
-
-    /* Τα total (Καθαρός μηνιαίος & Καθαρές ετήσιες) μεγαλύτερα */
+    /* …εκτός από τα totals, που είναι μεγαλύτερα + πράσινα */
     .result.total { font-size: 17px; background:#ecfdf5; padding: 10px 8px; border:1px solid #bbf7d0; border-radius:8px; font-weight:700; }
 
     .muted { color: var(--mut); }
@@ -54,8 +53,8 @@
     @media (max-width: 880px) { .grid { grid-template-columns: 1fr; } }
 
     /* εμφάνιση με fade/slide των αποτελεσμάτων */
-    #results { opacity: 0; transform: translateY(6px); transition: opacity .35s ease, transform .35s ease; }
-    #results.show { opacity: 1; transform: translateY(0); }
+    #results { opacity: 1; transform: translateY(0); transition: opacity .35s ease, transform .35s ease; }
+    #results.hide { opacity: 0; transform: translateY(6px); }
 
     /* παλμός στον Καθαρό μηνιαίο */
     @keyframes pulse {
@@ -148,7 +147,7 @@
 
       <section class="card">
         <h2>Αποτελέσματα <span id="badge" class="pill"></span></h2>
-        <div id="results"><div class="muted">Συμπλήρωσε στοιχεία και πάτα «Υπολογισμός»…</div></div>
+        <div id="results"></div>
       </section>
     </div>
   </main>
@@ -191,6 +190,63 @@
       return Math.max(0, base - reduction);
     }
 
+    /* ----------- ΖΕΡΟ ΑΠΟΤΕΛΕΣΜΑΤΑ ΣΤΗΝ ΠΡΩΤΗ ΦΟΡΤΩΣΗ ----------- */
+    function renderZeros() {
+      const res = document.getElementById('results');
+      res.classList.remove('hide'); // ορατό
+      res.innerHTML = `
+        <div class="result"><div>Εισφορές εργαζομένου (μηνιαίες)</div>
+          <div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+
+        <div class="result"><div>Παρακρατούμενος φόρος (μηνιαίος)</div>
+          <div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+
+        <div id="net-monthly" class="result total"><div>Καθαρός μηνιαίος</div>
+          <div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+
+        <h3>Ετήσια εικόνα</h3>
+
+        <div class="result"><div>Μικτές ετήσιες αποδοχές</div>
+          <div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+
+        <div class="result"><div>Ετήσιες εισφορές εργαζομένου</div>
+          <div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+
+        <div class="result"><div>Ετήσιο φορολογητέο</div>
+          <div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+
+        <div class="result"><div>Φόρος εισοδήματος (πριν την έκπτωση)</div>
+          <div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+
+        <div class="result"><div>Έκπτωση φόρου (άρθρο 16)</div>
+          <div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+
+        <div class="result"><div>Φόρος εισοδήματος (μετά την έκπτωση)</div>
+          <div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+
+        <div class="result"><div>Εισφορά αλληλεγγύης (ετήσια)</div>
+          <div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+
+        <div class="result total"><div>Καθαρές ετήσιες αποδοχές</div>
+          <div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+
+        <h3>Κόστος εργοδότη</h3>
+
+        <div class="result"><div>Εισφορές εργοδότη (μηνιαίες)</div>
+          <div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+
+        <div class="result"><div>Συνολικό κόστος εργοδότη (μηνιαίο)</div>
+          <div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+
+        <div class="result"><div>Εισφορές εργοδότη (ετήσιες)</div>
+          <div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+
+        <div class="result"><div>Συνολικό κόστος εργοδότη (ετήσιο)</div>
+          <div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+      `;
+    }
+
+    /* ----------- ΚΥΡΙΟΣ ΥΠΟΛΟΓΙΣΜΟΣ ----------- */
     function calc() {
       const gross = n(document.getElementById('gross').value);
       const payMonths = n(document.getElementById('payMonths').value, 14);
@@ -235,6 +291,7 @@
       badge.textContent = (year===2026) ? 'Έτος: 2026' : 'Έτος: 2025';
 
       const res = document.getElementById('results');
+      res.classList.remove('hide');
       res.innerHTML = `
         <div class="result"><div>Εισφορές εργαζομένου (μηνιαίες)</div>
           <div class="val"><span class="num" data-amount="${monthlyContrib}">€ 0,00</span></div></div>
@@ -309,18 +366,19 @@
     function calcWithFX() {
       calc();
       const box = document.getElementById('results');
-      box.classList.add('show');           // fade/slide
-      animateNumbers(box);                 // count-up
+      box.classList.remove('hide');     // δείξε
+      animateNumbers(box);              // count-up
       const nm = document.getElementById('net-monthly');
       if (nm) { nm.classList.remove('pulse'); void nm.offsetWidth; nm.classList.add('pulse'); } // pulse
     }
 
     function markDirty() {
-      document.getElementById('results').classList.remove('show'); // κρύψε μέχρι να πατηθεί "Υπολογισμός"
+      // Αν αλλάξει κάτι στα inputs, δείξε ξανά μηδενικά μέχρι να πατηθεί "Υπολογισμός"
+      renderZeros();
     }
 
     function bind() {
-      // όταν αλλάζουν τιμές, απλώς κρύβουμε τα αποτελέσματα
+      // όταν αλλάζουν τιμές, δείχνουμε μηδενικά
       ['gross','payMonths','taxYear','children','age','efkaEmployee','efkaEmployer','efkaCap','solidarity']
         .forEach(id => document.getElementById(id).addEventListener('input', markDirty));
       ['payMonths','taxYear','children']
@@ -340,11 +398,11 @@
         document.getElementById('efkaEmployer').value = '0.2179';
         document.getElementById('efkaCap').value = '7572.62';
         document.getElementById('solidarity').value = '0';
-        markDirty();
+        renderZeros();
       });
 
-      // αρχικά κρυφό
-      markDirty();
+      // ✅ Φαίνονται άμεσα με μηδενικά στην πρώτη φόρτωση
+      renderZeros();
     }
 
     bind();
