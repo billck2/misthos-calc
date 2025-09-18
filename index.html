@@ -1,7 +1,6 @@
 <!doctype html>
-<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="%2360a5fa"/><path d="M50 15 L80 35 L70 75 L30 75 L20 35 Z" fill="white" opacity="0.9"/></svg>'>
+<html lang="el">
 <head>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -23,37 +22,11 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4164020794215422" crossorigin="anonymous"></script>
 
   <style>
-
-    /* Tooltip για 5Γ */
-.tooltip { position:relative; display:inline-block; cursor:help; }
-.tooltip .i{
-  display:inline-flex; align-items:center; justify-content:center;
-  width:16px; height:16px; margin-left:6px; border-radius:50%;
-  background:#e0f2fe; color:#075985; font-weight:700; font-size:12px;
-}
-.tooltip .bubble{
-  position:absolute; left:0; top:140%;
-  background:#111827; color:#fff; padding:8px 10px; border-radius:8px;
-  width:280px; font-size:12px; line-height:1.35;
-  box-shadow:0 8px 18px rgba(0,0,0,.15);
-  opacity:0; transform:translateY(4px); pointer-events:none; transition:.2s;
-  z-index:20;
-}
-.tooltip:hover .bubble{ opacity:1; transform:translateY(0); }
-
     :root { --bg:#f7f7fb; --card:#ffffff; --pri:#1f4b99; --mut:#6b7280; }
     * { box-sizing: border-box; }
     body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial; background:var(--bg); color:#0f172a; }
-    header{
-  padding:20px;
-  background:linear-gradient(90deg,#e6eefc,#f7f7fb);
-  border-bottom:1px solid #e5e7eb;
-  display:flex;                /* κεντράρισμα */
-  flex-direction:column;
-  align-items:center;          /* οριζόντια στο κέντρο */
-  text-align:center;           /* κείμενο στο κέντρο */
-}
-h1{ margin:0; color:var(--pri); font-size:20px; text-align:center; }
+    header { padding: 20px; background: linear-gradient(90deg,#e6eefc,#f7f7fb); border-bottom:1px solid #e5e7eb; }
+    h1 { margin:0; color:var(--pri); font-size: 20px; }
     main { padding: 16px; max-width: 1100px; margin: 0 auto; }
     .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .card { background:var(--card); border:1px solid #e5e7eb; border-radius: 14px; padding: 16px; box-shadow:0 1px 2px rgba(0,0,0,0.04); }
@@ -136,18 +109,12 @@ h1{ margin:0; color:var(--pri); font-size:20px; text-align:center; }
         </div>
 
         <!-- ΝΕΟ: Καθεστώς επαναπατρισθέντων (άρθρο 5Γ) -->
-<label style="margin-top:12px;">
-  <input id="repat" type="checkbox" />
-  Επαναπατρισθείς (άρθρο 5Γ) – 50% απαλλαγή φόρου στο εισόδημα μισθωτών
-  <span class="tooltip" aria-label="Άρθρο 5Γ">
-    <span class="i">i</span>
-    <span class="bubble">
-      Άρθρο 5Γ: απαλλαγή 50% φόρου μισθωτών για επαναπατρισθέντες.
-      Προϋποθέσεις: Μεταφορά φορολογικής κατοικίας στην Ελλάδα, έπειτα από τουλάχιστον 5 έτη εργασίας στο εξωτερικό .Η απαλλαγή φόρου ισχύει για 7 έτη .
-    </span>
-  </span>
-</label>
-<div class="help">Αφορά απαλλαγή μόνο στη φορολογία εισοδήματος, όχι στις εισφορές.</div>
+        <label style="margin-top:12px;">
+          <input id="repat" type="checkbox" />
+          Επαναπατρισθείς (άρθρο 5Γ) – 50% απαλλαγή φόρου στο εισόδημα μισθωτών
+        </label>
+        <div class="help">Αφορά απαλλαγή μόνο στη φορολογία εισοδήματος, όχι στις εισφορές.</div>
+
         <details style="margin-top:12px;">
           <summary><strong>Προχωρημένα (συντελεστές)</strong></summary>
           <div class="row" style="margin-top:8px;">
@@ -232,7 +199,7 @@ h1{ margin:0; color:var(--pri); font-size:20px; text-align:center; }
     function renderZeros() {
       const res = document.getElementById('results');
       res.classList.remove('hide');
-      res.inner = `
+      res.innerHTML = `
         <div class="result"><div>Εισφορές εργαζομένου (μηνιαίες)</div>
           <div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
 
@@ -345,7 +312,7 @@ h1{ margin:0; color:var(--pri); font-size:20px; text-align:center; }
       // Render
       const res = document.getElementById('results');
       res.classList.remove('hide');
-      res.inner = `
+      res.innerHTML = `
         <div class="result"><div>Εισφορές εργαζομένου (μηνιαίες)</div>
           <div class="val"><span class="num" data-amount="${efkaEmployeeMonthly}">€ 0,00</span></div></div>
 
