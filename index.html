@@ -7,18 +7,18 @@
   <title>Υπολογισμός Καθαρού Μισθού — Ελλάδα (2025 / 2026)</title>
 
   <!-- SEO meta tags -->
-  <meta name="description" content="Υπολογισμός καθαρού μισθού στην Ελλάδα για το 2025/2026. Δωρεάν online εφαρμογή που υπολογίζει ΕΦΚΑ, φόρο εισοδήματος, καθαρό μισθό και κόστος εργοδότη." />
-  <meta name="keywords" content="υπολογισμός μισθού, καθαρός μισθός, φόρος εισοδήματος, ΕΦΚΑ, μισθός Ελλάδα, εργοδότης, παρακράτηση, 2025, 2026" />
+  <meta name="description" content="Υπολογισμός καθαρού μισθού στην Ελλάδα για το 2025/2026. Δωρεάν online εφαρμογή που υπολογίζει ΕΦΚΑ, φόρο εισοδήματος, καθαρό μισθό και κόστος εργοδότη. Υποστήριξη άρθρου 5Γ (επαναπατρισθέντες)." />
+  <meta name="keywords" content="υπολογισμός μισθού, καθαρός μισθός, φόρος εισοδήματος, ΕΦΚΑ, επαναπατρισθέντες, άρθρο 5Γ, μισθός Ελλάδα, εργοδότης, παρακράτηση, 2025, 2026" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://misthos2026.gr/" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Υπολογισμός Καθαρού Μισθού — Ελλάδα (2025/2026)" />
-  <meta property="og:description" content="Δωρεάν online εργαλείο: υπολογισμός καθαρού μισθού, ΕΦΚΑ, φόρου και κόστους εργοδότη για Ελλάδα." />
+  <meta property="og:description" content="Δωρεάν online εργαλείο: υπολογισμός καθαρού μισθού, ΕΦΚΑ, φόρου και κόστους εργοδότη για Ελλάδα. Περιλαμβάνει καθεστώς επαναπατρισθέντων (άρθρο 5Γ)." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://misthos2026.gr/" />
 
-  <!-- AdSense verification -->
+  <!-- AdSense verification (προαιρετικά αφήνεις το δικό σου) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4164020794215422" crossorigin="anonymous"></script>
 
   <style>
@@ -50,6 +50,7 @@
     button { background: var(--pri); color:#fff; border:none; padding:10px 14px; border-radius:12px; font-weight:600; cursor:pointer; }
     button.secondary { background:#e5e7eb; color:#133827; }
     .pill { display:inline-block; padding:4px 8px; border-radius:999px; background:#eef2ff; color:#3730a3; font-size:12px; }
+    .pill.green { background:#dcfce7; color:#166534; }
     @media (max-width: 880px) { .grid { grid-template-columns: 1fr; } }
 
     /* εμφάνιση με fade/slide των αποτελεσμάτων */
@@ -64,7 +65,7 @@
 <body>
   <header>
     <h1>Υπολογισμός Καθαρού Μισθού — Ελλάδα (2025 / 2026)</h1>
-    <div class="muted">Web εφαρμογή υπολογισμού καθαρού μισθού.</div>
+    <div class="muted">Web εφαρμογή υπολογισμού καθαρού μισθού. Υποστήριξη άρθρου 5Γ (επαναπατρισθέντες).</div>
   </header>
 
   <main>
@@ -73,7 +74,7 @@
         <h2>Είσοδος</h2>
 
         <label>Μικτός Μηνιαίος Μισθός (€)</label>
-        <input id="gross" type="number" min="0" step="0.01" placeholder="π.χ. 880" />
+        <input id="gross" type="number" min="0" step="0.01" placeholder="π.χ. 2000" />
 
         <div class="row">
           <div>
@@ -107,6 +108,13 @@
           </div>
         </div>
 
+        <!-- ΝΕΟ: Καθεστώς επαναπατρισθέντων (άρθρο 5Γ) -->
+        <label style="margin-top:12px;">
+          <input id="repat" type="checkbox" />
+          Επαναπατρισθείς (άρθρο 5Γ) – 50% απαλλαγή φόρου στο εισόδημα μισθωτών
+        </label>
+        <div class="help">Αφορά απαλλαγή μόνο στη φορολογία εισοδήματος, όχι στις εισφορές.</div>
+
         <details style="margin-top:12px;">
           <summary><strong>Προχωρημένα (συντελεστές)</strong></summary>
           <div class="row" style="margin-top:8px;">
@@ -130,7 +138,7 @@
             <div>
               <label>Εισφορά αλληλεγγύης</label>
               <input id="solidarity" type="number" step="0.0001" min="0" max="1" value="0" />
-              <div class="help">Ποσοστό επί του φορολογητέου (σήμερα 0%)</div>
+              <div class="help">Ποσοστό επί του φορολογητέου (σήμερα 0%).</div>
             </div>
           </div>
         </details>
@@ -158,7 +166,6 @@
 
     /* Κλίμακες φόρου 2025 */
     function annualTax2025(taxableAnnual) {
-      // σπάμε στα κλιμάκια και στρογγυλοποιούμε ανά κλιμάκιο σε 2 δεκαδικά
       const bands = [
         {limit:10000, rate:0.09},
         {limit:20000, rate:0.22},
@@ -254,6 +261,7 @@
       const efkaErgR  = n(document.getElementById('efkaEmployer').value, 0.2179);
       const efkaCap   = n(document.getElementById('efkaCap').value, 7572.62);
       const solidarityR = n(document.getElementById('solidarity').value, 0);
+      const repat     = document.getElementById('repat').checked; // ΝΕΟ: άρθρο 5Γ
 
       // ΕΦΚΑ εργαζόμενου (στρογγ. 2 δεκαδικά)
       const cappedMonthly = Math.min(gross, efkaCap);
@@ -267,12 +275,15 @@
       const annualContrib = r2(efkaEmployeeMonthly * payMonths);
       const taxableAnnual = r2(taxableMonthly * payMonths);
 
+      // Άρθρο 5Γ: 50% απαλλαγή στη φορολόγηση (όχι στις εισφορές)
+      const taxableAnnualForTax = repat ? r2(taxableAnnual * 0.5) : taxableAnnual;
+
       // Ετήσιος φόρος (κλίμακες) με στρογγυλοποίηση ανά κλιμάκιο
       const taxBeforeCredit =
-        (year === 2025 ? annualTax2025(taxableAnnual) : annualTax2025(taxableAnnual)); // placeholder ίδια λογική
+        (year === 2025 ? annualTax2025(taxableAnnualForTax) : annualTax2025(taxableAnnualForTax));
 
-      // Έκπτωση φόρου (άρθρο 16)
-      const credit = r2(taxCredit2025(children, taxableAnnual));
+      // Έκπτωση φόρου (άρθρο 16) πάνω στο φορολογητέο που τελικά φορολογείται
+      const credit = r2(taxCredit2025(children, taxableAnnualForTax));
 
       // Τελικός ετήσιος φόρος
       const annualTax = r2(Math.max(0, taxBeforeCredit - credit));
@@ -281,7 +292,7 @@
       const monthlyWithholding = r2(annualTax / payMonths);
 
       // Εισφορά αλληλεγγύης (αν ποτέ ενεργοποιηθεί ξανά)
-      const solidarityAnnual = r2(taxableAnnual * solidarityR);
+      const solidarityAnnual = r2(taxableAnnualForTax * solidarityR);
       const solidarityMonthly = r2(solidarityAnnual / payMonths);
 
       // Καθαρός μηνιαίος
@@ -293,9 +304,10 @@
       const employerAnnualContrib = r2(efkaEmployerMonthly * payMonths);
       const employerTotalAnnual = r2(annualGross + employerAnnualContrib);
 
-      // Badge έτους
+      // Badge έτους + 5Γ
       const badge = document.getElementById('badge');
-      badge.textContent = (year===2026) ? 'Έτος: 2026' : 'Έτος: 2025';
+      badge.className = 'pill' + (repat ? ' green' : '');
+      badge.textContent = (year===2026 ? 'Έτος: 2026' : 'Έτος: 2025') + (repat ? ' • 5Γ ενεργό' : '');
 
       // Render
       const res = document.getElementById('results');
@@ -317,8 +329,12 @@
         <div class="result"><div>Ετήσιες εισφορές εργαζομένου</div>
           <div class="val"><span class="num" data-amount="${annualContrib}">€ 0,00</span></div></div>
 
-        <div class="result"><div>Ετήσιο φορολογητέο</div>
+        <div class="result"><div>Ετήσιο φορολογητέο (για εισφορές)</div>
           <div class="val"><span class="num" data-amount="${taxableAnnual}">€ 0,00</span></div></div>
+
+        ${repat ? `
+        <div class="result"><div>Ετήσιο φορολογητέο που φορολογείται (5Γ – 50%)</div>
+          <div class="val"><span class="num" data-amount="${taxableAnnualForTax}">€ 0,00</span></div></div>` : ''}
 
         <div class="result"><div>Φόρος εισοδήματος (πριν την έκπτωση)</div>
           <div class="val"><span class="num" data-amount="${taxBeforeCredit}">€ 0,00</span></div></div>
@@ -380,9 +396,9 @@
     function markDirty() { renderZeros(); }
 
     function bind() {
-      ['gross','payMonths','taxYear','children','age','efkaEmployee','efkaEmployer','efkaCap','solidarity']
+      ['gross','payMonths','taxYear','children','age','efkaEmployee','efkaEmployer','efkaCap','solidarity','repat']
         .forEach(id => document.getElementById(id).addEventListener('input', markDirty));
-      ['payMonths','taxYear','children']
+      ['payMonths','taxYear','children','repat']
         .forEach(id => document.getElementById(id).addEventListener('change', markDirty));
 
       document.getElementById('exampleBtn').addEventListener('click', calcWithFX);
@@ -397,6 +413,7 @@
         document.getElementById('efkaEmployer').value = '0.2179';
         document.getElementById('efkaCap').value = '7572.62';
         document.getElementById('solidarity').value = '0';
+        document.getElementById('repat').checked = false;
         renderZeros();
       });
 
