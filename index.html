@@ -6,146 +6,155 @@
 
   <title>Υπολογισμός Καθαρού Μισθού — Ελλάδα (2025 / 2026)</title>
 
-  <!-- Favicon (απαλό γαλάζιο, inline) -->
-  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="%2360a5fa"/><path d="M50 15 L80 35 L70 75 L30 75 L20 35 Z" fill="white" opacity="0.9"/></svg>'>
+  <!-- Favicon (inline SVG) -->
+  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="%2360a5fa"/><path d="M50 18 L80 38 L70 78 L30 78 L20 38 Z" fill="white" opacity="0.9"/></svg>'>
 
   <!-- SEO -->
-  <meta name="description" content="Υπολογισμός καθαρού μισθού στην Ελλάδα για το 2025/2026. Δωρεάν online εφαρμογή που υπολογίζει ΕΦΚΑ, φόρο εισοδήματος, καθαρό μισθό και κόστος εργοδότη. Υποστήριξη άρθρου 5Γ (επαναπατρισθέντες)." />
-  <meta name="keywords" content="υπολογισμός μισθού, καθαρός μισθός, φόρος εισοδήματος, ΕΦΚΑ, επαναπατρισθέντες, άρθρο 5Γ, μισθός Ελλάδα, εργοδότης, παρακράτηση, 2025, 2026" />
-  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Δωρεάν online εργαλείο για υπολογισμό καθαρού μισθού στην Ελλάδα (2025/2026). Υπολογίζει ΕΦΚΑ, φόρο εισοδήματος, καθαρά και κόστος εργοδότη. Περιλαμβάνει άρθρο 5Γ." />
   <link rel="canonical" href="https://misthos2026.gr/" />
+  <meta name="robots" content="index, follow" />
 
-  <!-- OG -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Υπολογισμός Καθαρού Μισθού — Ελλάδα (2025/2026)" />
-  <meta property="og:description" content="Δωρεάν online εργαλείο: υπολογισμός καθαρού μισθού, ΕΦΚΑ, φόρου και κόστους εργοδότη για Ελλάδα. Περιλαμβάνει καθεστώς επαναπατρισθέντων (άρθρο 5Γ)." />
+  <meta property="og:description" content="Υπολογισμός καθαρού μισθού, ΕΦΚΑ και φόρου. Εργαλείο για εργαζόμενους & εργοδότες. Υποστήριξη άρθρου 5Γ." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://misthos2026.gr/" />
 
-  <!-- (προαιρετικό) AdSense verification -->
+  <!-- (προαιρετικό) AdSense loader -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4164020794215422" crossorigin="anonymous"></script>
 
+  <!-- JSON-LD (Breadcrumb + Website) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"misthos2026.gr",
+    "url":"https://misthos2026.gr/",
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"https://misthos2026.gr/?q={search_term_string}",
+      "query-input":"required name=search_term_string"
+    }
+  }
+  </script>
+
   <style>
-    :root { --bg:#f7f7fb; --card:#ffffff; --pri:#1f4b99; --mut:#6b7280; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial; background:var(--bg); color:#0f172a; }
+    :root {
+      --bg:#f7f7fb; --card:#ffffff; --ink:#0f172a; --mut:#64748b; --pri:#204a99;
+      --line:#e5e7eb; --ok:#16a34a; --warn:#991b1b; --soft:#eef2ff;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--ink); background:var(--bg);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
 
     header{
-      padding:20px;
+      position:sticky; top:0; z-index:10;
       background:linear-gradient(90deg,#e6eefc,#f7f7fb);
-      border-bottom:1px solid #e5e7eb;
-      display:flex; flex-direction:column; align-items:center; text-align:center;
+      border-bottom:1px solid var(--line);
+      padding:14px 16px;
     }
-    h1{ margin:0; color:var(--pri); font-size:20px; text-align:center; }
+    .topbar{max-width:1200px; margin:0 auto; display:flex; gap:14px; align-items:center; justify-content:space-between}
+    .brand{display:flex; gap:10px; align-items:center}
+    .logo{width:32px; height:32px; border-radius:999px; display:inline-block; background:#60a5fa}
+    h1{margin:0; font-size:18px; color:var(--pri)}
+    nav a{color:#0f172a; text-decoration:none; font-size:14px; padding:6px 10px; border-radius:999px}
+    nav a:hover{background:#e8edf8}
 
-    main { padding: 16px; max-width: 1100px; margin: 0 auto; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .card { background:var(--card); border:1px solid #e5e7eb; border-radius: 14px; padding: 16px; box-shadow:0 1px 2px rgba(0,0,0,0.04); }
-    .card h2 { margin-top:0; font-size: 16px; }
-    label { display:block; font-weight:600; margin-top:10px; }
-    input[type="number"], select { width: 100%; padding: 10px 12px; border:1px solid #d1d5db; border-radius: 10px; font-size: 14px; background:#f8fafc; }
-    .help { color: var(--mut); font-size: 12px; margin-top: 4px; }
-    .row { display:grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    main{max-width:1200px; margin:0 auto; padding:18px 16px}
+    .grid{display:grid; grid-template-columns: 1.05fr .95fr; gap:16px}
+    @media (max-width: 920px){ .grid{grid-template-columns:1fr} }
 
-    .result { display:flex; justify-content: space-between; align-items:center; padding: 8px 0; border-bottom: 1px dashed #e5e7eb; }
-    .result .val { font-variant-numeric: tabular-nums; }
-    #results .result { font-size: 13.5px; }
-    #results .result .val { font-size: 13.5px; }
-    .result.total { font-size: 17px; background:#ecfdf5; padding: 10px 8px; border:1px solid #bbf7d0; border-radius:8px; font-weight:700; }
-
-    .muted { color: var(--mut); }
-    .fineprint { font-size:12px; color:var(--mut); margin-top:10px; }
-    .foot { margin-top: 18px; display:flex; gap:10px; flex-wrap: wrap; }
-    button { background: var(--pri); color:#fff; border:none; padding:10px 14px; border-radius:12px; font-weight:600; cursor:pointer; }
-    button.secondary { background:#e5e7eb; color:#133827; }
-    .pill { display:inline-block; padding:4px 8px; border-radius:999px; background:#eef2ff; color:#3730a3; font-size:12px; }
-    .pill.green { background:#dcfce7; color:#166534; }
-    .pill.red { background:#fee2e2; color:#991b1b; }
-    @media (max-width: 880px) { .grid { grid-template-columns: 1fr; } }
-
-    #results { opacity: 1; transform: translateY(0); transition: opacity .35s ease, transform .35s ease; }
-    #results.hide { opacity: 0; transform: translateY(6px); }
-
-    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(16,185,129,.45);} 100% { box-shadow: 0 0 0 16px rgba(16,185,129,0);} }
-    .pulse { animation: pulse .6s ease; }
-
-    .tooltip { position:relative; display:inline-block; cursor:help; }
-    .tooltip .i{
-      display:inline-flex; align-items:center; justify-content:center;
-      width:16px; height:16px; margin-left:6px; border-radius:50%;
-      background:#e0f2fe; color:#075985; font-weight:700; font-size:12px;
+    .card{
+      background:var(--card); border:1px solid var(--line); border-radius:14px;
+      padding:16px; box-shadow:0 1px 2px rgba(0,0,0,.05)
     }
-    .tooltip .bubble{
-      position:absolute; left:0; top:140%;
-      background:#111827; color:#fff; padding:8px 10px; border-radius:8px;
-      width:280px; font-size:12px; line-height:1.35;
-      box-shadow:0 8px 18px rgba(0,0,0,.15);
-      opacity:0; transform:translateY(4px); pointer-events:none; transition:.2s;
-      z-index:20;
+    .card h2{margin:0 0 8px 0; font-size:16px}
+    .muted{color:var(--mut)}
+    label{display:block; font-weight:600; margin-top:10px}
+    input[type="number"], select{
+      width:100%; padding:10px 12px; border:1px solid #d1d5db; border-radius:10px; background:#f8fafc; font-size:14px
     }
-    .tooltip:hover .bubble{ opacity:1; transform:translateY(0); }
+    .row{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+    .help{font-size:12px; color:var(--mut); margin-top:4px}
+    .foot{margin-top:14px; display:flex; gap:10px; flex-wrap:wrap}
+    button{border:none; padding:10px 14px; border-radius:12px; font-weight:700; cursor:pointer}
+    .btn{background:var(--pri); color:#fff}
+    .btn.secondary{background:#e5e7eb; color:#0f172a}
 
-    /* ===== Σύγκριση 2025↔2026 (πάνω) — μόνο καθαρό κέρδος ===== */
-    .compare {
-      margin: 0 0 14px 0;
-      padding: 12px;
-      border: 1px solid #bae6fd;
-      background: linear-gradient(180deg,#f0f9ff,#ffffff 85%);
-      border-radius: 12px;
-      position: relative;
-      overflow: hidden;
-    }
-    .compare h3 {
-      margin: 0 0 6px 0;
-      font-size: 14px;
-      color: #075985;
-      display:flex; align-items:center; gap:8px;
-    }
-    .compare .spark { font-size:16px; }
-    .compare .row2 { display:grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .compare .item { padding:8px 10px; border:1px dashed #cfe8ff; border-radius:10px; background:#ffffffa6; }
-    .compare .item .lbl { font-size:12px; color:#64748b; }
-    .compare .item .val { font-weight:700; font-variant-numeric: tabular-nums; }
+    .result{display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px dashed var(--line)}
+    .result .val{font-variant-numeric:tabular-nums}
+    .result.total{font-size:17px; background:#ecfdf5; padding:10px 8px; border:1px solid #bbf7d0; border-radius:8px; font-weight:700}
 
-    /* shimmer effect */
-    .compare::after{
-      content:"";
-      position:absolute; top:0; left:-30%;
-      width:30%; height:100%;
-      background:linear-gradient(90deg, transparent, rgba(255,255,255,.7), transparent);
-      transform:skewX(-20deg);
-      animation: shimmer 1.6s ease forwards;
-    }
-    @keyframes shimmer{
-      0%{ left:-40%; opacity:.0; }
-      20%{ opacity:.9; }
-      100%{ left:110%; opacity:0; }
-    }
+    .pill{display:inline-block; padding:4px 8px; border-radius:999px; background:var(--soft); color:#3730a3; font-size:12px}
+    .pill.green{background:#dcfce7; color:#166534}
+    .pill.red{background:#fee2e2; color:#991b1b}
+
+    #results{opacity:1; transform:translateY(0); transition:opacity .35s ease, transform .35s ease}
+    #results.hide{opacity:0; transform:translateY(6px)}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(16,185,129,.45)}100%{box-shadow:0 0 0 16px rgba(16,185,129,0)}}
+    .pulse{animation:pulse .6s ease}
+
+    .compare{margin:0 0 14px 0; padding:12px; border:1px solid #bae6fd; background:linear-gradient(180deg,#f0f9ff,#ffffff 85%); border-radius:12px}
+    .compare h3{margin:0 0 6px 0; font-size:14px; color:#075985; display:flex; align-items:center; gap:8px}
+    .compare .row2{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+    .compare .item{padding:8px 10px; border:1px dashed #cfe8ff; border-radius:10px; background:#ffffffa6}
+    .compare .lbl{font-size:12px; color:#64748b}
+    .compare .val{font-weight:700; font-variant-numeric:tabular-nums}
+
+    .section-title{font-size:18px; margin:24px 0 10px 0}
+    table{border-collapse:collapse; width:100%}
+    th,td{padding:8px 6px; border-bottom:1px solid var(--line); text-align:left}
+    td.right, th.right {text-align:right}
+
+    footer{margin-top:28px; border-top:1px solid var(--line); background:#fbfbfe}
+    .footgrid{max-width:1200px; margin:0 auto; padding:16px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px}
+    @media (max-width: 720px){ .footgrid{grid-template-columns:1fr} }
+    .small{font-size:12px; color:var(--mut)}
+
+    details summary{cursor:pointer}
+    .sr-only{position:absolute; width:1px; height:1px; margin:-1px; border:0; padding:0; white-space:nowrap; clip-path:inset(100%); clip:rect(0 0 0 0); overflow:hidden}
   </style>
 </head>
 <body>
   <header>
-    <h1>Υπολογισμός Καθαρού Μισθού (2025 / 2026)</h1>
-    <div class="muted"> </div>
+    <div class="topbar" role="navigation" aria-label="Κύρια πλοήγηση">
+      <div class="brand">
+        <span class="logo" aria-hidden="true"></span>
+        <h1>Υπολογισμός Καθαρού Μισθού (2025 / 2026)</h1>
+      </div>
+      <nav>
+        <a href="#calculator">Υπολογιστής</a>
+        <a href="#guide">Οδηγός</a>
+        <a href="#faq">FAQ</a>
+        <a href="#glossary">Γλωσσάρι</a>
+        <a href="#policies">Πολιτικές</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <div class="grid">
-      <section class="card">
-        <h2>Είσοδος</h2>
+    <div id="calculator" class="grid" aria-labelledby="calc-heading">
+      <section class="card" aria-describedby="intro-help">
+        <h2 id="calc-heading">Είσοδος</h2>
+        <p id="intro-help" class="muted">Συμπλήρωσε τα πεδία και πάτησε «Υπολογισμός». Μπορείς να προσαρμόσεις συντελεστές στα Προχωρημένα.</p>
 
-        <label>Μικτός Μηνιαίος Μισθός (€)</label>
-        <input id="gross" type="number" min="0" step="0.01" placeholder="π.χ. 880" />
+        <label for="gross">Μικτός Μηνιαίος Μισθός (€)</label>
+        <input id="gross" type="number" min="0" step="0.01" placeholder="π.χ. 1.200" inputmode="decimal" />
 
         <div class="row">
           <div>
-            <label>Μισθοί ανά έτος</label>
+            <label for="payMonths">Μισθοί ανά έτος</label>
             <select id="payMonths">
               <option value="14">14</option>
               <option value="12">12</option>
             </select>
           </div>
           <div>
-            <label>Φορολογικό έτος</label>
+            <label for="taxYear">Φορολογικό έτος</label>
             <select id="taxYear">
               <option value="2025" selected>2025</option>
               <option value="2026">2026</option>
@@ -155,33 +164,31 @@
 
         <div class="row">
           <div>
-            <label>Εξαρτώμενα τέκνα</label>
+            <label for="children">Εξαρτώμενα τέκνα</label>
             <select id="children">
               <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option>
               <option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
             </select>
-            <div class="help"></div>
+            <div class="help">Επηρεάζει την έκπτωση φόρου (άρθρο 16) και τα κλιμάκια 2026.</div>
           </div>
           <div>
-            <label>Ηλικία (έτη)</label>
+            <label for="age">Ηλικία (έτη)</label>
             <input id="age" type="number" min="15" max="100" placeholder="π.χ. 29" />
           </div>
         </div>
 
-        <!-- Νέα κατηγορία/ειδικότητα -->
-        <label style="margin-top:12px;">Ειδικότητα</label>
+        <label for="role" style="margin-top:12px;">Ειδικότητα</label>
         <select id="role">
           <option value="office" selected>Υπάλληλος γραφείου</option>
           <option value="seller">Πωλητής (επικουρικό +4%)</option>
           <option value="engineer">Μηχανικός</option>
         </select>
-        <div id="roleHelp" class="help">Προεπιλογή συντελεστών ανά ειδικότητα (μπορείς να τους αλλάξεις στα Προχωρημένα).</div>
+        <div id="roleHelp" class="help">Προεπιλεγμένοι συντελεστές ανά ειδικότητα (αλλάζουν στα Προχωρημένα).</div>
 
-        <!-- Επιλογές μόνο για Μηχανικό -->
         <div id="engineerOpts" style="display:none; margin-top:10px;">
           <div class="row">
             <div>
-              <label>Επικουρική (ασφαλιστική κατηγορία)</label>
+              <label for="engEpikCat">Επικουρική (ασφαλιστική κατηγορία)</label>
               <select id="engEpikCat">
                 <option value="1" selected>1η</option>
                 <option value="2">2η</option>
@@ -189,7 +196,7 @@
               </select>
             </div>
             <div>
-              <label>Πρόνοια (ασφαλιστική κατηγορία)</label>
+              <label for="engPronoiaCat">Πρόνοια (ασφαλιστική κατηγορία)</label>
               <select id="engPronoiaCat">
                 <option value="1" selected>1η</option>
                 <option value="2">2η</option>
@@ -197,117 +204,176 @@
               </select>
             </div>
           </div>
-          <div class="help">Επικουρική: το ποσό κατηγορίας μοιράζεται 50% εργαζόμενος / 50% εργοδότης. Πρόνοια: 100% εργαζόμενος (μηχανικοί). Ποσά από 01.01.2025.</div>
+          <div class="help">Επικουρική: 50% εργαζόμενος / 50% εργοδότης. Πρόνοια (μηχανικοί): 100% εργαζόμενος. Ποσά από 01.01.2025.</div>
         </div>
 
         <label style="margin-top:12px;">
           <input id="repat" type="checkbox" />
-          Επαναπατρισθείς (άρθρο 5Γ) – 50% απαλλαγή φόρου στο εισόδημα μισθωτών
-          <span class="tooltip" aria-label="Άρθρο 5Γ">
-            <span class="i">i</span>
-            <span class="bubble">
-              Άρθρο 5Γ: απαλλαγή 50% φόρου μισθωτών για επαναπατρισθέντες.
-              Προϋποθέσεις: μεταφορά φορολογικής κατοικίας, νέα σύμβαση, ισχύ 7 έτη,
-              προηγούμενη πενταετία εκτός Ελλάδας.
-            </span>
-          </span>
+          Επαναπατρισθείς (άρθρο 5Γ) — 50% απαλλαγή φόρου μισθωτών
         </label>
-        <div class="help">Αφορά απαλλαγή μόνο στη φορολογία εισοδήματος, όχι στις εισφορές.</div>
+        <div class="help">Αφορά μόνο τη φορολογία εισοδήματος (όχι τις εισφορές).</div>
 
-        <details style="margin-top:12px;">
+        <details style="margin-top:12px">
           <summary><strong>Προχωρημένα (συντελεστές)</strong></summary>
           <div class="row" style="margin-top:8px;">
             <div>
-              <label>Εισφορές εργαζομένου (ΕΦΚΑ)</label>
+              <label for="efkaEmployee">Εισφορές εργαζομένου (ΕΦΚΑ)</label>
               <input id="efkaEmployee" type="number" step="0.0001" min="0" max="1" value="0.1337" />
               <div class="help">Ποσοστό (π.χ. 0.1337 = 13,37%)</div>
             </div>
             <div>
-              <label>Εισφορές εργοδότη (ΕΦΚΑ)</label>
+              <label for="efkaEmployer">Εισφορές εργοδότη (ΕΦΚΑ)</label>
               <input id="efkaEmployer" type="number" step="0.0001" min="0" max="1" value="0.2179" />
               <div class="help">Ποσοστό (π.χ. 0.2179 = 21,79%)</div>
             </div>
           </div>
           <div class="row" style="margin-top:8px;">
             <div>
-              <label>Μηνιαίο ανώτατο όριο ασφαλιστέων αποδοχών (€)</label>
+              <label for="efkaCap">Μηνιαίο πλαφόν ασφαλιστέων (€)</label>
               <input id="efkaCap" type="number" step="0.01" min="0" value="7572.62" />
-              <div class="help">Οι εισφορές υπολογίζονται σε MIN(Μικτός Μηνιαίος, Πλαφόν).</div>
             </div>
             <div>
-              <label>Εισφορά αλληλεγγύης</label>
+              <label for="solidarity">Εισφορά αλληλεγγύης</label>
               <input id="solidarity" type="number" step="0.0001" min="0" max="1" value="0" />
-              <div class="help">Ποσοστό επί του φορολογητέου (σήμερα 0%).</div>
             </div>
           </div>
         </details>
 
         <div class="foot">
-          <button id="resetBtn" class="secondary">Επαναφορά</button>
-          <button id="exampleBtn">Υπολογισμός</button>
+          <button id="resetBtn" class="btn secondary" type="button">Επαναφορά</button>
+          <button id="calcBtn" class="btn" type="button">Υπολογισμός</button>
         </div>
-        <div class="fineprint">Οι υπολογισμοί είναι ενδεικτικοί και δεν αποτελούν φορολογική ή νομική συμβουλή. 
-  Τα αποτελέσματα ενδέχεται να διαφέρουν ανάλογα με την προσωπική σας κατάσταση και τυχόν μεταβολές της νομοθεσίας. 
-  Ελέγξτε και προσαρμόστε συντελεστές/κλίμακες σύμφωνα με την ισχύουσα νομοθεσία πριν από κάθε χρήση.</div>
+        <p class="small">Οι υπολογισμοί είναι ενδεικτικοί και δεν αποτελούν φορολογική/νομική συμβουλή. Ελέγχετε πάντα την ισχύουσα νομοθεσία.</p>
       </section>
 
-      <section class="card">
-        <h2>Αποτελέσματα <span id="badge" class="pill"></span></h2>
-        <div id="results"></div>
+      <section class="card" aria-labelledby="res-heading">
+        <h2 id="res-heading">Αποτελέσματα <span id="badge" class="pill"></span></h2>
+        <div id="results" class="hide" aria-live="polite" aria-atomic="true"></div>
       </section>
     </div>
 
-    <!-- ===== ΝΕΟ: Περιεχόμενο εκδότη (άρθρο/οδηγός) ===== -->
-    <section class="card" aria-labelledby="info">
-      <h2 id="info">Πώς υπολογίζεται ο καθαρός μισθός το 2025/2026</h2>
-      <p>
-        Ο καθαρός μισθός προκύπτει από τον μικτό μισθό μετά την αφαίρεση των ασφαλιστικών εισφορών του εργαζομένου
-        (ΕΦΚΑ) και της μηνιαίας παρακράτησης φόρου εισοδήματος. Οι εισφορές υπολογίζονται μέχρι ένα ανώτατο πλαφόν
-        ασφαλιστέων αποδοχών· πάνω από αυτό το ποσό δεν αυξάνονται. Στη συνέχεια, το φορολογητέο εισόδημα
-        προκύπτει αφού αφαιρεθούν οι εισφορές από τον μικτό μισθό. Ο ετήσιος φόρος υπολογίζεται με κλίμακες
-        και τυχόν έκπτωση φόρου (άρθρο 16) ανάλογα με τα εξαρτώμενα τέκνα και το ύψος του εισοδήματος.
-      </p>
-      <p>
-        Για το 2026 εφαρμόζονται διαφοροποιημένοι συντελεστές σε ορισμένα κλιμάκια, με στόχο ελάφρυνση νέων και
-        οικογενειών. Εάν ανήκετε στο καθεστώς επαναπατρισθέντων του άρθρου 5Γ, το 50% του εισοδήματος από μισθωτή
-        εργασία υπόκειται σε φόρο (οι εισφορές δεν επηρεάζονται). Το παρόν εργαλείο υποστηρίζει 12 ή 14 μισθούς,
-        ώστε να βλέπετε τόσο την μηνιαία εικόνα όσο και τη συνολική ετήσια επιβάρυνση.
-      </p>
+    <!-- ===== Περιεχόμενο εκδότη (Publisher Content) ===== -->
+    <h2 id="guide" class="section-title">Πώς υπολογίζεται ο καθαρός μισθός το 2025/2026</h2>
+    <section class="card">
+      <p>Ο καθαρός μισθός προκύπτει από τον μικτό μισθό μετά την αφαίρεση των εισφορών εργαζομένου (ΕΦΚΑ) και της μηνιαίας παρακράτησης φόρου. Οι εισφορές επιβάλλονται μέχρι ένα μηνιαίο πλαφόν ασφαλιστέων αποδοχών· πέραν αυτού δεν αυξάνονται. Ο ετήσιος φόρος υπολογίζεται προοδευτικά με κλίμακες και μειώνεται από την έκπτωση φόρου (άρθρο 16) ανάλογα με τέκνα/εισόδημα.</p>
       <ul>
-        <li><strong>ΕΦΚΑ εργαζομένου:</strong> υπολογίζεται σε κάθε μήνα μέχρι το πλαφόν.</li>
-        <li><strong>Παρακράτηση φόρου:</strong> προκύπτει από τον ετήσιο φόρο/παρονομαστή μισθών.</li>
+        <li><strong>ΕΦΚΑ εργαζομένου:</strong> ποσοστιαίες εισφορές επί των ασφαλιστέων αποδοχών (έως πλαφόν).</li>
+        <li><strong>Παρακράτηση φόρου:</strong> ετήσιος φόρος / πλήθος μισθών (12 ή 14).</li>
         <li><strong>Κόστος εργοδότη:</strong> μικτός μισθός + εισφορές εργοδότη.</li>
-        <li><strong>Μηχανικοί/Πωλητές:</strong> υποστηρίζονται ειδικά επικουρικά και πρόνοια όπου ισχύουν.</li>
+        <li><strong>Άρθρο 5Γ:</strong> το 50% του εισοδήματος μισθωτής εργασίας φορολογείται (οι εισφορές αμετάβλητες).</li>
       </ul>
       <details>
         <summary><strong>Παράδειγμα</strong></summary>
-        <p class="muted">
-          Για μικτό 1.500€ × 14, χωρίς τέκνα, ο καθαρός μηνιαίος προκύπτει αφαιρώντας τις εισφορές και τη μηνιαία
-          παρακράτηση. Με ενεργό το 5Γ, ο υπολογισμός φόρου γίνεται στο 50% του ετήσιου φορολογητέου.
-        </p>
+        <p class="muted">Για μικτό 1.500€ × 14, χωρίς τέκνα: πρώτα αφαιρούνται οι εισφορές εργαζομένου, προκύπτει φορολογητέο, εφαρμόζονται κλίμακες φόρου & έκπτωση, και το αποτέλεσμα κατανέμεται μηνιαία.</p>
       </details>
-      <p class="fineprint">
-        Η ανάλυση είναι ενημερωτικού χαρακτήρα και δεν υποκαθιστά εξατομικευμένη φορολογική συμβουλή. Οι κανόνες
-        ενδέχεται να αλλάζουν· ελέγχετε πάντα την ισχύουσα νομοθεσία και τα ποσοστά πριν από τη χρήση.
-      </p>
     </section>
-    <!-- ===== ΤΕΛΟΣ περιεχομένου εκδότη ===== -->
+
+    <h2 class="section-title">Παραδείγματα σεναρίων</h2>
+    <section class="card">
+      <table aria-label="Παραδείγματα">
+        <thead>
+          <tr>
+            <th>Σενάριο</th>
+            <th class="right">Μικτός/μήνα</th>
+            <th class="right">Μισθοί</th>
+            <th class="right">Τέκνα</th>
+            <th class="right">Έτος</th>
+            <th>Σχόλιο</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Νεοεισερχόμενος χωρίς τέκνα</td>
+            <td class="right">€ 1.000</td>
+            <td class="right">14</td>
+            <td class="right">0</td>
+            <td class="right">2025</td>
+            <td>Τυπική παρακράτηση· χαμηλή επιβάρυνση.</td>
+          </tr>
+          <tr>
+            <td>Οικογένεια με 2 τέκνα</td>
+            <td class="right">€ 1.800</td>
+            <td class="right">14</td>
+            <td class="right">2</td>
+            <td class="right">2026</td>
+            <td>Ευνοϊκότερη κλίμακα σε 10–30k.</td>
+          </tr>
+          <tr>
+            <td>Επαναπατρισθείς (5Γ)</td>
+            <td class="right">€ 3.000</td>
+            <td class="right">12</td>
+            <td class="right">0</td>
+            <td class="right">2026</td>
+            <td>Φορολογείται το 50% του φορολογητέου.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <h2 id="faq" class="section-title">Συχνές ερωτήσεις (FAQ)</h2>
+    <section class="card">
+      <details>
+        <summary><strong>12 ή 14 μισθοί; Ποιο είναι πιο “συμφέρον”;</strong></summary>
+        <p>Ο ετήσιος φόρος είναι ίδιος για ίδιο ετήσιο μικτό. Με 14 μισθούς, η μηνιαία παρακράτηση είναι μικρότερη (μοιράζεται σε περισσότερους μήνες).</p>
+      </details>
+      <details>
+        <summary><strong>Το εργαλείο είναι φορολογική συμβουλή;</strong></summary>
+        <p>Όχι. Είναι ενημερωτικό. Ελέγξτε τις προσωπικές παραμέτρους σας και την ισχύουσα νομοθεσία.</p>
+      </details>
+      <details>
+        <summary><strong>Πώς εφαρμόζεται το άρθρο 5Γ;</strong></summary>
+        <p>Στον υπολογισμό φόρου λαμβάνεται το 50% του ετήσιου φορολογητέου. Οι εισφορές δεν αλλάζουν.</p>
+      </details>
+    </section>
+
+    <h2 id="glossary" class="section-title">Γλωσσάρι</h2>
+    <section class="card">
+      <p><strong>Ασφαλιστέες αποδοχές:</strong> Το μέρος του μισθού που υπόκειται σε εισφορές. <em>Πλαφόν:</em> ανώτατο ποσό ανά μήνα.</p>
+      <p><strong>Φορολογητέο:</strong> Μικτός μισθός μείον εισφορές εργαζομένου.</p>
+      <p><strong>Έκπτωση φόρου (άρθρο 16):</strong> Ποσό που μειώνει τον τελικό ετήσιο φόρο με βάση τέκνα/εισόδημα.</p>
+    </section>
+
+    <h2 id="policies" class="section-title">Περιορισμοί & Πολιτικές</h2>
+    <section class="card">
+      <ul>
+        <li>Δεν προβάλλονται διαφημίσεις σε σελίδες επαφής/όρων/σφάλματος (ο ιστότοπος δεν περιλαμβάνει τέτοιες οθόνες χωρίς περιεχόμενο εκδότη).</li>
+        <li>Το παρόν αποτελεί ενημερωτικό εργαλείο και όχι εξατομικευμένη συμβουλή.</li>
+        <li>Σε σελίδες “υπό κατασκευή” δεν τοποθετούνται διαφημίσεις.</li>
+      </ul>
+      <p class="small">© 2025 misthos2026.gr</p>
+    </section>
   </main>
+
+  <footer>
+    <div class="footgrid">
+      <div>
+        <strong>misthos2026.gr</strong>
+        <p class="small">Υπολογιστής καθαρού μισθού για Ελλάδα (2025/2026).</p>
+      </div>
+      <div>
+        <strong>Χρήσιμα</strong>
+        <ul class="small" style="list-style:disc; padding-left:18px">
+          <li><a href="#guide">Οδηγός υπολογισμού</a></li>
+          <li><a href="#faq">Συχνές ερωτήσεις</a></li>
+          <li><a href="#glossary">Γλωσσάρι</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Νομικά</strong>
+        <p class="small">Οι υπολογισμοί είναι ενδεικτικοί. Ελέγχετε πάντα τα επίσημα κείμενα.</p>
+      </div>
+    </div>
+  </footer>
 
   <script>
     const fmt = new Intl.NumberFormat('el-GR', { minimumFractionDigits:2, maximumFractionDigits:2 });
     const r2 = x => Math.round((+x + Number.EPSILON) * 100) / 100;
     const n  = (v,f=0) => { const x = Number(v); return isFinite(x) ? x : f; };
 
-    /* ========= Σταθερές από Εγκύκλιο e-ΕΦΚΑ 3/2025 (01.01.2025) ========= */
-    // Επικουρική (€/μήνα) — 50% εργαζόμενος / 50% εργοδότης
-    const EPI_AMOUNTS = { 1: 45.43, 2: 54.76, 3: 65.25 };
-    // Πρόνοια (€/μήνα) — 100% εργαζόμενος (για μισθωτούς μηχανικούς)
-    const PRON_AMOUNTS = { 1: 30.29, 2: 36.12, 3: 43.10 };
+    /* ===== Σταθερές (ενδεικτικές με βάση 01.01.2025) ===== */
+    const EPI_AMOUNTS = { 1: 45.43, 2: 54.76, 3: 65.25 }; // €/μήνα (50/50)
+    const PRON_AMOUNTS = { 1: 30.29, 2: 36.12, 3: 43.10 }; // €/μήνα (100% εργαζ.)
 
-    /* ========= Κλίμακες φόρου ========= */
-
-    // 2025 – σταθεροί συντελεστές
     function annualTax2025(taxableAnnual) {
       const bands = [
         {limit:10000, rate:0.09},
@@ -322,31 +388,25 @@
         const amount = Math.max(0, Math.min(rem, b.limit - prev));
         if (amount <= 0) break;
         tax = r2(tax + r2(amount * b.rate));
-        rem -= amount;
-        prev = b.limit;
+        rem -= amount; prev = b.limit;
       }
       return tax;
     }
 
-    // 2026 – συντελεστές με βάση ηλικία & τέκνα
     function rates2026(age, children) {
       const r = [0,0,0,0,0,0];
       const child10_20 = (children>=4) ? 0
                         : (children===3?0.09
                         : (children===2?0.16
                         : (children===1?0.18:0.20)));
-
       // 0–10k
       r[0] = (age && age <= 25) ? 0 : 0.09;
-
       // 10–20k
       if (age && age <= 25) r[1] = 0;
       else if (age && age >= 26 && age <= 30) r[1] = Math.min(0.09, child10_20);
       else r[1] = child10_20;
-
-      // 20–30k (26%→16% ανά τέκνα)
+      // 20–30k
       r[2] = (children>=5)?0.16:(children===4?0.18:(children===3?0.20:(children===2?0.22:(children===1?0.24:0.26))));
-
       // 30–40k, 40–60k, 60k+
       r[3] = 0.34; r[4] = 0.39; r[5] = 0.44;
       return r;
@@ -365,7 +425,6 @@
       return tax;
     }
 
-    // Έκπτωση φόρου (άρθρο 16) – 2025 λογική
     function taxCredit(children, taxableAnnual) {
       const baseArr = [777, 810, 900, 1120, 1340];
       const base = (children<=4) ? baseArr[children] : (1340 + 220*(children-4));
@@ -374,24 +433,33 @@
       return Math.max(0, base - reduction);
     }
 
-    /* ========= Μηδενικά στην εκκίνηση ========= */
-    function renderZeros() {
+    /* ===== Helpers UI ===== */
+    function animateNumbers(root) {
+      root.querySelectorAll('.num').forEach(el => {
+        const end = Number(el.dataset.amount) || 0;
+        const start = 0, dur = 700, t0 = performance.now();
+        function tick(t){
+          const p = Math.min(1, (t - t0) / dur);
+          el.textContent = '€ ' + fmt.format(start + (end-start)*p);
+          if (p<1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }
+    function setBadge(year, role, repat){
+      const badge = document.getElementById('badge');
+      const roleLabel = role === 'office' ? 'Υπάλληλος' : (role === 'seller' ? 'Πωλητής' : 'Μηχανικός');
+      badge.textContent = `Έτος: ${year} • ${roleLabel}` + (repat ? ' • 5Γ' : '');
+      badge.className = 'pill' + (repat ? ' green' : '');
+    }
+    function zeroResults(){
       const res = document.getElementById('results');
-      const yearSel = document.getElementById('taxYear');
-      const repat   = document.getElementById('repat').checked;
-      const yearVal = yearSel ? Number(yearSel.value) : 2025;
       res.classList.remove('hide');
-
       res.innerHTML = `
         <div id="cmpMount"></div>
-
-        <div class="result"><div>Εισφορές εργαζομένου (μηνιαίες)</div>
-          <div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
-        <div class="result"><div>Παρακρατούμενος φόρος (μηνιαίος)</div>
-          <div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
-        <div id="net-monthly" class="result total"><div>Καθαρός μηνιαίος</div>
-          <div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
-
+        <div class="result"><div>Εισφορές εργαζομένου (μηνιαίες)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+        <div class="result"><div>Παρακρατούμενος φόρος (μηνιαίος)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+        <div id="net-monthly" class="result total"><div>Καθαρός μηνιαίος</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
         <h3>Ετήσια εικόνα</h3>
         <div class="result"><div>Μικτές ετήσιες αποδοχές</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
         <div class="result"><div>Ετήσιες εισφορές εργαζομένου</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
@@ -401,43 +469,34 @@
         <div class="result"><div>Φόρος εισοδήματος (μετά την έκπτωση)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
         <div class="result"><div>Εισφορά αλληλεγγύης (ετήσια)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
         <div class="result total"><div>Καθαρές ετήσιες αποδοχές</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
-
         <h3>Κόστος εργοδότη</h3>
         <div class="result"><div>Εισφορές εργοδότη (μηνιαίες)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
         <div class="result"><div>Συνολικό κόστος εργοδότη (μηνιαίο)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
         <div class="result"><div>Εισφορές εργοδότη (ετήσιες)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
         <div class="result"><div>Συνολικό κόστος εργοδότη (ετήσιο)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
       `;
-
-      const badge = document.getElementById('badge');
-      badge.textContent = `Έτος: ${yearVal}` + (repat ? ' • 5Γ ενεργό' : '');
-      badge.className = 'pill' + (repat ? ' green' : '');
     }
 
-    /* ========= Ρόλοι/ειδικότητες ========= */
-    function roleExtraEmployeeRate(role){
-      return role === 'seller' ? 0.04 : 0; // επικουρικό +4% μόνο για πωλητή (επιβάρυνση εργαζόμενου)
-    }
+    /* ===== Ρόλοι ===== */
+    function roleExtraEmployeeRate(role){ return role === 'seller' ? 0.04 : 0; }
     function applyRoleDefaults(){
       const role = document.getElementById('role').value;
       const efkaEmp = document.getElementById('efkaEmployee');
       const efkaErg = document.getElementById('efkaEmployer');
       const engBox  = document.getElementById('engineerOpts');
       if (role === 'office' || role === 'seller') {
-        efkaEmp.value = '0.1337';
-        efkaErg.value = '0.2179';
-        document.getElementById('roleHelp').textContent = 'Υπάλληλος/Πωλητής: ΕΦΚΑ εργαζ. 13.37%, εργοδ. 21.79%. Ο πωλητής έχει +4% επικουρικό (μόνο εργαζόμενος).';
+        efkaEmp.value = '0.1337'; efkaErg.value = '0.2179';
+        document.getElementById('roleHelp').textContent = 'Υπάλληλος/Πωλητής: ΕΦΚΑ εργαζ. 13,37%, εργοδ. 21,79%. Ο πωλητής έχει +4% επικουρικό (μόνο εργαζόμενος).';
         engBox.style.display = 'none';
-      } else if (role === 'engineer') {
-        efkaEmp.value = '0.1037';
-        efkaErg.value = '0.1879';
-        document.getElementById('roleHelp').textContent = 'Μηχανικός: ΕΦΚΑ εργαζ. 10.37%, εργοδ. 18.79%. Επικουρική/Πρόνοια με κατηγορίες (από 01.01.2025).';
+      } else {
+        efkaEmp.value = '0.1037'; efkaErg.value = '0.1879';
+        document.getElementById('roleHelp').textContent = 'Μηχανικός: ΕΦΚΑ εργαζ. 10,37%, εργοδ. 18,79%. Επικουρική/Πρόνοια με κατηγορίες (01.01.2025).';
         engBox.style.display = 'block';
       }
     }
 
-    /* ========= Υπολογισμός ========= */
-    function calc() {
+    /* ===== Υπολογισμός ===== */
+    function calc(){
       const gross     = n(document.getElementById('gross').value);
       const payMonths = n(document.getElementById('payMonths').value, 14);
       const year      = n(document.getElementById('taxYear').value, 2025);
@@ -449,31 +508,24 @@
       const solidarityR = n(document.getElementById('solidarity').value, 0);
       const repat     = document.getElementById('repat').checked;
       const role      = document.getElementById('role').value;
-
       const engEpikCat = n(document.getElementById('engEpikCat')?.value, 1);
       const engPrnCat  = n(document.getElementById('engPronoiaCat')?.value, 1);
 
-      // Βάση εισφορών
       const cappedMonthly = Math.min(gross, efkaCap);
       const baseEmpContribMonthly  = r2(cappedMonthly * efkaEmpR);
       const baseErgContribMonthly  = r2(cappedMonthly * efkaErgR);
 
-      // Extra: Πωλητής (+4% εργαζόμενος)
       const sellerExtraEmpMonthly = role === 'seller' ? r2(cappedMonthly * roleExtraEmployeeRate(role)) : 0;
 
-      // Extra: Μηχανικός — Επικουρική (50/50) & Πρόνοια (100% εργαζ.)
       const engEpikAmount = role === 'engineer' ? (EPI_AMOUNTS[engEpikCat] || 0) : 0;
       const engPrnAmount  = role === 'engineer' ? (PRON_AMOUNTS[engPrnCat] || 0) : 0;
-
       const engEpikEmpMonthly = role === 'engineer' ? r2(engEpikAmount / 2) : 0;
       const engEpikErgMonthly = role === 'engineer' ? r2(engEpikAmount / 2) : 0;
       const engPrnEmpMonthly  = role === 'engineer' ? r2(engPrnAmount)     : 0;
 
-      // Σύνολα εισφορών
       const efkaEmployeeMonthly = r2(baseEmpContribMonthly + sellerExtraEmpMonthly + engEpikEmpMonthly + engPrnEmpMonthly);
       const efkaEmployerMonthly = r2(baseErgContribMonthly + engEpikErgMonthly);
 
-      // Φορολογητέο
       const taxableMonthly = r2(gross - efkaEmployeeMonthly);
       const annualGross = r2(gross * payMonths);
       const annualContrib = r2(efkaEmployeeMonthly * payMonths);
@@ -495,24 +547,17 @@
       const netMonthly = r2(gross - efkaEmployeeMonthly - monthlyWithholding - solidarityMonthly);
       const netAnnual  = r2(annualGross - annualContrib - annualTax - solidarityAnnual);
 
-      // Κόστος εργοδότη
       const employerTotalMonthly = r2(gross + efkaEmployerMonthly);
       const employerAnnualContrib = r2(efkaEmployerMonthly * payMonths);
       const employerTotalAnnual = r2(annualGross + employerAnnualContrib);
 
-      // Badge
-      const badge = document.getElementById('badge');
-      const roleLabel = role === 'office' ? 'Υπάλληλος' : (role === 'seller' ? 'Πωλητής' : 'Μηχανικός');
-      badge.textContent = `Έτος: ${year} • ${roleLabel}` + (repat ? ' • 5Γ' : '');
-      badge.className = 'pill' + (repat ? ' green' : '');
+      setBadge(year, role, repat);
 
       const res = document.getElementById('results');
       res.classList.remove('hide');
 
-      // ===== Πάνω πλαίσιο: μόνο ΚΕΡΔΟΣ καθαρού (εμφανίζεται μόνο στα 2026) =====
       let cmpHTML = '';
       if (year === 2026) {
-        // Υπολόγισε "reference" για 2025 με τα ίδια inputs (εισφορές ίδιες)
         const tax25_before = annualTax2025(taxableAnnualForTax);
         const credit25 = r2(taxCredit(children, taxableAnnualForTax));
         const annualTax2025Final = r2(Math.max(0, tax25_before - credit25));
@@ -520,13 +565,13 @@
         const netMonthly2025 = r2(gross - efkaEmployeeMonthly - monthly2025 - solidarityMonthly);
         const netAnnual2025  = r2(annualGross - annualContrib - annualTax2025Final - solidarityAnnual);
 
-        const gainMonthly = r2(netMonthly - netMonthly2025); // + => κέρδος 2026
-        const gainAnnual  = r2(netAnnual  - netAnnual2025);  // + => κέρδος 2026
+        const gainMonthly = r2(netMonthly - netMonthly2025);
+        const gainAnnual  = r2(netAnnual  - netAnnual2025);
         const badgeDelta = gainAnnual >= 0 ? `<span class="pill green">Κέρδος</span>` : `<span class="pill red">Ζημιά</span>`;
 
         cmpHTML = `
           <div class="compare" id="cmpBox">
-            <h3><span class="spark">✨</span> Καθαρό κέρδος 2026 έναντι 2025 ${badgeDelta}</h3>
+            <h3>✨ Καθαρό κέρδος 2026 έναντι 2025 ${badgeDelta}</h3>
             <div class="row2" style="margin-top:8px;">
               <div class="item">
                 <div class="lbl">Κέρδος καθαρού (μηνιαίο)</div>
@@ -541,7 +586,6 @@
         `;
       }
 
-      // Σώμα αποτελεσμάτων
       let extraLines = '';
       if (role === 'seller') {
         extraLines += `
@@ -578,7 +622,7 @@
         <div class="result"><div>Ετήσιες εισφορές εργαζομένου</div>
           <div class="val"><span class="num" data-amount="${annualContrib}">€ 0,00</span></div></div>
 
-        <div class="result"><div>Ετήσιο φορολογητέο (για εισφορές)</div>
+        <div class="result"><div>Ετήσιο φορολογητέο</div>
           <div class="val"><span class="num" data-amount="${taxableAnnual}">€ 0,00</span></div></div>
 
         ${ (year===2026 && repat) ? `
@@ -617,48 +661,22 @@
         <div class="result"><div>Συνολικό κόστος εργοδότη (ετήσιο)</div>
           <div class="val"><span class="num" data-amount="${employerTotalAnnual}">€ 0,00</span></div></div>
       `;
-    }
 
-    /* ===== FX & bindings ===== */
-    function animateNumbers(root) {
-      root.querySelectorAll('.num').forEach(el => {
-        const end = Number(el.dataset.amount) || 0;
-        const start = 0, dur = 700, t0 = performance.now();
-        function tick(t){
-          const p = Math.min(1, (t - t0) / dur);
-          el.textContent = '€ ' + fmt.format(start + (end-start)*p);
-          if (p<1) requestAnimationFrame(tick);
-        }
-        requestAnimationFrame(tick);
-      });
-    }
-
-    function calcWithFX() {
-      calc();
-      const box = document.getElementById('results');
-      box.classList.remove('hide');
-      animateNumbers(box);
+      animateNumbers(res);
       const nm = document.getElementById('net-monthly');
       if (nm) { nm.classList.remove('pulse'); void nm.offsetWidth; nm.classList.add('pulse'); }
     }
 
-    function markDirty() { renderZeros(); }
+    function markDirty(){ zeroResults(); }
 
-    function bind() {
-      // αλλαγή ειδικότητας → default συντελεστές & toggle engineer options
-      document.getElementById('role').addEventListener('change', () => {
-        applyRoleDefaults();
-        markDirty();
-      });
-
-      // αλλαγές που επηρεάζουν υπολογισμούς
+    function bind(){
+      document.getElementById('role').addEventListener('change', () => { applyRoleDefaults(); markDirty(); });
       ['gross','payMonths','taxYear','children','age','efkaEmployee','efkaEmployer','efkaCap','solidarity','repat','role','engEpikCat','engPronoiaCat']
         .forEach(id => { const el = document.getElementById(id); if (el) el.addEventListener('input', markDirty); });
       ['payMonths','taxYear','children','repat','role','engEpikCat','engPronoiaCat']
         .forEach(id => { const el = document.getElementById(id); if (el) el.addEventListener('change', markDirty); });
 
-      document.getElementById('exampleBtn').addEventListener('click', calcWithFX);
-
+      document.getElementById('calcBtn').addEventListener('click', calc);
       document.getElementById('resetBtn').addEventListener('click', () => {
         document.getElementById('gross').value = '';
         document.getElementById('payMonths').value = '14';
@@ -672,11 +690,13 @@
         document.getElementById('efkaCap').value = '7572.62';
         document.getElementById('solidarity').value = '0';
         document.getElementById('repat').checked = false;
-        renderZeros();
+        zeroResults();
+        setBadge(2025, 'office', false);
       });
 
       applyRoleDefaults();
-      renderZeros();
+      setBadge(2025, 'office', false);
+      zeroResults();
     }
 
     bind();
