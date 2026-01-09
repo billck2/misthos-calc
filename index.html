@@ -584,12 +584,17 @@
     }
 
     // UPDATED: αναλογική μείωση (όχι ανά 1.000€)
-    function taxCredit(children, taxableAnnual) {
-      const baseArr = [777, 810, 900, 1120, 1340];
-      const base = (children<=4) ? baseArr[children] : (1340 + 220*(children-4));
-      const reduction = (children>=5) ? 0 : r2(Math.max(0, taxableAnnual - 12000) * 0.02);
-      return r2(Math.max(0, base - reduction));
-    }
+   function taxCredit(children, taxableAnnual) {
+  // Βάσεις έκπτωσης (όπως στον πίνακα σου δεξιά)
+  const baseArr = [777, 900, 1120, 1340, 1580];
+
+  const base = (children <= 4)
+    ? baseArr[children]
+    : (1580 + 200 * (children - 4)); // αν θες, το κάνουμε ακριβώς όπως το payroll για 5+ μόλις μου πεις τι βγάζει
+
+  const reduction = (children >= 5) ? 0 : r2(Math.max(0, taxableAnnual - 12000) * 0.02);
+  return r2(Math.max(0, base - reduction));
+}
 
     /* ===== Helpers UI ===== */
     function animateNumbers(root) {
