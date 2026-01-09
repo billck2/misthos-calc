@@ -180,9 +180,13 @@
             </div>
           </div>
           <div>
-            <label for="age">Ηλικία (έτη)</label>
-            <input id="age" type="number" min="15" max="100" placeholder="π.χ. 29" />
-            <div class="help">Σε κάποιες περιπτώσεις (π.χ. έως 25 ετών) προβλέπονται ευνοϊκότεροι συντελεστές.</div>
+            <label for="ageBand">Ηλικία εργαζομένου</label>
+            <select id="ageBand">
+              <option value="<=25">έως 25</option>
+              <option value="26-30">26–30</option>
+              <option value="31+" selected>31+</option>
+            </select>
+            <div class="help">Κατηγορία ηλικίας (όπως στο Excel): έως 25 / 26–30 / 31+.</div>
           </div>
         </div>
 
@@ -479,7 +483,7 @@
           τα πραγματικά αποτελέσματα μπορεί να διαφέρουν.
         </li>
         <li>
-          
+
         </li>
       </ul>
       <p class="small">© 2025 misthos2026.gr — Όλα τα δικαιώματα διατηρούνται.</p>
@@ -539,28 +543,36 @@
       return tax;
     }
 
-    function rates2026(age, children) {
+    function rates2026(ageBand, children) {
       const r = [0,0,0,0,0,0];
+
+      const isLe25  = ageBand === '<=25';
+      const is26_30 = ageBand === '26-30';
+
       const child10_20 = (children>=4) ? 0
                         : (children===3?0.09
                         : (children===2?0.16
                         : (children===1?0.18:0.20)));
+
       // 0–10k
-      r[0] = (age && age <= 25) ? 0 : 0.09;
+      r[0] = isLe25 ? 0 : 0.09;
+
       // 10–20k
-      if (age && age <= 25) r[1] = 0;
-      else if (age && age >= 26 && age <= 30) r[1] = Math.min(0.09, child10_20);
+      if (isLe25) r[1] = 0;
+      else if (is26_30) r[1] = Math.min(0.09, child10_20);
       else r[1] = child10_20;
+
       // 20–30k
       r[2] = (children>=5)?0.16:(children===4?0.18:(children===3?0.20:(children===2?0.22:(children===1?0.24:0.26))));
+
       // 30–40k, 40–60k, 60k+
       r[3] = 0.34; r[4] = 0.39; r[5] = 0.44;
       return r;
     }
 
-    function annualTax2026(taxableAnnual, age, children) {
+    function annualTax2026(taxableAnnual, ageBand, children) {
       const bounds = [0,10000,20000,30000,40000,60000,Infinity];
-      const rates  = rates2026(age, children);
+      const rates  = rates2026(ageBand, children);
       let tax = 0;
       for (let i=0;i<6;i++) {
         const from = bounds[i], to = bounds[i+1];
@@ -571,12 +583,12 @@
       return tax;
     }
 
+    // UPDATED: αναλογική μείωση (όχι ανά 1.000€)
     function taxCredit(children, taxableAnnual) {
       const baseArr = [777, 810, 900, 1120, 1340];
       const base = (children<=4) ? baseArr[children] : (1340 + 220*(children-4));
-      const steps = Math.max(0, Math.floor(Math.max(0, taxableAnnual - 12000) / 1000));
-      const reduction = (children>=5) ? 0 : steps * 20;
-      return Math.max(0, base - reduction);
+      const reduction = (children>=5) ? 0 : r2(Math.max(0, taxableAnnual - 12000) * 0.02);
+      return r2(Math.max(0, base - reduction));
     }
 
     /* ===== Helpers UI ===== */
@@ -647,7 +659,7 @@
       const payMonths = n(document.getElementById('payMonths').value, 14);
       const year      = n(document.getElementById('taxYear').value, 2025);
       const children  = n(document.getElementById('children').value, 0);
-      const age       = n(document.getElementById('age').value, NaN);
+      const ageBand   = document.getElementById('ageBand').value; // "<=25" | "26-30" | "31+"
       const efkaEmpR  = n(document.getElementById('efkaEmployee').value, 0.1337);
       const efkaErgR  = n(document.getElementById('efkaEmployer').value, 0.2179);
       const efkaCap   = n(document.getElementById('efkaCap').value, 7572.62);
@@ -680,7 +692,7 @@
       const taxableAnnualForTax = repat ? r2(taxableAnnual * 0.5) : taxableAnnual;
 
       const taxBeforeCredit = (year === 2026)
-        ? annualTax2026(taxableAnnualForTax, age, children)
+        ? annualTax2026(taxableAnnualForTax, ageBand, children)
         : annualTax2025(taxableAnnualForTax);
 
       const credit = r2(taxCredit(children, taxableAnnualForTax));
@@ -817,9 +829,9 @@
 
     function bind(){
       document.getElementById('role').addEventListener('change', () => { applyRoleDefaults(); markDirty(); });
-      ['gross','payMonths','taxYear','children','age','efkaEmployee','efkaEmployer','efkaCap','solidarity','repat','role','engEpikCat','engPronoiaCat']
+      ['gross','payMonths','taxYear','children','ageBand','efkaEmployee','efkaEmployer','efkaCap','solidarity','repat','role','engEpikCat','engPronoiaCat']
         .forEach(id => { const el = document.getElementById(id); if (el) el.addEventListener('input', markDirty); });
-      ['payMonths','taxYear','children','repat','role','engEpikCat','engPronoiaCat']
+      ['payMonths','taxYear','children','ageBand','repat','role','engEpikCat','engPronoiaCat']
         .forEach(id => { const el = document.getElementById(id); if (el) el.addEventListener('change', markDirty); });
 
       document.getElementById('calcBtn').addEventListener('click', calc);
@@ -828,7 +840,7 @@
         document.getElementById('payMonths').value = '14';
         document.getElementById('taxYear').value = '2025';
         document.getElementById('children').value = '0';
-        document.getElementById('age').value = '';
+        document.getElementById('ageBand').value = '31+';
         document.getElementById('role').value = 'office';
         applyRoleDefaults();
         const ep = document.getElementById('engEpikCat'); if (ep) ep.value = '1';
