@@ -4,18 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Υπολογισμός Καθαρού Μισθού & Ψηφιακή Κάρτα Εργασίας — Ελλάδα (2025 / 2026)</title>
+  <title>Υπολογισμός Καθαρού Μισθού — Ελλάδα (2026)</title>
 
   <!-- Favicon (inline SVG) -->
   <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="%2360a5fa"/><path d="M50 18 L80 38 L70 78 L30 78 L20 38 Z" fill="white" opacity="0.9"/></svg>'>
 
   <!-- SEO -->
-  <meta name="description" content="Δωρεάν online εργαλείο για υπολογισμό καθαρού μισθού στην Ελλάδα (2025/2026) και πρακτικός οδηγός για Ψηφιακή Κάρτα Εργασίας & ΕΡΓΑΝΗ ΙΙ. Υπολογίζει ΕΦΚΑ, φόρο εισοδήματος, καθαρά και κόστος εργοδότη. Περιλαμβάνει καθεστώς επαναπατρισθέντων (άρθρο 5Γ)." />
+  <meta name="description" content="Δωρεάν online εργαλείο για υπολογισμό καθαρού μισθού στην Ελλάδα (2026) και πρακτικός οδηγός για Ψηφιακή Κάρτα Εργασίας & ΕΡΓΑΝΗ ΙΙ. Υπολογίζει ΕΦΚΑ, φόρο εισοδήματος, καθαρά και κόστος εργοδότη. Περιλαμβάνει καθεστώς επαναπατρισθέντων (άρθρο 5Γ)." />
   <link rel="canonical" href="https://misthos2026.gr/" />
   <meta name="robots" content="index, follow" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Υπολογισμός Καθαρού Μισθού & Ψηφιακή Κάρτα Εργασίας — Ελλάδα (2025/2026)" />
+  <meta property="og:title" content="Υπολογισμός Καθαρού Μισθού — Ελλάδα (2026)" />
   <meta property="og:description" content="Υπολογισμός καθαρού μισθού, ΕΦΚΑ και φόρου για Ελλάδα. Οδηγός για Ψηφιακή Κάρτα Εργασίας, ΕΡΓΑΝΗ ΙΙ και δικαιώματα εργαζομένων." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://misthos2026.gr/" />
@@ -87,7 +87,16 @@
 
     .result{display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px dashed var(--line)}
     .result .val{font-variant-numeric:tabular-nums}
-    .result.total{font-size:17px; background:#ecfdf5; padding:10px 8px; border:1px solid #bbf7d0; border-radius:8px; font-weight:700}
+
+    /* Τονισμός καθαρού μηνιαίου */
+    .result.total{
+      font-size:18px;
+      background:#ecfdf5;
+      padding:12px 10px;
+      border:1px solid #bbf7d0;
+      border-radius:10px;
+      font-weight:800
+    }
 
     .pill{display:inline-block; padding:4px 8px; border-radius:999px; background:var(--soft); color:#3730a3; font-size:12px}
     .pill.green{background:#dcfce7; color:#166534}
@@ -117,6 +126,25 @@
 
     details summary{cursor:pointer}
     .sr-only{position:absolute; width:1px; height:1px; margin:-1px; border:0; padding:0; white-space:nowrap; clip-path:inset(100%); clip:rect(0 0 0 0); overflow:hidden}
+
+    /* Κάνουμε τις “δευτερεύουσες” ενότητες πιο μικρές */
+    .subsection-title{
+      margin:14px 0 6px;
+      font-size:13px;
+      color:var(--mut);
+      letter-spacing:.2px;
+      text-transform:uppercase;
+    }
+    .compact .result{
+      padding:6px 0;
+      font-size:13px;
+    }
+    .compact .result.total{
+      font-size:14px;
+      padding:8px 8px;
+      font-weight:700;
+      border-radius:8px;
+    }
   </style>
 </head>
 <body>
@@ -124,7 +152,7 @@
     <div class="topbar" role="navigation" aria-label="Κύρια πλοήγηση">
       <div class="brand">
         <span class="logo" aria-hidden="true"></span>
-        <h1>Υπολογισμός Καθαρού Μισθού (2025 / 2026)</h1>
+        <h1>Υπολογισμός Καθαρού Μισθού (2026)</h1>
       </div>
       <nav>
         <a href="#calculator">Υπολογιστής</a>
@@ -161,10 +189,10 @@
           <div>
             <label for="taxYear">Φορολογικό έτος</label>
             <select id="taxYear">
-              <option value="2025" selected>2025</option>
-              <option value="2026">2026</option>
+              <option value="2025">2025</option>
+              <option value="2026" selected>2026</option>
             </select>
-            <div class="help">Επίλεξε το έτος για να εφαρμοστούν οι αντίστοιχες κλίμακες φόρου.</div>
+            <div class="help"></div>
           </div>
         </div>
 
@@ -175,9 +203,7 @@
               <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option>
               <option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
             </select>
-            <div class="help">
-              Επηρεάζει την έκπτωση φόρου (άρθρο 16) και τα κλιμάκια για το 2026.
-            </div>
+            <div class="help"></div>
           </div>
           <div>
             <label for="ageBand">Ηλικία εργαζομένου</label>
@@ -277,7 +303,7 @@
     </div>
 
     <!-- ΟΔΗΓΟΣ ΜΙΣΘΟΥ -->
-    <h2 id="guide" class="section-title">Οδηγός: Πώς υπολογίζεται ο καθαρός μισθός το 2025/2026</h2>
+    <h2 id="guide" class="section-title">Οδηγός: Πώς υπολογίζεται ο καθαρός μισθός το 2026</h2>
     <section class="card">
       <p>
         Ο καθαρός μισθός είναι το ποσό που «μπαίνει στην τσέπη» μετά από όλες τις κρατήσεις.
@@ -293,8 +319,7 @@
         <strong>έκπτωση φόρου του άρθρου 16</strong>, η οποία εξαρτάται από τα εξαρτώμενα τέκνα και το ύψος του εισοδήματος.
       </p>
       <p>
-        Για το 2026 προβλέπονται διαφοροποιήσεις σε ορισμένα κλιμάκια, με στόχο ελάφρυνση
-        νέων εργαζομένων και οικογενειών με παιδιά. Αν ανήκετε στο καθεστώς επαναπατρισθέντων
+        Αν ανήκετε στο καθεστώς επαναπατρισθέντων
         του <strong>άρθρου 5Γ</strong>, το 50% του εισοδήματος από μισθωτή εργασία φορολογείται, ενώ
         οι εισφορές υπολογίζονται κανονικά στο 100% του μικτού μισθού.
       </p>
@@ -394,7 +419,7 @@
             <td class="right">€ 1.000</td>
             <td class="right">14</td>
             <td class="right">0</td>
-            <td class="right">2025</td>
+            <td class="right">2026</td>
             <td>Βασική κλίμακα· χαμηλή συνολική επιβάρυνση.</td>
           </tr>
           <tr>
@@ -482,11 +507,8 @@
           Σε εξειδικευμένες περιπτώσεις (π.χ. ειδικά καθεστώτα, κλαδικές συμβάσεις, μερική απασχόληση)
           τα πραγματικά αποτελέσματα μπορεί να διαφέρουν.
         </li>
-        <li>
-
-        </li>
       </ul>
-      <p class="small">© 2025 misthos2026.gr — Όλα τα δικαιώματα διατηρούνται.</p>
+      <p class="small">© 2026 misthos2026.gr — Όλα τα δικαιώματα διατηρούνται.</p>
     </section>
   </main>
 
@@ -583,22 +605,14 @@
       return tax;
     }
 
-    // UPDATED: αναλογική μείωση (όχι ανά 1.000€)
-   function taxCredit(children, taxableAnnual) {
-  // Βάσεις έκπτωσης φόρου (όπως το payroll σου / πίνακας δεξιά)
-  const baseArr = [777, 900, 1120, 1340, 1580, 1780, 2000, 2220, 2440];
-
-  // Αν έχεις πάνω από 8, συνέχισε με +220 ανά παιδί (αν θες το αλλάζουμε, αν έχεις άλλο κανόνα)
-  const base = (children <= 8)
-    ? baseArr[children]
-    : (2440 + 220 * (children - 8));
-
-  // Μείωση μόνο για 0–4 παιδιά
-  if (children >= 5) return r2(Math.max(0, base));
-
-  const reduction = r2(Math.max(0, taxableAnnual - 12000) * 0.02); // = 20€/1000
-  return r2(Math.max(0, base - reduction));
-}
+    // αναλογική μείωση
+    function taxCredit(children, taxableAnnual) {
+      const baseArr = [777, 900, 1120, 1340, 1580, 1780, 2000, 2220, 2440];
+      const base = (children <= 8) ? baseArr[children] : (2440 + 220 * (children - 8));
+      if (children >= 5) return r2(Math.max(0, base));
+      const reduction = r2(Math.max(0, taxableAnnual - 12000) * 0.02); // = 20€/1000
+      return r2(Math.max(0, base - reduction));
+    }
 
     /* ===== Helpers UI ===== */
     function animateNumbers(root) {
@@ -627,20 +641,26 @@
         <div class="result"><div>Εισφορές εργαζομένου (μηνιαίες)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
         <div class="result"><div>Παρακρατούμενος φόρος (μηνιαίος)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
         <div id="net-monthly" class="result total"><div>Καθαρός μηνιαίος</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
-        <h3>Ετήσια εικόνα</h3>
-        <div class="result"><div>Μικτές ετήσιες αποδοχές</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
-        <div class="result"><div>Ετήσιες εισφορές εργαζομένου</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
-        <div class="result"><div>Ετήσιο φορολογητέο</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
-        <div class="result"><div>Φόρος εισοδήματος (πριν την έκπτωση)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
-        <div class="result"><div>Έκπτωση φόρου (άρθρο 16)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
-        <div class="result"><div>Φόρος εισοδήματος (μετά την έκπτωση)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
-        <div class="result"><div>Εισφορά αλληλεγγύης (ετήσια)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
-        <div class="result total"><div>Καθαρές ετήσιες αποδοχές</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
-        <h3>Κόστος εργοδότη</h3>
-        <div class="result"><div>Εισφορές εργοδότη (μηνιαίες)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
-        <div class="result"><div>Συνολικό κόστος εργοδότη (μηνιαίο)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
-        <div class="result"><div>Εισφορές εργοδότη (ετήσιες)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
-        <div class="result"><div>Συνολικό κόστος εργοδότη (ετήσιο)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+
+        <div class="subsection-title">Ετήσια εικόνα</div>
+        <div class="compact">
+          <div class="result"><div>Μικτές ετήσιες αποδοχές</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+          <div class="result"><div>Ετήσιες εισφορές εργαζομένου</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+          <div class="result"><div>Ετήσιο φορολογητέο</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+          <div class="result"><div>Φόρος εισοδήματος (πριν την έκπτωση)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+          <div class="result"><div>Έκπτωση φόρου (άρθρο 16)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+          <div class="result"><div>Φόρος εισοδήματος (μετά την έκπτωση)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+          <div class="result"><div>Εισφορά αλληλεγγύης (ετήσια)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+          <div class="result total"><div>Καθαρές ετήσιες αποδοχές</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+        </div>
+
+        <div class="subsection-title">Κόστος εργοδότη</div>
+        <div class="compact">
+          <div class="result"><div>Εισφορές εργοδότη (μηνιαίες)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+          <div class="result"><div>Συνολικό κόστος εργοδότη (μηνιαίο)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+          <div class="result"><div>Εισφορές εργοδότη (ετήσιες)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+          <div class="result"><div>Συνολικό κόστος εργοδότη (ετήσιο)</div><div class="val"><span class="num" data-amount="0">€ 0,00</span></div></div>
+        </div>
       `;
     }
 
@@ -666,9 +686,9 @@
     function calc(){
       const gross     = n(document.getElementById('gross').value);
       const payMonths = n(document.getElementById('payMonths').value, 14);
-      const year      = n(document.getElementById('taxYear').value, 2025);
+      const year      = n(document.getElementById('taxYear').value, 2026);
       const children  = n(document.getElementById('children').value, 0);
-      const ageBand   = document.getElementById('ageBand').value; // "<=25" | "26-30" | "31+"
+      const ageBand   = document.getElementById('ageBand').value;
       const efkaEmpR  = n(document.getElementById('efkaEmployee').value, 0.1337);
       const efkaErgR  = n(document.getElementById('efkaEmployer').value, 0.2179);
       const efkaCap   = n(document.getElementById('efkaCap').value, 7572.62);
@@ -723,6 +743,7 @@
       const res = document.getElementById('results');
       res.classList.remove('hide');
 
+      // (κρατάμε το compare μόνο όταν επιλέγεται 2026 και θες να το συγκρίνεις)
       let cmpHTML = '';
       if (year === 2026) {
         const tax25_before = annualTax2025(taxableAnnualForTax);
@@ -782,51 +803,55 @@
         <div id="net-monthly" class="result total"><div>Καθαρός μηνιαίος</div>
           <div class="val"><span class="num" data-amount="${netMonthly}">€ 0,00</span></div></div>
 
-        <h3>Ετήσια εικόνα</h3>
-        <div class="result"><div>Μικτές ετήσιες αποδοχές</div>
-          <div class="val"><span class="num" data-amount="${annualGross}">€ 0,00</span></div></div>
+        <div class="subsection-title">Ετήσια εικόνα</div>
+        <div class="compact">
+          <div class="result"><div>Μικτές ετήσιες αποδοχές</div>
+            <div class="val"><span class="num" data-amount="${annualGross}">€ 0,00</span></div></div>
 
-        <div class="result"><div>Ετήσιες εισφορές εργαζομένου</div>
-          <div class="val"><span class="num" data-amount="${annualContrib}">€ 0,00</span></div></div>
+          <div class="result"><div>Ετήσιες εισφορές εργαζομένου</div>
+            <div class="val"><span class="num" data-amount="${annualContrib}">€ 0,00</span></div></div>
 
-        <div class="result"><div>Ετήσιο φορολογητέο</div>
-          <div class="val"><span class="num" data-amount="${taxableAnnual}">€ 0,00</span></div></div>
+          <div class="result"><div>Ετήσιο φορολογητέο</div>
+            <div class="val"><span class="num" data-amount="${taxableAnnual}">€ 0,00</span></div></div>
 
-        ${ (year===2026 && repat) ? `
-        <div class="result"><div>Ετήσιο φορολογητέο που φορολογείται (5Γ – 50%)</div>
-          <div class="val"><span class="num" data-amount="${taxableAnnualForTax}">€ 0,00</span></div></div>` : '' }
+          ${ (year===2026 && repat) ? `
+          <div class="result"><div>Ετήσιο φορολογητέο που φορολογείται (5Γ – 50%)</div>
+            <div class="val"><span class="num" data-amount="${taxableAnnualForTax}">€ 0,00</span></div></div>` : '' }
 
-        <div class="result"><div>Φόρος εισοδήματος (πριν την έκπτωση)</div>
-          <div class="val"><span class="num" data-amount="${taxBeforeCredit}">€ 0,00</span></div></div>
+          <div class="result"><div>Φόρος εισοδήματος (πριν την έκπτωση)</div>
+            <div class="val"><span class="num" data-amount="${taxBeforeCredit}">€ 0,00</span></div></div>
 
-        <div class="result"><div>Έκπτωση φόρου (άρθρο 16)</div>
-          <div class="val"><span class="num" data-amount="${credit}">€ 0,00</span></div></div>
+          <div class="result"><div>Έκπτωση φόρου (άρθρο 16)</div>
+            <div class="val"><span class="num" data-amount="${credit}">€ 0,00</span></div></div>
 
-        <div class="result"><div>Φόρος εισοδήματος (μετά την έκπτωση)</div>
-          <div class="val"><span class="num" data-amount="${annualTax}">€ 0,00</span></div></div>
+          <div class="result"><div>Φόρος εισοδήματος (μετά την έκπτωση)</div>
+            <div class="val"><span class="num" data-amount="${annualTax}">€ 0,00</span></div></div>
 
-        <div class="result"><div>Εισφορά αλληλεγγύης (ετήσια)</div>
-          <div class="val"><span class="num" data-amount="${solidarityAnnual}">€ 0,00</span></div></div>
+          <div class="result"><div>Εισφορά αλληλεγγύης (ετήσια)</div>
+            <div class="val"><span class="num" data-amount="${solidarityAnnual}">€ 0,00</span></div></div>
 
-        <div class="result total"><div>Καθαρές ετήσιες αποδοχές</div>
-          <div class="val"><span class="num" data-amount="${netAnnual}">€ 0,00</span></div></div>
+          <div class="result total"><div>Καθαρές ετήσιες αποδοχές</div>
+            <div class="val"><span class="num" data-amount="${netAnnual}">€ 0,00</span></div></div>
+        </div>
 
-        <h3>Κόστος εργοδότη</h3>
-        <div class="result"><div>Εισφορές εργοδότη (μηνιαίες)</div>
-          <div class="val"><span class="num" data-amount="${efkaEmployerMonthly}">€ 0,00</span></div></div>
+        <div class="subsection-title">Κόστος εργοδότη</div>
+        <div class="compact">
+          <div class="result"><div>Εισφορές εργοδότη (μηνιαίες)</div>
+            <div class="val"><span class="num" data-amount="${efkaEmployerMonthly}">€ 0,00</span></div></div>
 
-        ${ role==='engineer' ? `
-        <div class="result"><div>— Επικουρική (κατ. ${engEpikCat}) — μερίδιο εργοδότη</div>
-          <div class="val"><span class="num" data-amount="${engEpikErgMonthly}">€ 0,00</span></div></div>` : '' }
+          ${ role==='engineer' ? `
+          <div class="result"><div>— Επικουρική (κατ. ${engEpikCat}) — μερίδιο εργοδότη</div>
+            <div class="val"><span class="num" data-amount="${engEpikErgMonthly}">€ 0,00</span></div></div>` : '' }
 
-        <div class="result"><div>Συνολικό κόστος εργοδότη (μηνιαίο)</div>
-          <div class="val"><span class="num" data-amount="${employerTotalMonthly}">€ 0,00</span></div></div>
+          <div class="result"><div>Συνολικό κόστος εργοδότη (μηνιαίο)</div>
+            <div class="val"><span class="num" data-amount="${employerTotalMonthly}">€ 0,00</span></div></div>
 
-        <div class="result"><div>Εισφορές εργοδότη (ετήσιες)</div>
-          <div class="val"><span class="num" data-amount="${employerAnnualContrib}">€ 0,00</span></div></div>
+          <div class="result"><div>Εισφορές εργοδότη (ετήσιες)</div>
+            <div class="val"><span class="num" data-amount="${employerAnnualContrib}">€ 0,00</span></div></div>
 
-        <div class="result"><div>Συνολικό κόστος εργοδότη (ετήσιο)</div>
-          <div class="val"><span class="num" data-amount="${employerTotalAnnual}">€ 0,00</span></div></div>
+          <div class="result"><div>Συνολικό κόστος εργοδότη (ετήσιο)</div>
+            <div class="val"><span class="num" data-amount="${employerTotalAnnual}">€ 0,00</span></div></div>
+        </div>
       `;
 
       animateNumbers(res);
@@ -847,7 +872,7 @@
       document.getElementById('resetBtn').addEventListener('click', () => {
         document.getElementById('gross').value = '';
         document.getElementById('payMonths').value = '14';
-        document.getElementById('taxYear').value = '2025';
+        document.getElementById('taxYear').value = '2026';
         document.getElementById('children').value = '0';
         document.getElementById('ageBand').value = '31+';
         document.getElementById('role').value = 'office';
@@ -858,11 +883,11 @@
         document.getElementById('solidarity').value = '0';
         document.getElementById('repat').checked = false;
         zeroResults();
-        setBadge(2025, 'office', false);
+        setBadge(2026, 'office', false);
       });
 
       applyRoleDefaults();
-      setBadge(2025, 'office', false);
+      setBadge(2026, 'office', false);
       zeroResults();
     }
 
