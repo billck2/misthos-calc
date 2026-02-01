@@ -10,17 +10,17 @@
   <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="%2360a5fa"/><path d="M50 18 L80 38 L70 78 L30 78 L20 38 Z" fill="white" opacity="0.9"/></svg>'>
 
   <!-- SEO -->
-  <meta name="description" content="Δωρεάν online εργαλείο για υπολογισμό καθαρού μισθού στην Ελλάδα (2026) και πρακτικός οδηγός για Ψηφιακή Κάρτα Εργασίας & ΕΡΓΑΝΗ ΙΙ. Υπολογίζει ΕΦΚΑ, φόρο εισοδήματος, καθαρά και κόστος εργοδότη. Περιλαμβάνει καθεστώς επαναπατρισθέντων (άρθρο 5Γ)." />
+  <meta name="description" content="Δωρεάν online εργαλείο για υπολογισμό καθαρού μισθού στην Ελλάδα (2026) και πρακτικοί οδηγοί για ΕΦΚΑ, φορολογία, Ψηφιακή Κάρτα Εργασίας & ΕΡΓΑΝΗ ΙΙ. Υπολογίζει εισφορές, φόρο, καθαρά και κόστος εργοδότη." />
   <link rel="canonical" href="https://misthos2026.gr/" />
   <meta name="robots" content="index, follow" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Υπολογισμός Καθαρού Μισθού — Ελλάδα (2026)" />
-  <meta property="og:description" content="Υπολογισμός καθαρού μισθού, ΕΦΚΑ και φόρου για Ελλάδα. Οδηγός για Ψηφιακή Κάρτα Εργασίας, ΕΡΓΑΝΗ ΙΙ και δικαιώματα εργαζομένων." />
+  <meta property="og:description" content="Υπολογισμός καθαρού μισθού, ΕΦΚΑ και φόρου για Ελλάδα. Οδηγοί για Ψηφιακή Κάρτα Εργασίας, ΕΡΓΑΝΗ ΙΙ και δικαιώματα εργαζομένων." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://misthos2026.gr/" />
 
-  <!-- (προαιρετικό) AdSense loader -->
+  <!-- AdSense loader -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4164020794215422" crossorigin="anonymous"></script>
 
   <!-- JSON-LD (Website) -->
@@ -88,7 +88,6 @@
     .result{display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px dashed var(--line)}
     .result .val{font-variant-numeric:tabular-nums}
 
-    /* Τονισμός καθαρού μηνιαίου */
     .result.total{
       font-size:18px;
       background:#ecfdf5;
@@ -127,7 +126,6 @@
     details summary{cursor:pointer}
     .sr-only{position:absolute; width:1px; height:1px; margin:-1px; border:0; padding:0; white-space:nowrap; clip-path:inset(100%); clip:rect(0 0 0 0); overflow:hidden}
 
-    /* Κάνουμε τις “δευτερεύουσες” ενότητες πιο μικρές */
     .subsection-title{
       margin:14px 0 6px;
       font-size:13px;
@@ -145,6 +143,18 @@
       font-weight:700;
       border-radius:8px;
     }
+
+    /* ΝΕΟ (ελάχιστο): κάρτες άρθρων */
+    .article-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+    @media (max-width: 920px){ .article-grid{grid-template-columns:1fr} }
+    .article-card{
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:12px;
+      background:#fff;
+    }
+    .article-card a{color:var(--pri); text-decoration:none; font-weight:800}
+    .article-card a:hover{text-decoration:underline}
   </style>
 </head>
 <body>
@@ -160,12 +170,43 @@
         <a href="#digital-card">Ψηφιακή Κάρτα</a>
         <a href="#faq">FAQ</a>
         <a href="#glossary">Γλωσσάρι</a>
-        <a href="#policies">Πολιτικές</a>
+
+        <!-- ΝΕΟ: trust pages (AdSense) -->
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Επικοινωνία</a>
       </nav>
     </div>
   </header>
 
   <main>
+
+    <!-- ΝΕΟ: άρθρα/οδηγοί ώστε να μη φαίνεται calculator-only -->
+    <section class="card" aria-label="Άρθρα και οδηγοί">
+      <h2>Άρθρα & οδηγοί (για να ξέρεις τι πληρώνεις και γιατί)</h2>
+      <p class="muted" style="margin-top:0">
+        Εκτός από τον υπολογιστή, έχουμε σύντομους οδηγούς με παραδείγματα για φόρο, ΕΦΚΑ και εργασιακά.
+        Αυτό βοηθά να καταλαβαίνεις τις κρατήσεις και δίνει “αξία περιεχομένου” στο site.
+      </p>
+
+      <div class="article-grid">
+        <div class="article-card">
+          <a href="/articles/katotatos-misthos-2026.html">Κατώτατος μισθός 2026: τι αλλάζει</a>
+          <p class="small">Πρακτική σύνοψη + παραδείγματα για καθαρά, εισφορές και κόστος εργοδότη.</p>
+        </div>
+        <div class="article-card">
+          <a href="/articles/katharos-misthos-odigos.html">Πώς υπολογίζεται ο καθαρός μισθός</a>
+          <p class="small">Βήμα-βήμα: μικτά → εισφορές → φορολογητέο → παρακράτηση → καθαρά.</p>
+        </div>
+        <div class="article-card">
+          <a href="/articles/psifiaki-karta-ergani.html">Ψηφιακή Κάρτα Εργασίας & ΕΡΓΑΝΗ ΙΙ</a>
+          <p class="small">Τι σημαίνει στην πράξη και τι να προσέχεις ως εργαζόμενος.</p>
+        </div>
+      </div>
+      <p class="small" style="margin-bottom:0">
+        Δες επίσης: <a href="/privacy-policy.html">Privacy Policy</a> • <a href="/terms.html">Όροι χρήσης</a>
+      </p>
+    </section>
+
     <!-- ΥΠΟΛΟΓΙΣΤΗΣ -->
     <div id="calculator" class="grid" aria-labelledby="calc-heading">
       <section class="card" aria-describedby="intro-help">
@@ -312,7 +353,7 @@
       <ul>
         <li><strong>Εισφορές εργαζομένου (ΕΦΚΑ):</strong> για κύρια ασφάλιση, υγεία, επικουρική, πρόνοια κ.λπ.</li>
         <li><strong>Παρακράτηση φόρου εισοδήματος:</strong> υπολογίζεται ετησίως με κλίμακες και επιμερίζεται σε 12 ή 14 μισθούς.</li>
-              </ul>
+      </ul>
       <p>
         Στη συνέχεια, ο ετήσιος φόρος μειώνεται με την
         <strong>έκπτωση φόρου του άρθρου 16</strong>, η οποία εξαρτάται από τα εξαρτώμενα τέκνα και το ύψος του εισοδήματος.
@@ -327,70 +368,26 @@
         <li><strong>Καθαρές ετήσιες αποδοχές:</strong> Ετήσιος μικτός − ετήσιες εισφορές − ετήσιος φόρος.</li>
         <li><strong>Κόστος εργοδότη:</strong> Μικτός μισθός + εισφορές εργοδότη (μηνιαία & ετήσια).</li>
       </ul>
-      <details>
-        <summary><strong>Παράδειγμα (χωρίς 5Γ)</strong></summary>
-        <p class="muted">
-          Έστω μικτός μισθός 1.500€ × 14 μισθοί και 0 τέκνα.
-          Υπολογίζονται πρώτα οι εισφορές εργαζομένου, προκύπτει το φορολογητέο,
-          εφαρμόζονται οι φορολογικές κλίμακες του έτους και η έκπτωση φόρου.
-          Το αποτέλεσμα κατανέμεται σε 14 δόσεις και εμφανίζεται ως μηνιαία παρακράτηση.
-        </p>
-      </details>
-      <details>
-        <summary><strong>Παράδειγμα (με άρθρο 5Γ)</strong></summary>
-        <p class="muted">
-          Στο ίδιο σενάριο, αν ισχύει 5Γ, ο φόρος υπολογίζεται στο 50% του ετήσιου φορολογητέου,
-          ενώ οι εισφορές συνεχίζουν να εφαρμόζονται στο πλήρες ποσό του μισθού.
-          Έτσι προκύπτει χαμηλότερος φόρος και υψηλότερος καθαρός μισθός.
-        </p>
-      </details>
+      <p class="small">
+        Περισσότερα άρθρα: <a href="/articles/katharos-misthos-odigos.html">Οδηγός καθαρού μισθού</a>
+      </p>
     </section>
 
     <!-- ΨΗΦΙΑΚΗ ΚΑΡΤΑ ΕΡΓΑΣΙΑΣ -->
     <h2 id="digital-card" class="section-title">Ψηφιακή Κάρτα Εργασίας & ΕΡΓΑΝΗ ΙΙ</h2>
     <section class="card">
       <p>
-        Η <strong>Ψηφιακή Κάρτα Εργασίας</strong> είναι το σύστημα με το οποίο καταγράφονται ηλεκτρονικά
-        τα ωράρια εργασίας των εργαζομένων (είσοδος – έξοδος) και διασυνδέονται σε πραγματικό χρόνο
-        με το πληροφοριακό σύστημα <strong>ΕΡΓΑΝΗ ΙΙ</strong>.
+        Η <strong>Ψηφιακή Κάρτα Εργασίας</strong> καταγράφει ηλεκτρονικά τα ωράρια (είσοδος – έξοδος)
+        και διασυνδέεται με το <strong>ΕΡΓΑΝΗ ΙΙ</strong>.
       </p>
-      <h3>1. Τι κάνει στην πράξη η ψηφιακή κάρτα;</h3>
+      <h3>Τι να προσέχεις</h3>
       <ul>
-        <li>Ο εργαζόμενος «χτυπάει» κάρτα με εφαρμογή στο κινητό ή συσκευή στον χώρο εργασίας.</li>
-        <li>Η κίνηση (check-in / check-out) αποστέλλεται αυτόματα στο ΕΡΓΑΝΗ ΙΙ.</li>
-        <li>Η Επιθεώρηση Εργασίας μπορεί να ελέγξει αν το πραγματικό ωράριο συμφωνεί με τα δηλωμένα.</li>
+        <li>Βεβαιώσου ότι κάθε check-in/check-out είναι έγκυρο στην εφαρμογή.</li>
+        <li>Αν υπάρχει πρόβλημα, ενημέρωσε HR/Payroll και κράτα screenshot.</li>
+        <li>Δες αναλυτικά: <a href="/articles/psifiaki-karta-ergani.html">Οδηγός Ψηφιακής Κάρτας</a></li>
       </ul>
-
-      <h3>2. Τι σημαίνει «έγκυρο» χτύπημα;</h3>
-      <p>
-        Για να θεωρηθεί ένα χτύπημα <strong>έγκυρο</strong>, πρέπει:
-      </p>
-      <ul>
-        <li>να γίνει μέσα στα χρονικά όρια που ορίζει η νομοθεσία (π.χ. κοντά στην έναρξη/λήξη εργασίας) και</li>
-        <li>να μεταφερθεί σωστά στο ΕΡΓΑΝΗ (να υπάρχει σύνδεση/διασύνδεση).</li>
-      </ul>
-      <p class="muted">
-        Αν η συσκευή χάσει σύνδεση στο internet ή υπάρξει καθυστέρηση διαβίβασης,
-        μπορεί να εμφανιστεί ως «εκπρόθεσμο» ή να λείπει στο αρχείο του εργοδότη.
-      </p>
-
-      <h3>3. Τι μπορώ να κάνω ως εργαζόμενος για να είμαι καλυμμένος;</h3>
-      <ul>
-        <li>Βεβαιώσου ότι κάθε check-in/check-out εμφανίζεται ως «έγκυρο»/με πράσινη ένδειξη στην εφαρμογή.</li>
-        <li>Αν εμφανιστεί σφάλμα ή «εκπρόθεσμο», δοκίμασε ξανά και ενημέρωσε το HR/Payroll.</li>
-        <li>Κράτα screenshot όταν βλέπεις πρόβλημα (π.χ. η εφαρμογή λέει «OK» αλλά δεν εμφανίζεται στο αρχείο).</li>
-      </ul>
-
-      <h3>4. Συνήθη προβλήματα που βλέπουν οι εταιρείες</h3>
-      <ul>
-        <li>Μονά χτυπήματα (μόνο είσοδος ή μόνο έξοδος).</li>
-        <li>Καθυστερημένα ή χαμένα χτυπήματα λόγω σύνδεσης.</li>
-        <li>Διαφορές μεταξύ ωραρίου που έχει δηλωθεί στο ΕΡΓΑΝΗ και πραγματικής προσέλευσης.</li>
-      </ul>
-
       <p class="small">
-        Το περιεχόμενο έχει ενημερωτικό χαρακτήρα και δεν αντικαθιστά επίσημες οδηγίες της Πολιτείας ή
-        εξατομικευμένη νομική/εργασιακή συμβουλή.
+        Ενημερωτικό περιεχόμενο — δεν αντικαθιστά επίσημες οδηγίες.
       </p>
     </section>
 
@@ -435,7 +432,7 @@
             <td class="right">12</td>
             <td class="right">0</td>
             <td class="right">2026</td>
-            <td>Το 50% του φορολογητέου εισοδήματος φορολογείται, ο καθαρός μισθός αυξάνεται.</td>
+            <td>Το 50% του φορολογητέου εισοδήματος φορολογείται.</td>
           </tr>
         </tbody>
       </table>
@@ -447,33 +444,21 @@
       <details>
         <summary><strong>12 ή 14 μισθοί; Ποιο είναι πιο “συμφέρον”;</strong></summary>
         <p>
-          Ο ετήσιος φόρος για το ίδιο ετήσιο εισόδημα είναι ο ίδιος, είτε πληρώνεσαι με 12 είτε με 14 μισθούς.
-          Η διαφορά είναι στο cash flow: με 14 μισθούς λαμβάνεις δώρα/επιδόματα και η μηνιαία παρακράτηση
-          φόρου κατανέμεται σε περισσότερες δόσεις.
+          Ο ετήσιος φόρος για το ίδιο ετήσιο εισόδημα είναι ο ίδιος. Η διαφορά είναι στο cash flow:
+          με 14 μισθούς λαμβάνεις δώρα/επιδόματα και η μηνιαία παρακράτηση κατανέμεται σε περισσότερες δόσεις.
         </p>
       </details>
       <details>
         <summary><strong>Το εργαλείο αποτελεί φορολογική συμβουλή;</strong></summary>
         <p>
-          Όχι. Πρόκειται για ενημερωτικό εργαλείο. Οι υπολογισμοί βασίζονται σε ενδεικτικούς συντελεστές και
-          τυπικές κλίμακες. Για προσωπικές αποφάσεις (π.χ. αλλαγή μισθού, μεταφορά φορολογικής κατοικίας)
-          συμβουλευτείτε λογιστή ή φοροτεχνικό.
+          Όχι. Είναι ενημερωτικό εργαλείο. Για προσωπικές αποφάσεις συμβουλευτείτε λογιστή/φοροτεχνικό.
         </p>
       </details>
       <details>
-        <summary><strong>Πώς εφαρμόζεται το άρθρο 5Γ στην πράξη;</strong></summary>
+        <summary><strong>Πώς εφαρμόζεται το άρθρο 5Γ;</strong></summary>
         <p>
-          Στο άρθρο 5Γ, για επιλέξιμους επαναπατρισθέντες, το 50% του εισοδήματος από μισθωτή εργασία
-          λαμβάνεται υπόψη για τον υπολογισμό του φόρου. Ο εργοδότης εξακολουθεί να καταβάλλει εισφορές
-          στο σύνολο του μισθού και τα δικαιώματα (ένσημα κ.λπ.) δεν επηρεάζονται από το 5Γ.
-        </p>
-      </details>
-      <details>
-        <summary><strong>Τι γίνεται αν η ψηφιακή κάρτα “κολλήσει”;</strong></summary>
-        <p>
-          Αν στην εφαρμογή εμφανίζεται ότι το χτύπημα έγινε επιτυχώς αλλά δεν βλέπεται στο αρχείο ΕΡΓΑΝΗ,
-          πιθανόν υπήρξε καθυστέρηση ή διακοπή στη διαβίβαση. Σε τέτοιες περιπτώσεις ενημερώνετε άμεσα
-          HR/Payroll και κρατάτε αποδεικτικά (π.χ. screenshot).
+          Για επιλέξιμους επαναπατρισθέντες, το 50% του εισοδήματος από μισθωτή εργασία λαμβάνεται υπόψη για τον φόρο.
+          Οι εισφορές υπολογίζονται κανονικά στο 100% του μικτού μισθού.
         </p>
       </details>
     </section>
@@ -482,31 +467,22 @@
     <h2 id="glossary" class="section-title">Γλωσσάρι βασικών όρων</h2>
     <section class="card">
       <p><strong>Μικτός μισθός:</strong> Ο μισθός πριν από φόρους και εισφορές.</p>
-      <p><strong>Καθαρός μισθός:</strong> Το ποσό που καταβάλλεται στον εργαζόμενο μετά από όλες τις κρατήσεις.</p>
-      <p><strong>Ασφαλιστέες αποδοχές:</strong> Το τμήμα του μισθού πάνω στο οποίο υπολογίζονται εισφορές.</p>
-      <p><strong>ΕΦΚΑ:</strong> Ενιαίος Φορέας Κοινωνικής Ασφάλισης — κύρια ασφάλιση, υγεία κ.λπ.</p>
-      <p><strong>Φορολογητέο εισόδημα:</strong> Ετήσιος μικτός μισθός μείον ετήσιες εισφορές εργαζομένου.</p>
-      <p><strong>Ψηφιακή Κάρτα Εργασίας:</strong> Ηλεκτρονική καταγραφή ωραρίου, συνδεδεμένη με το ΕΡΓΑΝΗ ΙΙ.</p>
-      <p><strong>ΕΡΓΑΝΗ ΙΙ:</strong> Ηλεκτρονικό πληροφοριακό σύστημα στο οποίο δηλώνονται συμβάσεις, ωράρια, άδειες κ.λπ.</p>
+      <p><strong>Καθαρός μισθός:</strong> Το ποσό που καταβάλλεται μετά από κρατήσεις.</p>
+      <p><strong>ΕΦΚΑ:</strong> Ενιαίος Φορέας Κοινωνικής Ασφάλισης.</p>
+      <p><strong>ΕΡΓΑΝΗ ΙΙ:</strong> Σύστημα δηλώσεων/ωραρίων/αδειών.</p>
     </section>
 
-    <!-- ΠΟΛΙΤΙΚΕΣ -->
+    <!-- ΠΟΛΙΤΙΚΕΣ (μένει ως ενημερωτικό, αλλά πλέον έχει και κανονικές σελίδες) -->
     <h2 id="policies" class="section-title">Περιορισμοί & Πολιτικές χρήσης</h2>
     <section class="card">
       <ul>
-        <li>
-          Το εργαλείο προσφέρεται αποκλειστικά για ενημερωτικούς σκοπούς.
-          Δεν αποτελεί φορολογική, νομική ή λογιστική συμβουλή.
-        </li>
-        <li>
-          Οι συντελεστές, τα όρια και τα παραδείγματα βασίζονται σε τυπικές ρυθμίσεις.
-          Πιθανές νομοθετικές αλλαγές ενδέχεται να μην έχουν αποτυπωθεί άμεσα.
-        </li>
-        <li>
-          Σε εξειδικευμένες περιπτώσεις (π.χ. ειδικά καθεστώτα, κλαδικές συμβάσεις, μερική απασχόληση)
-          τα πραγματικά αποτελέσματα μπορεί να διαφέρουν.
-        </li>
+        <li>Ενημερωτικό περιεχόμενο — όχι φορολογική/νομική συμβουλή.</li>
+        <li>Οι συντελεστές και όρια μπορεί να αλλάξουν με νομοθεσία.</li>
+        <li>Σε ειδικές περιπτώσεις τα αποτελέσματα διαφέρουν.</li>
       </ul>
+      <p class="small">
+        Δες: <a href="/privacy-policy.html">Privacy Policy</a> • <a href="/terms.html">Όροι χρήσης</a>
+      </p>
       <p class="small">© 2026 misthos2026.gr — Όλα τα δικαιώματα διατηρούνται.</p>
     </section>
   </main>
@@ -516,21 +492,27 @@
       <div>
         <strong>misthos2026.gr</strong>
         <p class="small">Υπολογιστής καθαρού μισθού και οδηγοί για μισθούς, ΕΦΚΑ και Ψηφιακή Κάρτα Εργασίας.</p>
+        <p class="small" style="margin:8px 0 0 0">
+          <a href="/about.html">About</a> ·
+          <a href="/contact.html">Επικοινωνία</a>
+        </p>
       </div>
       <div>
         <strong>Χρήσιμες ενότητες</strong>
         <ul class="small" style="list-style:disc; padding-left:18px">
-          <li><a href="#guide">Οδηγός υπολογισμού μισθού</a></li>
-          <li><a href="#digital-card">Ψηφιακή Κάρτα & ΕΡΓΑΝΗ ΙΙ</a></li>
-          <li><a href="#faq">Συχνές ερωτήσεις</a></li>
-          <li><a href="#glossary">Γλωσσάρι</a></li>
+          <li><a href="/articles/katotatos-misthos-2026.html">Κατώτατος μισθός 2026</a></li>
+          <li><a href="/articles/katharos-misthos-odigos.html">Οδηγός καθαρού μισθού</a></li>
+          <li><a href="/articles/psifiaki-karta-ergani.html">Ψηφιακή Κάρτα & ΕΡΓΑΝΗ ΙΙ</a></li>
         </ul>
       </div>
       <div>
-        <strong>Νομική σημείωση</strong>
+        <strong>Νομικά</strong>
+        <ul class="small" style="list-style:disc; padding-left:18px">
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Όροι Χρήσης</a></li>
+        </ul>
         <p class="small">
           Καμία πληροφορία στον ιστότοπο δεν υποκαθιστά επίσημες εγκυκλίους ή εξατομικευμένη συμβουλή.
-          Για δεσμευτικές απαντήσεις απευθυνθείτε στον σύμβουλο εργασιακών ή φοροτεχνικό σας.
         </p>
       </div>
     </div>
@@ -566,7 +548,6 @@
 
     function rates2026(ageBand, children) {
       const r = [0,0,0,0,0,0];
-
       const isLe25  = ageBand === '<=25';
       const is26_30 = ageBand === '26-30';
 
@@ -575,18 +556,13 @@
                         : (children===2?0.16
                         : (children===1?0.18:0.20)));
 
-      // 0–10k
       r[0] = isLe25 ? 0 : 0.09;
 
-      // 10–20k
       if (isLe25) r[1] = 0;
       else if (is26_30) r[1] = Math.min(0.09, child10_20);
       else r[1] = child10_20;
 
-      // 20–30k
       r[2] = (children>=5)?0.16:(children===4?0.18:(children===3?0.20:(children===2?0.22:(children===1?0.24:0.26))));
-
-      // 30–40k, 40–60k, 60k+
       r[3] = 0.34; r[4] = 0.39; r[5] = 0.44;
       return r;
     }
@@ -604,16 +580,14 @@
       return tax;
     }
 
-    // αναλογική μείωση
     function taxCredit(children, taxableAnnual) {
       const baseArr = [777, 900, 1120, 1340, 1580, 1780, 2000, 2220, 2440];
       const base = (children <= 8) ? baseArr[children] : (2440 + 220 * (children - 8));
       if (children >= 5) return r2(Math.max(0, base));
-      const reduction = r2(Math.max(0, taxableAnnual - 12000) * 0.02); // = 20€/1000
+      const reduction = r2(Math.max(0, taxableAnnual - 12000) * 0.02);
       return r2(Math.max(0, base - reduction));
     }
 
-    /* ===== Helpers UI ===== */
     function animateNumbers(root) {
       root.querySelectorAll('.num').forEach(el => {
         const end = Number(el.dataset.amount) || 0;
@@ -663,7 +637,6 @@
       `;
     }
 
-    /* ===== Ρόλοι ===== */
     function roleExtraEmployeeRate(role){ return role === 'seller' ? 0.04 : 0; }
     function applyRoleDefaults(){
       const role = document.getElementById('role').value;
@@ -681,7 +654,6 @@
       }
     }
 
-    /* ===== Υπολογισμός ===== */
     function calc(){
       const gross     = n(document.getElementById('gross').value);
       const payMonths = n(document.getElementById('payMonths').value, 14);
@@ -742,7 +714,6 @@
       const res = document.getElementById('results');
       res.classList.remove('hide');
 
-      // (κρατάμε το compare μόνο όταν επιλέγεται 2026 και θες να το συγκρίνεις)
       let cmpHTML = '';
       if (year === 2026) {
         const tax25_before = annualTax2025(taxableAnnualForTax);
