@@ -871,5 +871,18 @@
 
     bind();
   </script>
+
+<script type="text/javascript" src="//go.linkwi.se/delivery/js/crl.js"></script>
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function () {
+    if (window.LinkwiseCreative) {
+      LinkwiseCreative.show("13117-139", "CD28335", "_blank");
+      console.log('Linkwise called');
+    } else {
+      console.log('Linkwise NOT loaded');
+    }
+  });
+</script>
+
 </body>
 </html>
