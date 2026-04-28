@@ -1,69 +1,87 @@
+Ναι — πάρε ολόκληρο έτοιμο index.html με:
+
+* Linkwise μέσα
+* όμορφα κουμπιά
+* μεγαλύτερο κουμπί υπολογισμού
+* διορθωμένο πλαίσιο άρθρων
+* χωρίς να αφαιρεθεί διαφήμιση
+
 <!doctype html>
 <html lang="el">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Υπολογισμός Καθαρού Μισθού — Ελλάδα 2026</title>
+  <title>Υπολογισμός Καθαρού Μισθού — Ελλάδα (2026)</title>
+  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="%2360a5fa"/><path d="M50 18 L80 38 L70 78 L30 78 L20 38 Z" fill="white" opacity="0.9"/></svg>'>
+  <meta name="description" content="Δωρεάν online εργαλείο για υπολογισμό καθαρού μισθού στην Ελλάδα (2026). Υπολογίζει εισφορές, φόρο, καθαρά και κόστος εργοδότη." />
+  <link rel="canonical" href="https://misthos2026.gr/" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Υπολογισμός Καθαρού Μισθού — Ελλάδα (2026)" />
+  <meta property="og:description" content="Υπολογισμός καθαρού μισθού, ΕΦΚΑ και φόρου για Ελλάδα." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://misthos2026.gr/" />
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4164020794215422" crossorigin="anonymous"></script>
   <style>
-    :root{
-      --bg:#f5f7fb;
+    :root {
+      --bg:#f7f7fb;
       --card:#ffffff;
       --ink:#0f172a;
-      --muted:#64748b;
-      --primary:#204a99;
-      --primary-dark:#163a7a;
+      --mut:#64748b;
+      --pri:#204a99;
+      --pri-dark:#163a7a;
       --line:#dbe3ee;
-      --soft:#eef4ff;
-      --success:#16a34a;
+      --ok:#16a34a;
+      --soft:#eef2ff;
     }
     *{box-sizing:border-box}
     body{
       margin:0;
-      background:var(--bg);
       color:var(--ink);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      line-height:1.45;
+      background:var(--bg);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial;
+      -webkit-font-smoothing:antialiased;
     }
     header{
       position:sticky;
       top:0;
       z-index:10;
-      background:linear-gradient(90deg,#eaf1ff,#ffffff);
+      background:linear-gradient(90deg,#e6eefc,#f7f7fb);
       border-bottom:1px solid var(--line);
-      box-shadow:0 2px 10px rgba(15,23,42,.04);
+      box-shadow:0 2px 12px rgba(15,23,42,.05);
     }
     .topbar{
       max-width:1200px;
-      margin:auto;
+      margin:0 auto;
       padding:14px 16px;
       display:flex;
-      justify-content:space-between;
+      gap:14px;
       align-items:center;
-      gap:16px;
+      justify-content:space-between;
     }
     .brand{
       display:flex;
-      align-items:center;
       gap:10px;
-      min-width:260px;
+      align-items:center;
+      min-width:280px;
     }
     .logo{
       width:34px;
       height:34px;
-      border-radius:50%;
+      border-radius:999px;
       background:#60a5fa;
-      box-shadow:0 4px 12px rgba(96,165,250,.35);
+      box-shadow:0 4px 14px rgba(96,165,250,.35);
     }
     h1{
       margin:0;
       font-size:18px;
-      color:var(--primary);
+      color:var(--pri);
     }
     nav{
       display:flex;
       flex-wrap:wrap;
-      gap:6px;
       justify-content:flex-end;
+      gap:6px;
     }
     nav a{
       color:#0f172a;
@@ -77,8 +95,13 @@
     }
     main{
       max-width:1200px;
-      margin:auto;
-      padding:18px 16px 32px;
+      margin:0 auto;
+      padding:18px 16px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:16px;
     }
     .card{
       background:var(--card);
@@ -89,53 +112,16 @@
       margin-bottom:16px;
     }
     .card h2{
-      margin:0 0 8px;
+      margin:0 0 8px 0;
       font-size:18px;
     }
-    .muted{
-      color:var(--muted);
-    }
-    .article-grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:12px;
-      margin-top:12px;
-    }
-    .article-card{
-      border:1px solid var(--line);
-      border-radius:14px;
-      padding:14px;
-      background:#fff;
-      min-height:130px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      box-shadow:0 2px 8px rgba(15,23,42,.04);
-    }
-    .article-card a{
-      color:var(--primary);
-      font-weight:800;
-      text-decoration:none;
-    }
-    .article-card a:hover{
-      text-decoration:underline;
-    }
-    .small{
-      font-size:13px;
-      color:var(--muted);
-    }
-    .grid{
-      display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:16px;
-    }
+    .muted{color:var(--mut)}
     label{
       display:block;
       font-weight:700;
       margin-top:12px;
     }
-    input[type="number"],
-    select{
+    input[type="number"], select{
       width:100%;
       padding:11px 12px;
       border:1px solid #cbd5e1;
@@ -143,10 +129,9 @@
       background:#fff;
       font-size:15px;
     }
-    input[type="number"]:focus,
-    select:focus{
+    input[type="number"]:focus, select:focus{
       outline:none;
-      border-color:var(--primary);
+      border-color:var(--pri);
       box-shadow:0 0 0 3px rgba(32,74,153,.14);
     }
     .row{
@@ -156,15 +141,16 @@
     }
     .help{
       font-size:12px;
-      color:var(--muted);
+      color:var(--mut);
       margin-top:4px;
     }
     .foot{
       margin-top:18px;
       display:flex;
       gap:10px;
-      justify-content:flex-end;
       flex-wrap:wrap;
+      justify-content:flex-end;
+      align-items:center;
     }
     button{
       border:1px solid transparent;
@@ -172,16 +158,16 @@
       border-radius:13px;
       font-weight:800;
       cursor:pointer;
-      transition:transform .15s ease, box-shadow .15s ease;
+      transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
     }
     button:hover{
       transform:translateY(-1px);
       box-shadow:0 6px 16px rgba(15,23,42,.12);
     }
     .btn{
-      background:var(--primary);
+      background:var(--pri);
       color:#fff;
-      border-color:var(--primary-dark);
+      border-color:var(--pri-dark);
       box-shadow:0 3px 10px rgba(32,74,153,.25);
     }
     .btn.secondary{
@@ -197,6 +183,7 @@
     .result{
       display:flex;
       justify-content:space-between;
+      align-items:center;
       gap:12px;
       padding:9px 0;
       border-bottom:1px dashed var(--line);
@@ -207,57 +194,115 @@
       white-space:nowrap;
     }
     .result.total{
-      margin-top:10px;
+      font-size:18px;
       background:#ecfdf5;
+      padding:13px 12px;
       border:1px solid #bbf7d0;
       border-radius:12px;
-      padding:13px 12px;
-      font-size:18px;
       font-weight:900;
+      margin-top:10px;
+    }
+    .pill{
+      display:inline-block;
+      padding:4px 8px;
+      border-radius:999px;
+      background:var(--soft);
+      color:#3730a3;
+      font-size:12px;
+    }
+    #results{
+      opacity:1;
+      transform:translateY(0);
+      transition:opacity .35s ease, transform .35s ease;
+    }
+    #results.hide{
+      opacity:0;
+      transform:translateY(6px);
+    }
+    .subsection-title{
+      margin:16px 0 6px;
+      font-size:13px;
+      color:var(--mut);
+      letter-spacing:.2px;
+      text-transform:uppercase;
+      font-weight:800;
+    }
+    .compact .result{
+      padding:7px 0;
+      font-size:13px;
+    }
+    .compact .result.total{
+      font-size:14px;
+      padding:9px 8px;
     }
     .section-title{
       font-size:20px;
       margin:26px 0 10px;
     }
-    .pill{
-      display:inline-block;
-      padding:4px 9px;
-      border-radius:999px;
-      background:var(--soft);
-      color:#3730a3;
-      font-size:12px;
-      vertical-align:middle;
+    table{
+      border-collapse:collapse;
+      width:100%;
     }
-    .subsection-title{
-      margin:16px 0 6px;
+    th,td{
+      padding:8px 6px;
+      border-bottom:1px solid var(--line);
+      text-align:left;
+    }
+    td.right, th.right{text-align:right}
+    details summary{cursor:pointer}
+    .small{
       font-size:13px;
-      color:var(--muted);
-      letter-spacing:.2px;
-      text-transform:uppercase;
+      color:var(--mut);
+    }
+    .article-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+      margin-top:12px;
+      align-items:stretch;
+    }
+    .article-card{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:14px;
+      background:#fff;
+      min-height:125px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      box-shadow:0 2px 8px rgba(15,23,42,.04);
+    }
+    .article-card a{
+      color:var(--pri);
+      text-decoration:none;
       font-weight:800;
     }
-    details{
-      margin-top:10px;
+    .article-card a:hover{text-decoration:underline}
+    .article-card p{
+      margin-bottom:0;
     }
-    summary{
-      cursor:pointer;
+    .ad-card{
+      text-align:center;
+      padding:20px;
+      overflow:hidden;
     }
     footer{
+      margin-top:28px;
       border-top:1px solid var(--line);
-      background:#fff;
+      background:#fbfbfe;
     }
     .footgrid{
       max-width:1200px;
-      margin:auto;
-      padding:18px 16px;
+      margin:0 auto;
+      padding:16px;
       display:grid;
       grid-template-columns:1fr 1fr 1fr;
       gap:16px;
     }
-    @media(max-width:920px){
+    @media (max-width:920px){
       .topbar{
-        align-items:flex-start;
         flex-direction:column;
+        align-items:flex-start;
       }
       nav{
         justify-content:flex-start;
@@ -287,14 +332,16 @@
     <div class="topbar">
       <div class="brand">
         <span class="logo"></span>
-        <h1>Υπολογισμός Καθαρού Μισθού 2026</h1>
+        <h1>Υπολογισμός Καθαρού Μισθού (2026)</h1>
       </div>
       <nav>
         <a href="#articles">Άρθρα</a>
         <a href="#calculator">Υπολογιστής</a>
-        <a href="#guide">Οδηγός</a>
+        <a href="#guide">Οδηγός μισθού</a>
+        <a href="#digital-card">Ψηφιακή Κάρτα</a>
         <a href="#faq">FAQ</a>
-        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Επικοινωνία</a>
       </nav>
     </div>
   </header>
@@ -302,37 +349,58 @@
     <section id="articles" class="card">
       <h2>Άρθρα & οδηγοί</h2>
       <p class="muted">
-        Χρήσιμοι οδηγοί για να καταλαβαίνεις πώς βγαίνουν οι κρατήσεις, ο φόρος και ο καθαρός μισθός.
+        Εκτός από τον υπολογιστή, υπάρχουν σύντομοι οδηγοί με παραδείγματα για φόρο, ΕΦΚΑ και εργασιακά.
       </p>
       <div class="article-grid">
         <div class="article-card">
-          <a href="/articles/katotatos-misthos-2026.html">Κατώτατος μισθός 2026</a>
-          <p class="small">Τι αλλάζει σε καθαρά, εισφορές και κόστος εργοδότη.</p>
+          <a href="/articles/katotatos-misthos-2026.html">Κατώτατος μισθός 2026: τι αλλάζει</a>
+          <p class="small">Πρακτική σύνοψη με παραδείγματα για καθαρά, εισφορές και κόστος εργοδότη.</p>
         </div>
         <div class="article-card">
           <a href="/articles/katharos-misthos-odigos.html">Πώς υπολογίζεται ο καθαρός μισθός</a>
-          <p class="small">Μικτά → εισφορές → φορολογητέο → φόρος → καθαρά.</p>
+          <p class="small">Βήμα-βήμα: μικτά → εισφορές → φορολογητέο → παρακράτηση → καθαρά.</p>
         </div>
         <div class="article-card">
-          <a href="/articles/psifiaki-karta-ergani.html">Ψηφιακή Κάρτα & ΕΡΓΑΝΗ ΙΙ</a>
-          <p class="small">Τι σημαίνει πρακτικά για εργαζόμενους και εργοδότες.</p>
+          <a href="/articles/psifiaki-karta-ergani.html">Ψηφιακή Κάρτα Εργασίας & ΕΡΓΑΝΗ ΙΙ</a>
+          <p class="small">Τι σημαίνει στην πράξη και τι να προσέχεις ως εργαζόμενος.</p>
         </div>
       </div>
+      <p class="small">
+        Δες επίσης:
+        <a href="/privacy-policy.html">Privacy Policy</a> •
+        <a href="/terms.html">Όροι χρήσης</a>
+      </p>
     </section>
+    <!-- Linkwise Ad -->
+    <section class="card ad-card">
+      <script src="https://go.linkwi.se/delivery/js/crl.js"></script>
+      <script>
+        window.addEventListener("load", function(){
+          try {
+            if (window.LinkwiseCreative) {
+              LinkwiseCreative.show("13117-139", "CD28335", "_blank");
+            }
+          } catch (e) {
+            console.log(e);
+          }
+        });
+      </script>
+    </section>
+    <!-- /Linkwise Ad -->
     <div id="calculator" class="grid">
       <section class="card">
         <h2>Υπολογιστής καθαρού μισθού</h2>
         <p class="muted">
-          Συμπλήρωσε τα στοιχεία σου και πάτησε υπολογισμό.
+          Συμπλήρωσε τα στοιχεία σου και πάτησε «Υπολογισμός καθαρού μισθού».
         </p>
-        <label for="gross">Μικτός μηνιαίος μισθός (€)</label>
-        <input id="gross" type="number" min="0" step="0.01" placeholder="π.χ. 1200">
+        <label for="gross">Μικτός Μηνιαίος Μισθός (€)</label>
+        <input id="gross" type="number" min="0" step="0.01" placeholder="π.χ. 1.200" inputmode="decimal" />
         <div class="row">
           <div>
             <label for="payMonths">Μισθοί ανά έτος</label>
             <select id="payMonths">
-              <option value="14" selected>14 μισθοί</option>
-              <option value="12">12 μισθοί</option>
+              <option value="14">14 (δώρο/επιδόματα)</option>
+              <option value="12">12</option>
             </select>
           </div>
           <div>
@@ -347,21 +415,27 @@
           <div>
             <label for="children">Εξαρτώμενα τέκνα</label>
             <select id="children">
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4+</option>
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
             </select>
           </div>
           <div>
             <label for="ageBand">Ηλικία εργαζομένου</label>
             <select id="ageBand">
               <option value="<=25">έως 25</option>
-              <option value="26-30">26–30</option>
+              <option value="26-30">25–30</option>
               <option value="31+" selected>30+</option>
             </select>
-            <div class="help">Αφορά την ηλικία την 01/01/2026.</div>
+            <div class="help">Αφορά την ηλικία σας την 01/01/2026.</div>
           </div>
         </div>
         <label for="role">Ειδικότητα</label>
@@ -371,25 +445,25 @@
           <option value="engineer">Μηχανικός</option>
         </select>
         <label>
-          <input id="repat" type="checkbox">
-          Επαναπατρισθείς άρθρο 5Γ — 50% απαλλαγή φόρου
+          <input id="repat" type="checkbox" />
+          Επαναπατρισθείς άρθρο 5Γ — 50% απαλλαγή φόρου μισθωτών
         </label>
         <details>
-          <summary><strong>Προχωρημένα</strong></summary>
+          <summary><strong>Προχωρημένα (συντελεστές)</strong></summary>
           <div class="row">
             <div>
               <label for="efkaEmployee">Εισφορές εργαζομένου</label>
-              <input id="efkaEmployee" type="number" step="0.0001" value="0.1337">
+              <input id="efkaEmployee" type="number" step="0.0001" min="0" max="1" value="0.1337" />
               <div class="help">0.1337 = 13,37%</div>
             </div>
             <div>
               <label for="efkaEmployer">Εισφορές εργοδότη</label>
-              <input id="efkaEmployer" type="number" step="0.0001" value="0.2179">
+              <input id="efkaEmployer" type="number" step="0.0001" min="0" max="1" value="0.2179" />
               <div class="help">0.2179 = 21,79%</div>
             </div>
           </div>
           <label for="efkaCap">Μηνιαίο πλαφόν ασφαλιστέων (€)</label>
-          <input id="efkaCap" type="number" step="0.01" value="7572.62">
+          <input id="efkaCap" type="number" step="0.01" min="0" value="7572.62" />
         </details>
         <div class="foot">
           <button id="resetBtn" class="btn secondary" type="button">Επαναφορά</button>
@@ -400,35 +474,45 @@
         </p>
       </section>
       <section class="card">
-        <h2>Αποτελέσματα <span id="badge" class="pill">2026</span></h2>
-        <div id="results"></div>
+        <h2>Αποτελέσματα <span id="badge" class="pill">Έτος: 2026</span></h2>
+        <div id="results" class="hide"></div>
       </section>
     </div>
-    <h2 id="guide" class="section-title">Οδηγός υπολογισμού</h2>
+    <h2 id="guide" class="section-title">Οδηγός: Πώς υπολογίζεται ο καθαρός μισθός</h2>
     <section class="card">
       <p>
-        Ο καθαρός μισθός προκύπτει από τον μικτό μισθό αφού αφαιρεθούν οι εισφορές εργαζομένου και ο φόρος εισοδήματος.
+        Ο καθαρός μισθός είναι το ποσό που απομένει μετά τις εισφορές εργαζομένου και την παρακράτηση φόρου.
       </p>
       <ul>
-        <li><strong>Μικτός μισθός:</strong> το ποσό πριν τις κρατήσεις.</li>
-        <li><strong>ΕΦΚΑ εργαζομένου:</strong> ασφαλιστικές εισφορές που αφαιρούνται από τον μισθό.</li>
-        <li><strong>Φόρος:</strong> υπολογίζεται ετησίως και επιμερίζεται στους μισθούς.</li>
-        <li><strong>Καθαρός μισθός:</strong> το τελικό ποσό που λαμβάνει ο εργαζόμενος.</li>
+        <li><strong>Καθαρός μισθός:</strong> Μικτός − εισφορές εργαζομένου − φόρος.</li>
+        <li><strong>Ετήσιες καθαρές αποδοχές:</strong> ετήσια μικτά − ετήσιες κρατήσεις.</li>
+        <li><strong>Κόστος εργοδότη:</strong> μικτός μισθός + εισφορές εργοδότη.</li>
+      </ul>
+    </section>
+    <h2 id="digital-card" class="section-title">Ψηφιακή Κάρτα Εργασίας & ΕΡΓΑΝΗ ΙΙ</h2>
+    <section class="card">
+      <p>
+        Η Ψηφιακή Κάρτα Εργασίας καταγράφει ηλεκτρονικά τα ωράρια και διασυνδέεται με το ΕΡΓΑΝΗ ΙΙ.
+      </p>
+      <ul>
+        <li>Έλεγξε ότι κάθε είσοδος και έξοδος καταγράφεται σωστά.</li>
+        <li>Σε πρόβλημα, ενημέρωσε HR ή λογιστήριο.</li>
+        <li>Κράτα screenshot αν υπάρχει ασυμφωνία.</li>
       </ul>
     </section>
     <h2 id="faq" class="section-title">Συχνές ερωτήσεις</h2>
     <section class="card">
       <details>
-        <summary><strong>Είναι ακριβής ο υπολογισμός;</strong></summary>
-        <p>Είναι ενδεικτικός. Σε ειδικές περιπτώσεις χρειάζεται λογιστής.</p>
+        <summary><strong>12 ή 14 μισθοί;</strong></summary>
+        <p>Με 14 μισθούς υπάρχουν δώρα και επιδόματα. Ο ετήσιος υπολογισμός εξαρτάται από την επιλογή.</p>
       </details>
       <details>
-        <summary><strong>Τι σημαίνει 12 ή 14 μισθοί;</strong></summary>
-        <p>Με 14 μισθούς υπάρχουν δώρα και επιδόματα. Ο ετήσιος υπολογισμός αλλάζει ανάλογα με την επιλογή.</p>
+        <summary><strong>Το εργαλείο αποτελεί φορολογική συμβουλή;</strong></summary>
+        <p>Όχι. Είναι ενημερωτικό εργαλείο. Για αποφάσεις χρειάζεται λογιστής ή φοροτεχνικός.</p>
       </details>
       <details>
         <summary><strong>Τι είναι το άρθρο 5Γ;</strong></summary>
-        <p>Ειδικό φορολογικό καθεστώς όπου φορολογείται το 50% του εισοδήματος από μισθωτή εργασία.</p>
+        <p>Για επιλέξιμους επαναπατρισθέντες, φορολογείται το 50% του εισοδήματος από μισθωτή εργασία.</p>
       </details>
     </section>
   </main>
@@ -436,142 +520,178 @@
     <div class="footgrid">
       <div>
         <strong>misthos2026.gr</strong>
-        <p class="small">Υπολογιστής καθαρού μισθού για την Ελλάδα.</p>
+        <p class="small">Υπολογιστής καθαρού μισθού και οδηγοί για μισθούς, ΕΦΚΑ και εργασιακά.</p>
       </div>
       <div>
-        <strong>Χρήσιμα</strong>
-        <p class="small">
-          <a href="#calculator">Υπολογιστής</a><br>
-          <a href="#guide">Οδηγός</a><br>
-          <a href="#faq">FAQ</a>
-        </p>
+        <strong>Χρήσιμες ενότητες</strong>
+        <ul class="small">
+          <li><a href="#calculator">Υπολογιστής</a></li>
+          <li><a href="#guide">Οδηγός μισθού</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
       </div>
       <div>
         <strong>Νομικά</strong>
-        <p class="small">
-          <a href="/privacy-policy.html">Privacy Policy</a><br>
-          <a href="/terms.html">Όροι χρήσης</a>
-        </p>
+        <ul class="small">
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Όροι Χρήσης</a></li>
+        </ul>
       </div>
     </div>
   </footer>
   <script>
     const fmt = new Intl.NumberFormat('el-GR', {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
+      minimumFractionDigits:2,
+      maximumFractionDigits:2
     });
     const r2 = x => Math.round((Number(x) + Number.EPSILON) * 100) / 100;
-    const val = id => Number(document.getElementById(id).value) || 0;
-    function taxCredit(children, taxableAnnual){
-      const base = [777, 900, 1120, 1340, 1580][Math.min(children, 4)];
-      const reduction = Math.max(0, taxableAnnual - 12000) * 0.02;
-      return Math.max(0, base - reduction);
-    }
-    function annualTax2025(income){
-      let tax = 0;
-      if(income > 0) tax += Math.min(income, 10000) * 0.09;
-      if(income > 10000) tax += Math.min(income - 10000, 10000) * 0.22;
-      if(income > 20000) tax += Math.min(income - 20000, 10000) * 0.28;
-      if(income > 30000) tax += Math.min(income - 30000, 10000) * 0.36;
-      if(income > 40000) tax += (income - 40000) * 0.44;
-      return tax;
-    }
-    function annualTax2026(income, ageBand, children){
-      let rates;
-      if(ageBand === '<=25'){
-        rates = [0, 0, 0.22, 0.34, 0.39, 0.44];
-      } else if(ageBand === '26-30'){
-        rates = [0.09, 0.09, 0.22, 0.34, 0.39, 0.44];
-      } else {
-        rates = [0.09, 0.20, 0.26, 0.34, 0.39, 0.44];
-      }
-      if(children >= 1) rates[1] = Math.max(0.18, rates[1] - 0.02);
-      if(children >= 2) rates[1] = Math.max(0.16, rates[1] - 0.02);
-      if(children >= 3) rates[1] = Math.max(0.09, rates[1] - 0.07);
-      if(children >= 4) rates[1] = 0;
-      const limits = [10000, 20000, 30000, 40000, 60000];
-      let prev = 0;
-      let tax = 0;
-      for(let i = 0; i < rates.length; i++){
-        const upper = limits[i] || Infinity;
-        const part = Math.max(0, Math.min(income, upper) - prev);
-        tax += part * rates[i];
-        prev = upper;
-        if(income <= upper) break;
-      }
-      return tax;
-    }
+    const n = (v,f=0) => {
+      const x = Number(v);
+      return isFinite(x) ? x : f;
+    };
     function euro(x){
       return '€ ' + fmt.format(r2(x));
     }
-    function renderZero(){
-      document.getElementById('results').innerHTML = `
+    function annualTax2025(income){
+      let tax = 0;
+      if(income > 0) tax += Math.min(income,10000) * 0.09;
+      if(income > 10000) tax += Math.min(income-10000,10000) * 0.22;
+      if(income > 20000) tax += Math.min(income-20000,10000) * 0.28;
+      if(income > 30000) tax += Math.min(income-30000,10000) * 0.36;
+      if(income > 40000) tax += (income-40000) * 0.44;
+      return tax;
+    }
+    function rates2026(ageBand, children){
+      const r = [0,0,0,0,0,0];
+      const isLe25 = ageBand === '<=25';
+      const is26_30 = ageBand === '26-30';
+      const child10_20 = children >= 4 ? 0 :
+        children === 3 ? 0.09 :
+        children === 2 ? 0.16 :
+        children === 1 ? 0.18 : 0.20;
+      r[0] = isLe25 ? 0 : 0.09;
+      if(isLe25) r[1] = 0;
+      else if(is26_30) r[1] = Math.min(0.09, child10_20);
+      else r[1] = child10_20;
+      r[2] = children >= 5 ? 0.16 :
+        children === 4 ? 0.18 :
+        children === 3 ? 0.20 :
+        children === 2 ? 0.22 :
+        children === 1 ? 0.24 : 0.26;
+      r[3] = 0.34;
+      r[4] = 0.39;
+      r[5] = 0.44;
+      return r;
+    }
+    function annualTax2026(income, ageBand, children){
+      const bounds = [0,10000,20000,30000,40000,60000,Infinity];
+      const rates = rates2026(ageBand, children);
+      let tax = 0;
+      for(let i=0;i<6;i++){
+        const amount = Math.max(0, Math.min(income, bounds[i+1]) - bounds[i]);
+        if(amount <= 0) continue;
+        tax += amount * rates[i];
+      }
+      return tax;
+    }
+    function taxCredit(children, taxableAnnual){
+      const baseArr = [777,900,1120,1340,1580,1780,2000,2220,2440];
+      const base = children <= 8 ? baseArr[children] : 2440 + 220 * (children - 8);
+      if(children >= 5) return r2(base);
+      const reduction = Math.max(0, taxableAnnual - 12000) * 0.02;
+      return r2(Math.max(0, base - reduction));
+    }
+    function zeroResults(){
+      const res = document.getElementById('results');
+      res.classList.remove('hide');
+      res.innerHTML = `
         <div class="result"><div>Εισφορές εργαζομένου</div><div class="val">€ 0,00</div></div>
         <div class="result"><div>Παρακρατούμενος φόρος</div><div class="val">€ 0,00</div></div>
         <div class="result total"><div>Καθαρός μηνιαίος</div><div class="val">€ 0,00</div></div>
         <div class="subsection-title">Ετήσια εικόνα</div>
-        <div class="result"><div>Μικτές ετήσιες αποδοχές</div><div class="val">€ 0,00</div></div>
-        <div class="result"><div>Ετήσιες εισφορές</div><div class="val">€ 0,00</div></div>
-        <div class="result"><div>Ετήσιος φόρος</div><div class="val">€ 0,00</div></div>
-        <div class="result total"><div>Καθαρές ετήσιες αποδοχές</div><div class="val">€ 0,00</div></div>
+        <div class="compact">
+          <div class="result"><div>Μικτές ετήσιες αποδοχές</div><div class="val">€ 0,00</div></div>
+          <div class="result"><div>Ετήσιες εισφορές εργαζομένου</div><div class="val">€ 0,00</div></div>
+          <div class="result"><div>Ετήσιος φόρος</div><div class="val">€ 0,00</div></div>
+          <div class="result total"><div>Καθαρές ετήσιες αποδοχές</div><div class="val">€ 0,00</div></div>
+        </div>
         <div class="subsection-title">Κόστος εργοδότη</div>
-        <div class="result"><div>Εισφορές εργοδότη μηνιαίες</div><div class="val">€ 0,00</div></div>
-        <div class="result"><div>Συνολικό κόστος εργοδότη μηνιαίο</div><div class="val">€ 0,00</div></div>
+        <div class="compact">
+          <div class="result"><div>Εισφορές εργοδότη μηνιαίες</div><div class="val">€ 0,00</div></div>
+          <div class="result"><div>Συνολικό κόστος εργοδότη μηνιαίο</div><div class="val">€ 0,00</div></div>
+          <div class="result"><div>Συνολικό κόστος εργοδότη ετήσιο</div><div class="val">€ 0,00</div></div>
+        </div>
       `;
     }
-    function calculate(){
-      const gross = val('gross');
-      const payMonths = val('payMonths') || 14;
-      const taxYear = val('taxYear') || 2026;
-      const children = val('children');
+    function applyRoleDefaults(){
+      const role = document.getElementById('role').value;
+      const emp = document.getElementById('efkaEmployee');
+      const erg = document.getElementById('efkaEmployer');
+      if(role === 'engineer'){
+        emp.value = '0.1037';
+        erg.value = '0.1879';
+      } else {
+        emp.value = '0.1337';
+        erg.value = '0.2179';
+      }
+    }
+    function calc(){
+      const gross = n(document.getElementById('gross').value);
+      const payMonths = n(document.getElementById('payMonths').value,14);
+      const year = n(document.getElementById('taxYear').value,2026);
+      const children = n(document.getElementById('children').value,0);
       const ageBand = document.getElementById('ageBand').value;
       const role = document.getElementById('role').value;
       const repat = document.getElementById('repat').checked;
-      let empRate = val('efkaEmployee') || 0.1337;
-      let employerRate = val('efkaEmployer') || 0.2179;
-      const cap = val('efkaCap') || 7572.62;
+      let empRate = n(document.getElementById('efkaEmployee').value,0.1337);
+      let employerRate = n(document.getElementById('efkaEmployer').value,0.2179);
+      const cap = n(document.getElementById('efkaCap').value,7572.62);
       if(role === 'seller') empRate += 0.04;
-      if(role === 'engineer'){
-        empRate = 0.1037;
-        employerRate = 0.1879;
-      }
-      const insured = Math.min(gross, cap);
-      const employeeContribMonthly = r2(insured * empRate);
-      const employerContribMonthly = r2(insured * employerRate);
+      const insuredMonthly = Math.min(gross, cap);
+      const employeeContribMonthly = r2(insuredMonthly * empRate);
+      const employerContribMonthly = r2(insuredMonthly * employerRate);
       const annualGross = r2(gross * payMonths);
-      const annualEmployeeContrib = r2(employeeContribMonthly * payMonths);
-      const taxableAnnual = r2(annualGross - annualEmployeeContrib);
-      const taxableForTax = repat ? taxableAnnual * 0.5 : taxableAnnual;
-      const taxBeforeCredit = taxYear === 2026
+      const annualContrib = r2(employeeContribMonthly * payMonths);
+      const taxableAnnual = r2(annualGross - annualContrib);
+      const taxableForTax = repat ? r2(taxableAnnual * 0.5) : taxableAnnual;
+      const taxBeforeCredit = year === 2026
         ? annualTax2026(taxableForTax, ageBand, children)
         : annualTax2025(taxableForTax);
       const credit = taxCredit(children, taxableForTax);
       const annualTax = r2(Math.max(0, taxBeforeCredit - credit));
       const monthlyTax = r2(annualTax / payMonths);
       const netMonthly = r2(gross - employeeContribMonthly - monthlyTax);
-      const netAnnual = r2(annualGross - annualEmployeeContrib - annualTax);
+      const netAnnual = r2(annualGross - annualContrib - annualTax);
       const employerMonthlyCost = r2(gross + employerContribMonthly);
       const employerAnnualCost = r2(employerMonthlyCost * payMonths);
-      document.getElementById('badge').textContent = taxYear + (repat ? ' • 5Γ' : '');
-      document.getElementById('results').innerHTML = `
+      document.getElementById('badge').textContent =
+        `Έτος: ${year}` + (repat ? ' • 5Γ' : '');
+      const res = document.getElementById('results');
+      res.classList.remove('hide');
+      res.innerHTML = `
         <div class="result"><div>Εισφορές εργαζομένου</div><div class="val">${euro(employeeContribMonthly)}</div></div>
         <div class="result"><div>Παρακρατούμενος φόρος</div><div class="val">${euro(monthlyTax)}</div></div>
         <div class="result total"><div>Καθαρός μηνιαίος</div><div class="val">${euro(netMonthly)}</div></div>
         <div class="subsection-title">Ετήσια εικόνα</div>
-        <div class="result"><div>Μικτές ετήσιες αποδοχές</div><div class="val">${euro(annualGross)}</div></div>
-        <div class="result"><div>Ετήσιες εισφορές εργαζομένου</div><div class="val">${euro(annualEmployeeContrib)}</div></div>
-        <div class="result"><div>Ετήσιο φορολογητέο</div><div class="val">${euro(taxableAnnual)}</div></div>
-        <div class="result"><div>Φόρος πριν την έκπτωση</div><div class="val">${euro(taxBeforeCredit)}</div></div>
-        <div class="result"><div>Έκπτωση φόρου</div><div class="val">${euro(credit)}</div></div>
-        <div class="result"><div>Ετήσιος φόρος</div><div class="val">${euro(annualTax)}</div></div>
-        <div class="result total"><div>Καθαρές ετήσιες αποδοχές</div><div class="val">${euro(netAnnual)}</div></div>
+        <div class="compact">
+          <div class="result"><div>Μικτές ετήσιες αποδοχές</div><div class="val">${euro(annualGross)}</div></div>
+          <div class="result"><div>Ετήσιες εισφορές εργαζομένου</div><div class="val">${euro(annualContrib)}</div></div>
+          <div class="result"><div>Ετήσιο φορολογητέο</div><div class="val">${euro(taxableAnnual)}</div></div>
+          ${repat ? `<div class="result"><div>Φορολογητέο με 5Γ</div><div class="val">${euro(taxableForTax)}</div></div>` : ''}
+          <div class="result"><div>Φόρος πριν την έκπτωση</div><div class="val">${euro(taxBeforeCredit)}</div></div>
+          <div class="result"><div>Έκπτωση φόρου</div><div class="val">${euro(credit)}</div></div>
+          <div class="result"><div>Ετήσιος φόρος</div><div class="val">${euro(annualTax)}</div></div>
+          <div class="result total"><div>Καθαρές ετήσιες αποδοχές</div><div class="val">${euro(netAnnual)}</div></div>
+        </div>
         <div class="subsection-title">Κόστος εργοδότη</div>
-        <div class="result"><div>Εισφορές εργοδότη μηνιαίες</div><div class="val">${euro(employerContribMonthly)}</div></div>
-        <div class="result"><div>Συνολικό κόστος εργοδότη μηνιαίο</div><div class="val">${euro(employerMonthlyCost)}</div></div>
-        <div class="result"><div>Συνολικό κόστος εργοδότη ετήσιο</div><div class="val">${euro(employerAnnualCost)}</div></div>
+        <div class="compact">
+          <div class="result"><div>Εισφορές εργοδότη μηνιαίες</div><div class="val">${euro(employerContribMonthly)}</div></div>
+          <div class="result"><div>Συνολικό κόστος εργοδότη μηνιαίο</div><div class="val">${euro(employerMonthlyCost)}</div></div>
+          <div class="result"><div>Συνολικό κόστος εργοδότη ετήσιο</div><div class="val">${euro(employerAnnualCost)}</div></div>
+        </div>
       `;
     }
-    document.getElementById('calcBtn').addEventListener('click', calculate);
+    document.getElementById('calcBtn').addEventListener('click', calc);
     document.getElementById('resetBtn').addEventListener('click', function(){
       document.getElementById('gross').value = '';
       document.getElementById('payMonths').value = '14';
@@ -583,10 +703,11 @@
       document.getElementById('efkaEmployee').value = '0.1337';
       document.getElementById('efkaEmployer').value = '0.2179';
       document.getElementById('efkaCap').value = '7572.62';
-      document.getElementById('badge').textContent = '2026';
-      renderZero();
+      document.getElementById('badge').textContent = 'Έτος: 2026';
+      zeroResults();
     });
-    renderZero();
+    document.getElementById('role').addEventListener('change', applyRoleDefaults);
+    zeroResults();
   </script>
 </body>
 </html>
