@@ -458,7 +458,46 @@
     }
   </style>
 </head>
+<!-- POPUP AD -->
+<div id="popupAd" style="display:none;">
+  <div style="
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    z-index:9999;
+  " onclick="closePopup()"></div>
 
+  <div style="
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    background:#fff;
+    padding:20px;
+    border-radius:16px;
+    z-index:10000;
+    max-width:90%;
+    text-align:center;
+  ">
+    <button onclick="closePopup()" style="
+      position:absolute;
+      top:5px;
+      right:10px;
+      border:none;
+      background:none;
+      font-size:18px;
+      cursor:pointer;
+    ">✕</button>
+
+    <!-- Η ΔΙΑΦΗΜΙΣΗ ΣΟΥ -->
+    <script type="text/javascript" src="//go.linkwi.se/delivery/js/crl.js"></script>
+    <script type="text/javascript">
+      LinkwiseCreative.show("13117-140", "CD28335", "_blank");
+    </script>
+
+  </div>
+</div>
+``
 <body>
   <header>
     <div class="topbar">
@@ -949,7 +988,13 @@
       `;
     }
 
-    document.getElementById('calcBtn').addEventListener('click', calc);
+    document.getElementById('calcBtn').addEventListener('click', function(){
+  calc();
+
+  setTimeout(() => {
+    showPopup();
+  }, 5000);
+});
 
     document.getElementById('resetBtn').addEventListener('click', function(){
       document.getElementById('gross').value = '';
@@ -969,6 +1014,15 @@
     document.getElementById('role').addEventListener('change', applyRoleDefaults);
 
     zeroResults();
+    
+function showPopup(){
+  document.getElementById('popupAd').style.display = 'block';
+}
+
+function closePopup(){
+  document.getElementById('popupAd').style.display = 'none';
+}
+
   </script>
 </body>
 </html>
