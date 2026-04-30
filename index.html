@@ -849,7 +849,7 @@ function closeAd(){
     function zeroResults(){
       const res = document.getElementById('results');
 
-      res.innerHTML = 
+      res.innerHTML = `
         <div class="result"><div>Εισφορές εργαζομένου</div><div class="val">€ 0,00</div></div>
         <div class="result"><div>Παρακρατούμενος φόρος</div><div class="val">€ 0,00</div></div>
         <div class="result total"><div>Καθαρός μηνιαίος</div><div class="val">€ 0,00</div></div>
@@ -868,7 +868,7 @@ function closeAd(){
           <div class="result"><div>Συνολικό κόστος εργοδότη μηνιαίο</div><div class="val">€ 0,00</div></div>
           <div class="result"><div>Συνολικό κόστος εργοδότη ετήσιο</div><div class="val">€ 0,00</div></div>
         </div>
-      ;
+      `;
     }
 
     function applyRoleDefaults(){
@@ -927,11 +927,11 @@ function closeAd(){
       const employerAnnualCost = r2(employerMonthlyCost * payMonths);
 
       document.getElementById('badge').textContent =
-        Έτος: ${year} + (repat ? ' • 5Γ' : '');
+        `Έτος: ${year}` + (repat ? ' • 5Γ' : '');
 
       const res = document.getElementById('results');
 
-      res.innerHTML = 
+      res.innerHTML = `
         <div class="result"><div>Εισφορές εργαζομένου</div><div class="val">${euro(employeeContribMonthly)}</div></div>
         <div class="result"><div>Παρακρατούμενος φόρος</div><div class="val">${euro(monthlyTax)}</div></div>
         <div class="result total"><div>Καθαρός μηνιαίος</div><div class="val">${euro(netMonthly)}</div></div>
@@ -941,7 +941,7 @@ function closeAd(){
           <div class="result"><div>Μικτές ετήσιες αποδοχές</div><div class="val">${euro(annualGross)}</div></div>
           <div class="result"><div>Ετήσιες εισφορές εργαζομένου</div><div class="val">${euro(annualContrib)}</div></div>
           <div class="result"><div>Ετήσιο φορολογητέο</div><div class="val">${euro(taxableAnnual)}</div></div>
-          ${repat ? <div class="result"><div>Φορολογητέο με 5Γ</div><div class="val">${euro(taxableForTax)}</div></div> : ''}
+          ${repat ? `<div class="result"><div>Φορολογητέο με 5Γ</div><div class="val">${euro(taxableForTax)}</div></div>` : ''}
           <div class="result"><div>Φόρος πριν την έκπτωση</div><div class="val">${euro(taxBeforeCredit)}</div></div>
           <div class="result"><div>Έκπτωση φόρου</div><div class="val">${euro(credit)}</div></div>
           <div class="result"><div>Ετήσιος φόρος</div><div class="val">${euro(annualTax)}</div></div>
@@ -954,7 +954,7 @@ function closeAd(){
           <div class="result"><div>Συνολικό κόστος εργοδότη μηνιαίο</div><div class="val">${euro(employerMonthlyCost)}</div></div>
           <div class="result"><div>Συνολικό κόστος εργοδότη ετήσιο</div><div class="val">${euro(employerAnnualCost)}</div></div>
         </div>
-      ;
+      `;
     }
 
     document.getElementById('calcBtn').addEventListener('click', function(){
