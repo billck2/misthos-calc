@@ -142,17 +142,33 @@
     select{
       width:100%;
       padding:11px 12px;
-      border:1px solid #94a3b8;
+      border:2px solid #94a3b8;
       border-radius:12px;
       background:#fff;
       font-size:15px;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748b' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 34px;
+      transition: border-color .15s, box-shadow .15s;
+    }
+
+    input[type="number"]{
+      background-image: none;
+      padding-right: 12px;
     }
 
     input[type="number"]:focus,
     select:focus{
       outline:none;
       border-color:var(--pri);
-      box-shadow:0 0 0 3px rgba(32,74,153,.14);
+      box-shadow:0 0 0 3px rgba(32,74,153,.18);
+    }
+
+    select:hover{
+      border-color: #5a7fc4;
     }
 
     .row{
@@ -325,8 +341,12 @@
     /* ── Διαφήμιση: περισσότερος χώρος ── */
     .ad-card{
       text-align:center;
-      padding:28px 20px;
+      padding:24px 20px;
       overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:130px;
     }
 
     iframe{
@@ -687,12 +707,12 @@
       </section>
     </div>
 
-    <!-- Κάτω διαφήμιση — νέο creative 12865-20 -->
+    <!-- Κάτω διαφήμιση — 13117-141 -->
     <section class="card ad-card">
       <script type="text/javascript">
         try {
           if (window.LinkwiseCreative) {
-            LinkwiseCreative.show("12865-20", "CD28335", "_blank");
+            LinkwiseCreative.show("13117-141", "CD28335", "_blank");
           }
         } catch(e) {
           console.log(e);
@@ -700,7 +720,7 @@
       </script>
       <noscript>
         <iframe
-          src="//go.linkwi.se/delivery/ih.php?cn=12865-20&an=CD28335&target=_blank&"
+          src="//go.linkwi.se/delivery/ih.php?cn=13117-141&an=CD28335&target=_blank&"
           style="width:728px;height:90px;max-width:100%;"
           scrolling="no"
           frameborder="0">
