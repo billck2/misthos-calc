@@ -190,10 +190,10 @@
       box-shadow:0 6px 16px rgba(15,23,42,.12);
     }
 
-.btn {
-  background: var(--pri);
-  color: #fff;
-  border-color: #0d2a5e;
+    .btn {
+      background: var(--pri);
+      color: #fff;
+      border-color: #0d2a5e;
       box-shadow:0 3px 10px rgba(32,74,153,.25);
     }
 
@@ -276,6 +276,7 @@
       color:var(--mut);
     }
 
+    /* ── Article cards: βελτιωμένο περίγραμμα, διακριτική περιγραφή ── */
     .article-grid{
       display:grid;
       grid-template-columns:repeat(3,minmax(0,1fr));
@@ -285,34 +286,46 @@
     }
 
     .article-card{
-      border:1px solid var(--line);
+      border:2px solid #c7d6f0;
       border-radius:14px;
-      padding:14px;
+      padding:16px;
       background:#fff;
       min-height:125px;
       display:flex;
       flex-direction:column;
       justify-content:space-between;
-      box-shadow:0 2px 8px rgba(15,23,42,.04);
+      box-shadow:0 2px 10px rgba(32,74,153,.08);
+      transition: border-color .18s, box-shadow .18s;
+    }
+
+    .article-card:hover{
+      border-color: var(--pri);
+      box-shadow:0 4px 18px rgba(32,74,153,.14);
     }
 
     .article-card a{
       color:var(--pri);
       text-decoration:none;
       font-weight:800;
+      font-size:15px;
     }
 
     .article-card a:hover{
       text-decoration:underline;
     }
 
+    /* περιγραφή πολύ διακριτική */
     .article-card p{
-      margin-bottom:0;
+      margin:8px 0 0;
+      font-size:12px;
+      color:#94a3b8;
+      line-height:1.5;
     }
 
+    /* ── Διαφήμιση: περισσότερος χώρος ── */
     .ad-card{
       text-align:center;
-      padding:20px;
+      padding:28px 20px;
       overflow:hidden;
     }
 
@@ -345,6 +358,7 @@
       gap:16px;
     }
 
+    /* ══ MOBILE ══ */
     @media(max-width:920px){
       .topbar{
         flex-direction:column;
@@ -384,11 +398,16 @@
       }
 
       main{
-        padding:12px;
+        padding:10px;
       }
 
       h1{
-        font-size:16px;
+        font-size:15px;
+      }
+
+      /* Nav: κρύβουμε τα λιγότερο σημαντικά links στο mobile */
+      nav a.hide-mobile{
+        display:none;
       }
 
       nav{
@@ -396,23 +415,29 @@
         overflow-x:auto;
         flex-wrap:nowrap;
         padding-bottom:4px;
+        gap:4px;
       }
 
       nav a{
         white-space:nowrap;
         font-size:13px;
-        padding:7px 9px;
+        padding:6px 9px;
       }
 
       .card{
-        border-radius:14px;
-        padding:14px;
-        margin-bottom:12px;
+        border-radius:12px;
+        padding:12px;
+        margin-bottom:10px;
+      }
+
+      /* Κρύβουμε την εισαγωγική παράγραφο στο mobile για πιο καθαρή εμφάνιση */
+      .card > .muted{
+        display:none;
       }
 
       .mobile-hero{
         display:block;
-        margin-bottom:12px;
+        margin-bottom:10px;
       }
 
       input[type="number"],
@@ -421,13 +446,22 @@
         padding:12px;
       }
 
+      /* Τα advanced settings κλειστά και λιγότερο ορατά στο mobile */
+      details summary{
+        font-size:13px;
+        color: var(--mut);
+      }
+
       .foot{
         flex-direction:column-reverse;
+        gap:8px;
       }
 
       .foot button,
       #calcBtn{
         width:100%;
+        font-size:15px;
+        padding:13px 16px;
       }
 
       .result{
@@ -440,10 +474,11 @@
         font-size:16px;
       }
 
+      /* Διαφήμιση mobile: full-width χωρίς περίγραμμα */
       .ad-card{
-        padding:8px;
-        margin-left:-12px;
-        margin-right:-12px;
+        padding:10px 0;
+        margin-left:-10px;
+        margin-right:-10px;
         border-radius:0;
         border-left:0;
         border-right:0;
@@ -454,6 +489,22 @@
       .ad-card ins{
         max-width:100% !important;
         height:auto !important;
+      }
+
+      /* Άρθρα: πιο απλά στο mobile */
+      .article-card{
+        min-height:auto;
+        padding:12px;
+      }
+
+      /* Footer: πιο συμπαγής */
+      .footgrid{
+        padding:12px 10px;
+        gap:12px;
+      }
+
+      footer ul{
+        padding-left:16px;
       }
     }
   </style>
@@ -468,13 +519,13 @@
       </div>
 
       <nav>
-        <a href="#articles">Άρθρα</a>
         <a href="#calculator">Υπολογιστής</a>
-        <a href="#guide">Οδηγός μισθού</a>
-        <a href="#digital-card">Ψηφιακή Κάρτα</a>
+        <a href="#articles" class="hide-mobile">Άρθρα</a>
+        <a href="#guide" class="hide-mobile">Οδηγός</a>
+        <a href="#digital-card" class="hide-mobile">Ψηφιακή Κάρτα</a>
         <a href="#faq">FAQ</a>
-        <a href="/about.html">About</a>
-        <a href="/contact.html">Επικοινωνία</a>
+        <a href="/about.html" class="hide-mobile">About</a>
+        <a href="/contact.html" class="hide-mobile">Επικοινωνία</a>
       </nav>
     </div>
   </header>
@@ -494,33 +545,34 @@
       <div class="article-grid">
         <div class="article-card">
           <a href="/articles/katotatos-misthos-2026.html">Κατώτατος μισθός 2026: τι αλλάζει</a>
-          <p class="small">Πρακτική σύνοψη με παραδείγματα για καθαρά, εισφορές και κόστος εργοδότη.</p>
+          <p>Πρακτική σύνοψη με παραδείγματα για καθαρά, εισφορές και κόστος εργοδότη.</p>
         </div>
 
         <div class="article-card">
           <a href="/articles/katharos-misthos-odigos.html">Πώς υπολογίζεται ο καθαρός μισθός</a>
-          <p class="small">Βήμα-βήμα: μικτά → εισφορές → φορολογητέο → παρακράτηση → καθαρά.</p>
+          <p>Βήμα-βήμα: μικτά → εισφορές → φορολογητέο → παρακράτηση → καθαρά.</p>
         </div>
 
         <div class="article-card">
           <a href="/articles/psifiaki-karta-ergani.html">Ψηφιακή Κάρτα Εργασίας & ΕΡΓΑΝΗ ΙΙ</a>
-          <p class="small">Τι σημαίνει στην πράξη και τι να προσέχεις ως εργαζόμενος.</p>
+          <p>Τι σημαίνει στην πράξη και τι να προσέχεις ως εργαζόμενος.</p>
         </div>
       </div>
 
-      <p class="small">
+      <p class="small" style="margin-top:12px;">
         Δες επίσης:
         <a href="/privacy-policy.html">Privacy Policy</a> •
         <a href="/terms.html">Όροι χρήσης</a>
       </p>
     </section>
 
-<section class="card ad-card">
-    <script type="text/javascript" src="//go.linkwi.se/delivery/js/crl.js"></script>
-    <script type="text/javascript">
+    <!-- Διαφήμιση Zenith — περισσότερος χώρος -->
+    <section class="card ad-card">
+      <script type="text/javascript" src="//go.linkwi.se/delivery/js/crl.js"></script>
+      <script type="text/javascript">
         LinkwiseCreative.show("14029-176", "CD28335", "_blank");
-    </script>
-    <noscript>
+      </script>
+      <noscript>
         <iframe id="lkws_69f219d4ef6cc"
             name="lkws_69f219d4ef6cc"
             src="//go.linkwi.se/delivery/ih.php?cn=14029-176&an=CD28335&target=_blank&"
@@ -528,15 +580,13 @@
             scrolling="no"
             frameborder="0">
         </iframe>
-    </noscript>
-</section>
+      </noscript>
+    </section>
 
     <div id="calculator" class="grid">
       <section class="card">
         <h2></h2>
-        <p class="muted">
-          
-        </p>
+        <p class="muted"></p>
 
         <label for="gross">Μικτός Μηνιαίος Μισθός (€)</label>
         <input id="gross" type="number" min="0" step="0.01" placeholder="π.χ. 1.200" inputmode="decimal" />
@@ -637,22 +687,20 @@
       </section>
     </div>
 
+    <!-- Κάτω διαφήμιση — νέο creative 12865-20 -->
     <section class="card ad-card">
       <script type="text/javascript">
         try {
           if (window.LinkwiseCreative) {
-            LinkwiseCreative.show("13979-12", "CD28335", "_blank");
+            LinkwiseCreative.show("12865-20", "CD28335", "_blank");
           }
         } catch(e) {
           console.log(e);
         }
       </script>
-
       <noscript>
         <iframe
-          id="lkws_69f0e02ee7e1b"
-          name="lkws_69f0e02ee7e1b"
-          src="//go.linkwi.se/delivery/ih.php?cn=13979-12&amp;an=CD28335&amp;target=_blank&amp;"
+          src="//go.linkwi.se/delivery/ih.php?cn=12865-20&an=CD28335&target=_blank&"
           style="width:728px;height:90px;max-width:100%;"
           scrolling="no"
           frameborder="0">
@@ -731,14 +779,14 @@
   </footer>
 
   <script>
-function showAdPopup(){
-  document.getElementById("adPopup").style.display = "flex";
-}
+    function showAdPopup(){
+      document.getElementById("adPopup").style.display = "flex";
+    }
 
-function closeAd(){
-  document.getElementById("adPopup").style.display = "none";
-}
-    
+    function closeAd(){
+      document.getElementById("adPopup").style.display = "none";
+    }
+
     const fmt = new Intl.NumberFormat('el-GR', {
       minimumFractionDigits:2,
       maximumFractionDigits:2
@@ -757,27 +805,11 @@ function closeAd(){
 
     function annualTax2025(income){
       let tax = 0;
-
-      if(income > 0){
-        tax += Math.min(income, 10000) * 0.09;
-      }
-
-      if(income > 10000){
-        tax += Math.min(income - 10000, 10000) * 0.22;
-      }
-
-      if(income > 20000){
-        tax += Math.min(income - 20000, 10000) * 0.28;
-      }
-
-      if(income > 30000){
-        tax += Math.min(income - 30000, 10000) * 0.36;
-      }
-
-      if(income > 40000){
-        tax += (income - 40000) * 0.44;
-      }
-
+      if(income > 0) tax += Math.min(income, 10000) * 0.09;
+      if(income > 10000) tax += Math.min(income - 10000, 10000) * 0.22;
+      if(income > 20000) tax += Math.min(income - 20000, 10000) * 0.28;
+      if(income > 30000) tax += Math.min(income - 30000, 10000) * 0.36;
+      if(income > 40000) tax += (income - 40000) * 0.44;
       return tax;
     }
 
@@ -823,11 +855,7 @@ function closeAd(){
 
       for(let i = 0; i < 6; i++){
         const amount = Math.max(0, Math.min(income, bounds[i + 1]) - bounds[i]);
-
-        if(amount <= 0){
-          continue;
-        }
-
+        if(amount <= 0) continue;
         tax += amount * rates[i];
       }
 
@@ -838,9 +866,7 @@ function closeAd(){
       const baseArr = [777,900,1120,1340,1580,1780,2000,2220,2440];
       const base = children <= 8 ? baseArr[children] : 2440 + 220 * (children - 8);
 
-      if(children >= 5){
-        return r2(base);
-      }
+      if(children >= 5) return r2(base);
 
       const reduction = Math.max(0, taxableAnnual - 12000) * 0.02;
       return r2(Math.max(0, base - reduction));
@@ -848,7 +874,6 @@ function closeAd(){
 
     function zeroResults(){
       const res = document.getElementById('results');
-
       res.innerHTML = `
         <div class="result"><div>Εισφορές εργαζομένου</div><div class="val">€ 0,00</div></div>
         <div class="result"><div>Παρακρατούμενος φόρος</div><div class="val">€ 0,00</div></div>
@@ -898,15 +923,11 @@ function closeAd(){
       let employerRate = n(document.getElementById('efkaEmployer').value, 0.2179);
       const cap = n(document.getElementById('efkaCap').value, 7572.62);
 
-      if(role === 'seller'){
-        empRate += 0.04;
-      }
+      if(role === 'seller') empRate += 0.04;
 
       const insuredMonthly = Math.min(gross, cap);
-
       const employeeContribMonthly = r2(insuredMonthly * empRate);
       const employerContribMonthly = r2(insuredMonthly * employerRate);
-
       const annualGross = r2(gross * payMonths);
       const annualContrib = r2(employeeContribMonthly * payMonths);
       const taxableAnnual = r2(annualGross - annualContrib);
@@ -922,7 +943,6 @@ function closeAd(){
 
       const netMonthly = r2(gross - employeeContribMonthly - monthlyTax);
       const netAnnual = r2(annualGross - annualContrib - annualTax);
-
       const employerMonthlyCost = r2(gross + employerContribMonthly);
       const employerAnnualCost = r2(employerMonthlyCost * payMonths);
 
@@ -930,7 +950,6 @@ function closeAd(){
         `Έτος: ${year}` + (repat ? ' • 5Γ' : '');
 
       const res = document.getElementById('results');
-
       res.innerHTML = `
         <div class="result"><div>Εισφορές εργαζομένου</div><div class="val">${euro(employeeContribMonthly)}</div></div>
         <div class="result"><div>Παρακρατούμενος φόρος</div><div class="val">${euro(monthlyTax)}</div></div>
@@ -958,12 +977,11 @@ function closeAd(){
     }
 
     document.getElementById('calcBtn').addEventListener('click', function(){
-  calc();
-
-  setTimeout(function(){
-    showAdPopup();
-  }, 5000);
-});
+      calc();
+      setTimeout(function(){
+        showAdPopup();
+      }, 5000);
+    });
 
     document.getElementById('resetBtn').addEventListener('click', function(){
       document.getElementById('gross').value = '';
@@ -984,41 +1002,44 @@ function closeAd(){
 
     zeroResults();
   </script>
-  <div id="adPopup" style="
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.6);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
-">
-  <div style="
-    background:#fff;
-    padding:20px;
-    border-radius:12px;
-    max-width:90%;
-    position:relative;
-    text-align:center;
-  ">
-    <button onclick="closeAd()" style="
-      position:absolute;
-      top:5px;
-      right:10px;
-      border:none;
-      background:none;
-      font-size:20px;
-      cursor:pointer;
-    ">✕</button>
 
-    <script type="text/javascript" src="//go.linkwi.se/delivery/js/crl.js"></script>
-    <script type="text/javascript">
-      LinkwiseCreative.show("13117-139", "CD28335", "_blank");
-    </script>
+  <!-- Popup διαφήμιση — νέο creative 13117-140 -->
+  <div id="adPopup" style="
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+  ">
+    <div style="
+      background:#fff;
+      padding:20px;
+      border-radius:12px;
+      max-width:90%;
+      position:relative;
+      text-align:center;
+    ">
+      <button onclick="closeAd()" style="
+        position:absolute;
+        top:5px;
+        right:10px;
+        border:none;
+        background:none;
+        font-size:20px;
+        cursor:pointer;
+      ">✕</button>
+
+      <script type="text/javascript" src="//go.linkwi.se/delivery/js/crl.js"></script>
+      <script type="text/javascript">
+        LinkwiseCreative.show("13117-140", "CD28335", "_blank");
+      </script>
+    </div>
   </div>
-</div>
+
 </body>
 </html>
