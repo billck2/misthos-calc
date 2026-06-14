@@ -6,7 +6,14 @@
 
   <title>Υπολογισμός Καθαρού Μισθού — Ελλάδα (2026)</title>
 
-  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="%236366f1"/><path d="M50 18 L80 38 L70 78 L30 78 L20 38 Z" fill="white" opacity="0.95"/></svg>'>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
+  <meta name="theme-color" content="#6366f1" />
 
   <meta name="description" content="Δωρεάν online εργαλείο για υπολογισμό καθαρού μισθού στην Ελλάδα (2026). Υπολογίζει εισφορές, φόρο, καθαρά και κόστος εργοδότη." />
   <link rel="canonical" href="https://misthos2026.gr/" />
@@ -1052,7 +1059,21 @@
 
   <script>
     function showAdPopup(){
-      document.getElementById("adPopup").style.display = "flex";
+      const popup = document.getElementById("adPopup");
+      const slot  = document.getElementById("adPopupSlot");
+
+      // Φορτώνουμε το ad iframe μόνο την πρώτη φορά
+      if (!slot.dataset.loaded) {
+        slot.dataset.loaded = "true";
+        const iframe = document.createElement("iframe");
+        iframe.src = "//go.linkwi.se/delivery/ih.php?cn=13117-140&an=CD28335&target=_blank&";
+        iframe.setAttribute("scrolling", "no");
+        iframe.setAttribute("frameborder", "0");
+        iframe.style.cssText = "width:300px;height:250px;max-width:100%;border:0;display:block;margin:0 auto;";
+        slot.appendChild(iframe);
+      }
+
+      popup.style.display = "flex";
     }
 
     function closeAd(){
@@ -1252,7 +1273,7 @@
       calc();
       setTimeout(function(){
         showAdPopup();
-      }, 5000);
+      }, 7000);
     });
 
     document.getElementById('resetBtn').addEventListener('click', function(){
@@ -1275,7 +1296,7 @@
     zeroResults();
   </script>
 
-  <!-- Popup διαφήμιση — creative 13117-140 (αμετάβλητη) -->
+  <!-- Popup διαφήμιση — creative 13117-140 (load on-demand) -->
   <div id="adPopup" style="
     position:fixed;
     top:0;
@@ -1315,12 +1336,10 @@
         justify-content:center;
         font-weight:700;
         color:#475569;
+        z-index:1;
       ">✕</button>
 
-      <script type="text/javascript" src="//go.linkwi.se/delivery/js/crl.js"></script>
-      <script type="text/javascript">
-        LinkwiseCreative.show("13117-140", "CD28335", "_blank");
-      </script>
+      <div id="adPopupSlot" style="min-width:300px;min-height:250px;"></div>
     </div>
   </div>
 
