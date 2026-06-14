@@ -834,6 +834,305 @@
         justify-content:center;
       }
     }
+
+    /* ═══════════ SCRAMBLE POPUP ═══════════ */
+    .scramble-popup{
+      position:fixed;
+      inset:0;
+      background:rgba(15,23,42,0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:9999;
+      padding:18px;
+      opacity:0;
+      visibility:hidden;
+      transition: opacity .25s ease, visibility .25s ease;
+    }
+
+    .scramble-popup.scr-open{
+      opacity:1;
+      visibility:visible;
+    }
+
+    .scramble-card{
+      position:relative;
+      width:100%;
+      max-width:430px;
+      background:
+        radial-gradient(120% 80% at 100% 0%, rgba(236,72,153,.35), transparent 55%),
+        radial-gradient(120% 80% at 0% 0%, rgba(99,102,241,.45), transparent 55%),
+        linear-gradient(180deg, #1e1b4b 0%, #0f0c2a 100%);
+      color:#fff;
+      border-radius:24px;
+      padding:28px 24px 22px;
+      text-align:center;
+      box-shadow:
+        0 30px 80px rgba(0,0,0,.55),
+        0 0 0 1px rgba(255,255,255,.08) inset;
+      overflow:hidden;
+      transform: scale(.92) translateY(10px);
+      transition: transform .35s cubic-bezier(.18,.89,.32,1.28);
+    }
+
+    .scramble-popup.scr-open .scramble-card{
+      transform: scale(1) translateY(0);
+    }
+
+    .scr-close{
+      position:absolute;
+      top:12px;
+      right:12px;
+      width:32px;
+      height:32px;
+      border:none;
+      background:rgba(255,255,255,.1);
+      color:#fff;
+      border-radius:50%;
+      font-size:14px;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      z-index:3;
+      transition: background .15s;
+    }
+
+    .scr-close:hover{
+      background:rgba(255,255,255,.2);
+      box-shadow:none;
+      transform:none;
+    }
+
+    .scr-tag{
+      display:inline-block;
+      font-size:10px;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.55);
+      font-weight:700;
+      margin-bottom:18px;
+    }
+
+    /* Confetti στο background */
+    .scr-confetti{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      overflow:hidden;
+    }
+
+    .scr-confetti span{
+      position:absolute;
+      width:8px;
+      height:8px;
+      border-radius:2px;
+      opacity:.65;
+      animation: scr-float 6s ease-in-out infinite;
+    }
+
+    .scr-confetti span:nth-child(1){ top:15%; left:8%;  background:#fbbf24; transform:rotate(15deg); animation-delay:0s; }
+    .scr-confetti span:nth-child(2){ top:25%; left:88%; background:#ec4899; transform:rotate(-20deg); animation-delay:.5s; }
+    .scr-confetti span:nth-child(3){ top:55%; left:5%;  background:#8b5cf6; transform:rotate(45deg); animation-delay:1s; border-radius:50%; }
+    .scr-confetti span:nth-child(4){ top:70%; left:92%; background:#22d3ee; transform:rotate(-10deg); animation-delay:1.5s; }
+    .scr-confetti span:nth-child(5){ top:40%; left:15%; background:#34d399; transform:rotate(30deg); animation-delay:2s; }
+    .scr-confetti span:nth-child(6){ top:80%; left:20%; background:#f472b6; transform:rotate(-30deg); animation-delay:2.5s; border-radius:50%; }
+    .scr-confetti span:nth-child(7){ top:10%; left:50%; background:#60a5fa; transform:rotate(20deg); animation-delay:3s; }
+    .scr-confetti span:nth-child(8){ top:88%; left:60%; background:#fbbf24; transform:rotate(-15deg); animation-delay:3.5s; border-radius:50%; }
+
+    @keyframes scr-float{
+      0%, 100% { transform: translateY(0) rotate(0deg); opacity:.65; }
+      50%      { transform: translateY(-14px) rotate(180deg); opacity:.3; }
+    }
+
+    .scr-bonus-badge{
+      position:relative;
+      display:inline-flex;
+      align-items:baseline;
+      gap:8px;
+      padding:9px 18px;
+      background: linear-gradient(135deg, #fde68a 0%, #fbbf24 50%, #f59e0b 100%);
+      color:#451a03;
+      border-radius:999px;
+      font-weight:800;
+      margin-bottom:18px;
+      box-shadow: 0 8px 22px rgba(251,191,36,.45), inset 0 1px 0 rgba(255,255,255,.5);
+      animation: scr-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scr-pulse{
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.04); }
+    }
+
+    .scr-bonus-amount{
+      font-size:20px;
+      font-weight:900;
+      letter-spacing:-.5px;
+    }
+
+    .scr-bonus-label{
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+
+    .scr-title{
+      position:relative;
+      margin:0 0 12px;
+      font-size:24px;
+      font-weight:900;
+      line-height:1.2;
+      letter-spacing:-.5px;
+      color:#fff;
+    }
+
+    .scr-grad{
+      background: linear-gradient(135deg, #fde047 0%, #fb923c 50%, #ec4899 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .scr-sub{
+      position:relative;
+      margin:0 0 20px;
+      font-size:14px;
+      color:rgba(255,255,255,.78);
+      line-height:1.5;
+    }
+
+    .scr-sub strong{
+      color:#fff;
+      font-weight:700;
+    }
+
+    .scr-stats{
+      position:relative;
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:8px;
+      padding:14px 8px;
+      margin-bottom:20px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:14px;
+    }
+
+    .scr-stat-val{
+      font-size:20px;
+      font-weight:900;
+      letter-spacing:-.5px;
+      color:#fff;
+      line-height:1.1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .scr-stat-val span{
+      font-size:14px;
+      color:#fbbf24;
+      margin-left:1px;
+    }
+
+    .scr-stat-lbl{
+      margin-top:4px;
+      font-size:10px;
+      color:rgba(255,255,255,.6);
+      text-transform:uppercase;
+      letter-spacing:.5px;
+      font-weight:600;
+      line-height:1.2;
+    }
+
+    .scr-cta{
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      width:100%;
+      padding:15px 20px;
+      background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+      color:#fff;
+      font-family:inherit;
+      font-size:15px;
+      font-weight:800;
+      letter-spacing:-.1px;
+      text-decoration:none;
+      border:none;
+      border-radius:14px;
+      cursor:pointer;
+      box-shadow:
+        0 10px 30px -6px rgba(236,72,153,.55),
+        inset 0 1px 0 rgba(255,255,255,.25);
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .scr-cta:hover{
+      transform:translateY(-2px);
+      box-shadow:
+        0 14px 34px -6px rgba(236,72,153,.65),
+        inset 0 1px 0 rgba(255,255,255,.3);
+    }
+
+    .scr-cta svg{
+      transition: transform .2s;
+    }
+
+    .scr-cta:hover svg{
+      transform: translateX(3px);
+    }
+
+    .scr-disclaimer{
+      position:relative;
+      margin:14px 0 0;
+      font-size:10.5px;
+      color:rgba(255,255,255,.45);
+      line-height:1.45;
+    }
+
+    @media(max-width:480px){
+      .scramble-card{
+        padding:24px 18px 18px;
+        border-radius:20px;
+      }
+
+      .scr-title{
+        font-size:21px;
+      }
+
+      .scr-sub{
+        font-size:13px;
+      }
+
+      .scr-stat-val{
+        font-size:17px;
+      }
+
+      .scr-stat-val span{
+        font-size:12px;
+      }
+
+      .scr-stat-lbl{
+        font-size:9px;
+      }
+
+      .scr-cta{
+        font-size:14px;
+        padding:14px 16px;
+      }
+
+      .scr-bonus-amount{
+        font-size:18px;
+      }
+
+      .scr-bonus-label{
+        font-size:11px;
+      }
+    }
   </style>
 </head>
 
@@ -1059,40 +1358,11 @@
 
   <script>
     function showAdPopup(){
-      const popup = document.getElementById("adPopup");
-      const slot  = document.getElementById("adPopupSlot");
-
-      // Φορτώνουμε το ad μόνο την πρώτη φορά
-      if (!slot.dataset.loaded) {
-        slot.dataset.loaded = "true";
-
-        // "Friendly iframe": το διαφημιστικό script τρέχει μέσα σε δικό του document
-        const iframe = document.createElement("iframe");
-        iframe.setAttribute("scrolling", "no");
-        iframe.setAttribute("frameborder", "0");
-        iframe.style.cssText = "width:300px;height:250px;max-width:100%;border:0;display:block;margin:0 auto;background:#fff;";
-        slot.appendChild(iframe);
-
-        const doc = iframe.contentDocument || iframe.contentWindow.document;
-        const html =
-          '<!doctype html><html><head><meta charset="utf-8">' +
-          '<style>html,body{margin:0;padding:0;background:#fff;}' +
-          'body{display:flex;align-items:center;justify-content:center;min-height:100vh;}</style>' +
-          '</head><body>' +
-          '<script type="text/javascript" src="//go.linkwi.se/delivery/js/crl.js"><\/script>' +
-          '<script type="text/javascript">LinkwiseCreative.show("13117-140","CD28335","_blank");<\/script>' +
-          '</body></html>';
-
-        doc.open();
-        doc.write(html);
-        doc.close();
-      }
-
-      popup.style.display = "flex";
+      document.getElementById("adPopup").classList.add("scr-open");
     }
 
     function closeAd(){
-      document.getElementById("adPopup").style.display = "none";
+      document.getElementById("adPopup").classList.remove("scr-open");
     }
 
     const fmt = new Intl.NumberFormat('el-GR', {
@@ -1311,50 +1581,55 @@
     zeroResults();
   </script>
 
-  <!-- Popup διαφήμιση — creative 13117-140 (load on-demand) -->
-  <div id="adPopup" style="
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(15,23,42,0.7);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    z-index:9999;
-  ">
-    <div style="
-      background:#fff;
-      padding:24px;
-      border-radius:18px;
-      max-width:90%;
-      position:relative;
-      text-align:center;
-      box-shadow:0 30px 80px rgba(0,0,0,.35);
-    ">
-      <button onclick="closeAd()" style="
-        position:absolute;
-        top:8px;
-        right:10px;
-        border:none;
-        background:rgba(15,23,42,.06);
-        width:32px;
-        height:32px;
-        border-radius:50%;
-        font-size:16px;
-        cursor:pointer;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        font-weight:700;
-        color:#475569;
-        z-index:1;
-      ">✕</button>
+  <!-- Popup: Scramble custom creative -->
+  <div id="adPopup" class="scramble-popup" role="dialog" aria-modal="true" aria-labelledby="scrTitle">
+    <div class="scramble-card">
+      <button onclick="closeAd()" class="scr-close" aria-label="Κλείσιμο">✕</button>
 
-      <div id="adPopupSlot" style="min-width:300px;min-height:250px;"></div>
+      <span class="scr-tag">Sponsored</span>
+
+      <div class="scr-confetti" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="scr-bonus-badge">
+        <span class="scr-bonus-amount">+€5</span>
+        <span class="scr-bonus-label">δώρο σε κάθε €100</span>
+      </div>
+
+      <h3 id="scrTitle" class="scr-title">
+        Είδες τον μισθό σου.<br>
+        Τώρα βάλ' τον <span class="scr-grad">να δουλέψει.</span>
+      </h3>
+
+      <p class="scr-sub">
+        Επένδυσε σε ταχέως αναπτυσσόμενα brands της Ευρώπης από <strong>μόλις €10</strong>. Νέος γύρος κάθε 1η του μήνα.
+      </p>
+
+      <div class="scr-stats">
+        <div class="scr-stat">
+          <div class="scr-stat-val">16,32<span>%</span></div>
+          <div class="scr-stat-lbl">μέσος τόκος</div>
+        </div>
+        <div class="scr-stat">
+          <div class="scr-stat-val">€45M<span>+</span></div>
+          <div class="scr-stat-lbl">έχουν επενδυθεί</div>
+        </div>
+        <div class="scr-stat">
+          <div class="scr-stat-val">12K<span>+</span></div>
+          <div class="scr-stat-lbl">επενδυτές</div>
+        </div>
+      </div>
+
+      <a href="https://scrambleup.com?ref=5c6eb87b" target="_blank" rel="noopener sponsored" class="scr-cta" onclick="closeAd()">
+        Ξεκίνα με €10 και πάρε το bonus
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+
+      <p class="scr-disclaimer">
+        Το κεφάλαιο ενδέχεται να εκτεθεί σε κίνδυνο. Αξιολόγησε προσεκτικά πριν επενδύσεις.
+      </p>
     </div>
   </div>
 
