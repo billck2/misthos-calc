@@ -6,7 +6,7 @@
 
   <title>Υπολογισμός Καθαρού Μισθού — Ελλάδα (2026)</title>
 
-  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="%2360a5fa"/><path d="M50 18 L80 38 L70 78 L30 78 L20 38 Z" fill="white" opacity="0.9"/></svg>'>
+  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="%236366f1"/><path d="M50 18 L80 38 L70 78 L30 78 L20 38 Z" fill="white" opacity="0.95"/></svg>'>
 
   <meta name="description" content="Δωρεάν online εργαλείο για υπολογισμό καθαρού μισθού στην Ελλάδα (2026). Υπολογίζει εισφορές, φόρο, καθαρά και κόστος εργοδότη." />
   <link rel="canonical" href="https://misthos2026.gr/" />
@@ -17,109 +17,266 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://misthos2026.gr/" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4164020794215422" crossorigin="anonymous"></script>
 
   <style>
     :root{
-      --bg:#f7f7fb;
+      --bg-1:#eef2ff;
+      --bg-2:#f5f3ff;
+      --bg-3:#fdf4ff;
       --card:#ffffff;
       --ink:#0f172a;
+      --ink-2:#1e293b;
       --mut:#64748b;
-      --pri:#204a99;
-      --pri-dark:#163a7a;
-      --line:#dbe3ee;
+      --mut-2:#94a3b8;
+      --pri:#4f46e5;
+      --pri-2:#6366f1;
+      --pri-dark:#3730a3;
+      --accent:#8b5cf6;
+      --line:#e2e8f0;
+      --line-2:#f1f5f9;
       --soft:#eef2ff;
+      --green:#10b981;
+      --green-soft:#ecfdf5;
+      --green-border:#a7f3d0;
     }
 
     *{
       box-sizing:border-box;
     }
 
-    body{
+    html, body{
       margin:0;
-      color:var(--ink);
-      background:var(--bg);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial;
-      -webkit-font-smoothing:antialiased;
+      padding:0;
     }
 
+    body{
+      color:var(--ink);
+      font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      -webkit-font-smoothing:antialiased;
+      min-height:100vh;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(99,102,241,.18), transparent 60%),
+        radial-gradient(1000px 500px at 110% 10%, rgba(139,92,246,.15), transparent 55%),
+        radial-gradient(800px 400px at 50% 100%, rgba(236,72,153,.08), transparent 60%),
+        linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+      background-attachment: fixed;
+    }
+
+    /* ── HEADER ── */
     header{
       position:sticky;
       top:0;
-      z-index:10;
-      background:linear-gradient(90deg,#e6eefc,#f7f7fb);
-      border-bottom:1px solid var(--line);
-      box-shadow:0 2px 12px rgba(15,23,42,.05);
+      z-index:50;
+      backdrop-filter: saturate(180%) blur(14px);
+      -webkit-backdrop-filter: saturate(180%) blur(14px);
+      background: rgba(255,255,255,.72);
+      border-bottom:1px solid rgba(226,232,240,.7);
     }
 
     .topbar{
       max-width:1200px;
       margin:0 auto;
-      padding:14px 16px;
+      padding:14px 20px;
       display:flex;
-      gap:14px;
+      gap:18px;
       align-items:center;
       justify-content:space-between;
     }
 
     .brand{
       display:flex;
-      gap:10px;
+      gap:12px;
       align-items:center;
-      min-width:280px;
+      text-decoration:none;
+      color:inherit;
     }
 
     .logo{
-      width:34px;
-      height:34px;
-      border-radius:999px;
-      background:#60a5fa;
-      box-shadow:0 4px 14px rgba(96,165,250,.35);
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+      box-shadow:0 8px 22px rgba(99,102,241,.35), inset 0 1px 0 rgba(255,255,255,.4);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-weight:900;
+      font-size:18px;
+      letter-spacing:-.5px;
     }
 
-    h1{
-      margin:0;
-      font-size:18px;
-      color:var(--pri);
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1.1;
+    }
+
+    .brand-text strong{
+      font-size:16px;
+      font-weight:800;
+      letter-spacing:-.3px;
+      color:var(--ink);
+    }
+
+    .brand-text span{
+      font-size:11px;
+      color:var(--mut);
+      font-weight:500;
+      letter-spacing:.3px;
     }
 
     nav{
       display:flex;
       flex-wrap:wrap;
       justify-content:flex-end;
-      gap:6px;
+      gap:4px;
     }
 
     nav a{
-      color:#0f172a;
+      color:var(--ink-2);
       text-decoration:none;
       font-size:14px;
-      padding:7px 10px;
-      border-radius:999px;
+      font-weight:500;
+      padding:8px 14px;
+      border-radius:10px;
+      transition: background .15s, color .15s;
     }
 
     nav a:hover{
-      background:#e8edf8;
+      background:rgba(99,102,241,.08);
+      color:var(--pri);
     }
 
+    /* ── HERO ── */
+    .hero{
+      max-width:1200px;
+      margin:0 auto;
+      padding:48px 20px 24px;
+      text-align:center;
+    }
+
+    .hero-eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 14px;
+      background: rgba(99,102,241,.08);
+      border:1px solid rgba(99,102,241,.2);
+      border-radius:999px;
+      color:var(--pri-dark);
+      font-size:12px;
+      font-weight:600;
+      letter-spacing:.3px;
+      text-transform:uppercase;
+      margin-bottom:18px;
+    }
+
+    .hero-eyebrow .dot{
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background: var(--green);
+      box-shadow: 0 0 0 4px rgba(16,185,129,.18);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse{
+      0%, 100% { box-shadow: 0 0 0 4px rgba(16,185,129,.18); }
+      50% { box-shadow: 0 0 0 6px rgba(16,185,129,.08); }
+    }
+
+    h1.hero-title{
+      margin:0 0 14px;
+      font-size:clamp(28px, 4.5vw, 46px);
+      font-weight:900;
+      letter-spacing:-1.2px;
+      line-height:1.1;
+      color:var(--ink);
+    }
+
+    h1.hero-title .grad{
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .hero-sub{
+      margin:0 auto;
+      max-width:640px;
+      color:var(--mut);
+      font-size:16px;
+      line-height:1.55;
+    }
+
+    /* ── MAIN ── */
     main{
       max-width:1200px;
       margin:0 auto;
-      padding:18px 16px;
+      padding:18px 20px 40px;
     }
 
+    /* ── CARDS ── */
     .card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:18px;
-      box-shadow:0 4px 14px rgba(15,23,42,.06);
-      margin-bottom:16px;
+      background: rgba(255,255,255,.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border:1px solid rgba(226,232,240,.8);
+      border-radius:22px;
+      padding:24px;
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.6) inset,
+        0 20px 50px -20px rgba(15,23,42,.12),
+        0 6px 20px -10px rgba(15,23,42,.06);
+      margin-bottom:18px;
     }
 
     .card h2{
-      margin:0 0 8px 0;
+      margin:0 0 6px;
       font-size:18px;
+      font-weight:800;
+      letter-spacing:-.3px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+
+    .card-icon{
+      width:36px;
+      height:36px;
+      border-radius:10px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(135deg, rgba(99,102,241,.12), rgba(139,92,246,.12));
+      color:var(--pri);
+      flex-shrink:0;
+    }
+
+    .card-icon svg{
+      width:20px;
+      height:20px;
+    }
+
+    .card-title-row{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:18px;
+      padding-bottom:16px;
+      border-bottom:1px solid var(--line-2);
+    }
+
+    .card-title-row h2{
+      margin:0;
+      flex:1;
     }
 
     .muted{
@@ -129,46 +286,65 @@
     .grid{
       display:grid;
       grid-template-columns:1.05fr .95fr;
-      gap:16px;
+      gap:18px;
+      align-items:start;
     }
 
+    /* ── FORM ── */
     label{
       display:block;
-      font-weight:700;
-      margin-top:12px;
+      font-weight:600;
+      font-size:13px;
+      color:var(--ink-2);
+      margin:14px 0 6px;
+      letter-spacing:-.1px;
+    }
+
+    label:first-of-type{
+      margin-top:0;
     }
 
     input[type="number"],
     select{
       width:100%;
-      padding:11px 12px;
-      border:2px solid #94a3b8;
+      padding:12px 14px;
+      border:1.5px solid #e2e8f0;
       border-radius:12px;
       background:#fff;
+      font-family:inherit;
       font-size:15px;
+      font-weight:500;
+      color:var(--ink);
       appearance: none;
       -webkit-appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748b' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236366f1' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
-      background-position: right 12px center;
-      padding-right: 34px;
-      transition: border-color .15s, box-shadow .15s;
+      background-position: right 14px center;
+      padding-right: 38px;
+      transition: border-color .15s, box-shadow .15s, background-color .15s;
     }
 
     input[type="number"]{
       background-image: none;
-      padding-right: 12px;
+      padding-right: 14px;
+    }
+
+    input[type="number"]::placeholder{
+      color:#94a3b8;
+      font-weight:400;
+    }
+
+    input[type="number"]:hover,
+    select:hover{
+      border-color:#cbd5e1;
     }
 
     input[type="number"]:focus,
     select:focus{
       outline:none;
       border-color:var(--pri);
-      box-shadow:0 0 0 3px rgba(32,74,153,.18);
-    }
-
-    select:hover{
-      border-color: #5a7fc4;
+      box-shadow:0 0 0 4px rgba(99,102,241,.15);
+      background-color:#fafbff;
     }
 
     .row{
@@ -180,11 +356,100 @@
     .help{
       font-size:12px;
       color:var(--mut);
-      margin-top:4px;
+      margin-top:5px;
     }
 
+    /* Checkbox modern style */
+    .checkbox-row{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      margin-top:16px;
+      padding:12px 14px;
+      background:rgba(99,102,241,.04);
+      border:1px solid rgba(99,102,241,.12);
+      border-radius:12px;
+      cursor:pointer;
+      transition: background .15s, border-color .15s;
+    }
+
+    .checkbox-row:hover{
+      background:rgba(99,102,241,.08);
+      border-color:rgba(99,102,241,.2);
+    }
+
+    .checkbox-row input[type="checkbox"]{
+      margin:2px 0 0;
+      width:16px;
+      height:16px;
+      accent-color: var(--pri);
+      cursor:pointer;
+      flex-shrink:0;
+    }
+
+    .checkbox-row span{
+      font-size:13px;
+      color:var(--ink-2);
+      line-height:1.45;
+    }
+
+    .checkbox-row span strong{
+      color:var(--pri-dark);
+      font-weight:700;
+    }
+
+    /* Advanced details */
+    details.advanced{
+      margin-top:14px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      overflow:hidden;
+      background:#fafbfc;
+    }
+
+    details.advanced summary{
+      cursor:pointer;
+      padding:11px 14px;
+      font-size:13px;
+      font-weight:600;
+      color:var(--mut);
+      list-style:none;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      user-select:none;
+    }
+
+    details.advanced summary::-webkit-details-marker{
+      display:none;
+    }
+
+    details.advanced summary::before{
+      content:"";
+      width:8px;
+      height:8px;
+      border-right:1.8px solid var(--mut);
+      border-bottom:1.8px solid var(--mut);
+      transform: rotate(-45deg);
+      transition: transform .2s;
+    }
+
+    details.advanced[open] summary::before{
+      transform: rotate(45deg);
+    }
+
+    details.advanced > div,
+    details.advanced > label{
+      padding: 0 14px;
+    }
+
+    details.advanced > *:last-child{
+      padding-bottom:14px;
+    }
+
+    /* Buttons */
     .foot{
-      margin-top:18px;
+      margin-top:20px;
       display:flex;
       gap:10px;
       flex-wrap:wrap;
@@ -194,204 +459,248 @@
 
     button{
       border:1px solid transparent;
-      padding:11px 16px;
-      border-radius:13px;
-      font-weight:800;
+      padding:12px 18px;
+      border-radius:12px;
+      font-family:inherit;
+      font-weight:700;
+      font-size:14px;
       cursor:pointer;
-      transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+      transition: transform .12s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
     }
 
-    button:hover{
-      transform:translateY(-1px);
-      box-shadow:0 6px 16px rgba(15,23,42,.12);
+    button:active{
+      transform: translateY(0);
     }
 
     .btn {
-      background: var(--pri);
+      background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
       color: #fff;
-      border-color: #0d2a5e;
-      box-shadow:0 3px 10px rgba(32,74,153,.25);
+      box-shadow:0 6px 18px -4px rgba(99,102,241,.55), inset 0 1px 0 rgba(255,255,255,.2);
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 10px 24px -6px rgba(99,102,241,.6), inset 0 1px 0 rgba(255,255,255,.25);
     }
 
     .btn.secondary{
-      background:#f1f5f9;
-      color:#0f172a;
+      background:#fff;
+      color:var(--ink-2);
+      border-color:#e2e8f0;
+      box-shadow: 0 2px 6px rgba(15,23,42,.04);
+    }
+
+    .btn.secondary:hover{
+      background:#f8fafc;
       border-color:#cbd5e1;
+      transform:translateY(-1px);
     }
 
     #calcBtn{
-      font-size:16px;
-      padding:14px 24px;
-      min-width:210px;
+      font-size:15px;
+      padding:14px 26px;
+      min-width:230px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
     }
 
+    /* Results */
     .result{
       display:flex;
       justify-content:space-between;
       align-items:center;
       gap:12px;
-      padding:9px 0;
-      border-bottom:1px dashed var(--line);
+      padding:11px 0;
+      border-bottom:1px solid var(--line-2);
+      font-size:14px;
+    }
+
+    .result:last-child{
+      border-bottom:none;
+    }
+
+    .result > div:first-child{
+      color:var(--ink-2);
     }
 
     .result .val{
       font-variant-numeric:tabular-nums;
       font-weight:700;
+      color:var(--ink);
       white-space:nowrap;
     }
 
     .result.total{
+      font-size:16px;
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+      padding:14px 16px;
+      border:1px solid var(--green-border);
+      border-radius:14px;
+      font-weight:800;
+      margin:14px 0 4px;
+      box-shadow: 0 4px 14px -4px rgba(16,185,129,.25);
+    }
+
+    .result.total > div:first-child{
+      color:#065f46;
+    }
+
+    .result.total .val{
+      color:#047857;
       font-size:18px;
-      background:#ecfdf5;
-      padding:13px 12px;
-      border:1px solid #bbf7d0;
-      border-radius:12px;
       font-weight:900;
-      margin-top:10px;
     }
 
     .pill{
-      display:inline-block;
-      padding:4px 8px;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:5px 10px;
       border-radius:999px;
-      background:var(--soft);
-      color:#3730a3;
-      font-size:12px;
+      background: linear-gradient(135deg, rgba(99,102,241,.1), rgba(139,92,246,.1));
+      color:var(--pri-dark);
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.3px;
+      text-transform:uppercase;
+      border:1px solid rgba(99,102,241,.18);
     }
 
     .subsection-title{
-      margin:16px 0 6px;
-      font-size:13px;
+      margin:22px 0 4px;
+      font-size:11px;
       color:var(--mut);
-      letter-spacing:.2px;
+      letter-spacing:1px;
       text-transform:uppercase;
       font-weight:800;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .subsection-title::after{
+      content:"";
+      flex:1;
+      height:1px;
+      background: linear-gradient(90deg, var(--line) 0%, transparent 100%);
     }
 
     .compact .result{
-      padding:7px 0;
+      padding:9px 0;
       font-size:13px;
     }
 
     .compact .result.total{
       font-size:14px;
-      padding:9px 8px;
+      padding:11px 14px;
+      margin-top:8px;
     }
 
-    .section-title{
-      font-size:20px;
-      margin:26px 0 10px;
-    }
-
-    details summary{
-      cursor:pointer;
-    }
-
-    .small{
-      font-size:13px;
-      color:var(--mut);
-    }
-
-    /* ── Article cards: βελτιωμένο περίγραμμα, διακριτική περιγραφή ── */
-    .article-grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:12px;
-      margin-top:12px;
-      align-items:stretch;
-    }
-
-    .article-card{
-      border:2px solid #c7d6f0;
-      border-radius:14px;
-      padding:16px;
-      background:#fff;
-      min-height:125px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      box-shadow:0 2px 10px rgba(32,74,153,.08);
-      transition: border-color .18s, box-shadow .18s;
-    }
-
-    .article-card:hover{
-      border-color: var(--pri);
-      box-shadow:0 4px 18px rgba(32,74,153,.14);
-    }
-
-    .article-card a{
-      color:var(--pri);
-      text-decoration:none;
-      font-weight:800;
+    .compact .result.total .val{
       font-size:15px;
     }
 
-    .article-card a:hover{
-      text-decoration:underline;
-    }
-
-    /* περιγραφή πολύ διακριτική */
-    .article-card p{
-      margin:8px 0 0;
+    .disclaimer{
+      margin-top:14px;
+      padding:10px 12px;
+      background: rgba(148,163,184,.08);
+      border-radius:10px;
       font-size:12px;
-      color:#94a3b8;
+      color:var(--mut);
+      text-align:center;
       line-height:1.5;
     }
 
-    /* ── Διαφήμιση: περισσότερος χώρος ── */
+    /* Ad cards */
     .ad-card{
       text-align:center;
-      padding:24px 20px;
+      padding:18px;
       overflow:hidden;
       display:flex;
       align-items:center;
       justify-content:center;
-      min-height:130px;
+      min-height:120px;
     }
 
     iframe{
       max-width:100%;
     }
 
-    .mobile-hero{
-      display:none;
-    }
-
-    .mobile-hero img{
-      width:100%;
-      display:block;
-      border-radius:16px;
-    }
-
+    /* Footer */
     footer{
-      margin-top:28px;
-      border-top:1px solid var(--line);
-      background:#fbfbfe;
+      margin-top:30px;
+      border-top:1px solid rgba(226,232,240,.6);
+      background: rgba(255,255,255,.5);
+      backdrop-filter: blur(10px);
     }
 
     .footgrid{
       max-width:1200px;
       margin:0 auto;
-      padding:16px;
+      padding:24px 20px;
       display:grid;
-      grid-template-columns:1fr 1fr 1fr;
-      gap:16px;
+      grid-template-columns:1.4fr 1fr 1fr;
+      gap:24px;
     }
 
-    /* ══ MOBILE ══ */
+    .footgrid strong{
+      display:block;
+      margin-bottom:10px;
+      font-size:13px;
+      font-weight:700;
+      color:var(--ink);
+    }
+
+    .footgrid p, .footgrid ul{
+      font-size:13px;
+      color:var(--mut);
+      margin:0;
+      line-height:1.6;
+    }
+
+    .footgrid ul{
+      padding-left:0;
+      list-style:none;
+    }
+
+    .footgrid ul li{
+      margin-bottom:6px;
+    }
+
+    .footgrid a{
+      color:var(--mut);
+      text-decoration:none;
+      transition:color .15s;
+    }
+
+    .footgrid a:hover{
+      color:var(--pri);
+    }
+
+    .footbar{
+      max-width:1200px;
+      margin:0 auto;
+      padding:14px 20px;
+      border-top:1px solid var(--line-2);
+      text-align:center;
+      font-size:12px;
+      color:var(--mut-2);
+    }
+
+    /* ── MOBILE ── */
     @media(max-width:920px){
       .topbar{
-        flex-direction:column;
-        align-items:flex-start;
+        padding:12px 16px;
+        gap:10px;
       }
 
-      nav{
-        justify-content:flex-start;
+      .hero{
+        padding:32px 16px 16px;
       }
 
-      .grid,
-      .article-grid,
-      .footgrid{
+      .grid{
         grid-template-columns:1fr;
       }
 
@@ -401,14 +710,19 @@
 
       .foot{
         justify-content:stretch;
+        flex-direction:column-reverse;
       }
 
       .foot button{
-        flex:1;
+        width:100%;
       }
 
       #calcBtn{
         min-width:0;
+      }
+
+      .footgrid{
+        grid-template-columns:1fr;
       }
     }
 
@@ -418,90 +732,77 @@
       }
 
       main{
-        padding:10px;
+        padding:10px 14px 30px;
       }
 
-      h1{
-        font-size:15px;
+      .hero{
+        padding:24px 14px 12px;
       }
 
-      /* Nav: κρύβουμε τα λιγότερο σημαντικά links στο mobile */
-      nav a.hide-mobile{
-        display:none;
+      .hero-eyebrow{
+        font-size:11px;
+        padding:5px 12px;
+        margin-bottom:14px;
+      }
+
+      .hero-sub{
+        font-size:14px;
+      }
+
+      .brand-text strong{
+        font-size:14px;
+      }
+
+      .brand-text span{
+        font-size:10px;
+      }
+
+      .logo{
+        width:34px;
+        height:34px;
+        font-size:16px;
+        border-radius:10px;
       }
 
       nav{
         width:100%;
         overflow-x:auto;
         flex-wrap:nowrap;
-        padding-bottom:4px;
-        gap:4px;
+        padding-bottom:2px;
+        gap:2px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      nav::-webkit-scrollbar{
+        display:none;
       }
 
       nav a{
         white-space:nowrap;
         font-size:13px;
-        padding:6px 9px;
+        padding:7px 11px;
       }
 
       .card{
-        border-radius:12px;
-        padding:12px;
-        margin-bottom:10px;
+        border-radius:18px;
+        padding:18px;
+        margin-bottom:14px;
       }
 
-      /* Κρύβουμε την εισαγωγική παράγραφο στο mobile για πιο καθαρή εμφάνιση */
-      .card > .muted{
-        display:none;
-      }
-
-      .mobile-hero{
-        display:block;
-        margin-bottom:10px;
+      .card-title-row{
+        margin-bottom:14px;
+        padding-bottom:12px;
       }
 
       input[type="number"],
       select{
         font-size:16px;
-        padding:12px;
+        padding:13px 14px;
       }
 
-      /* Τα advanced settings κλειστά και λιγότερο ορατά στο mobile */
-      details summary{
-        font-size:13px;
-        color: var(--mut);
-      }
-
-      .foot{
-        flex-direction:column-reverse;
-        gap:8px;
-      }
-
-      .foot button,
-      #calcBtn{
-        width:100%;
-        font-size:15px;
-        padding:13px 16px;
-      }
-
-      .result{
-        align-items:flex-start;
-        gap:8px;
-        font-size:14px;
-      }
-
-      .result.total{
-        font-size:16px;
-      }
-
-      /* Διαφήμιση mobile: full-width χωρίς περίγραμμα */
+      /* Διαφήμιση mobile: full-width */
       .ad-card{
-        padding:10px 0;
-        margin-left:-10px;
-        margin-right:-10px;
-        border-radius:0;
-        border-left:0;
-        border-right:0;
+        padding:10px 6px;
       }
 
       .ad-card iframe,
@@ -511,20 +812,19 @@
         height:auto !important;
       }
 
-      /* Άρθρα: πιο απλά στο mobile */
-      .article-card{
-        min-height:auto;
-        padding:12px;
+      .result.total .val{
+        font-size:16px;
+      }
+    }
+
+    @media(max-width:480px){
+      .topbar{
+        flex-direction:column;
+        align-items:stretch;
       }
 
-      /* Footer: πιο συμπαγής */
-      .footgrid{
-        padding:12px 10px;
-        gap:12px;
-      }
-
-      footer ul{
-        padding-left:16px;
+      .brand{
+        justify-content:center;
       }
     }
   </style>
@@ -533,60 +833,35 @@
 <body>
   <header>
     <div class="topbar">
-      <div class="brand">
-        <span class="logo"></span>
-        <h1>Υπολογισμός Καθαρού Μισθού (2026)</h1>
-      </div>
+      <a href="/" class="brand">
+        <span class="logo">€</span>
+        <span class="brand-text">
+          <strong>misthos2026.gr</strong>
+          <span>Καθαρός μισθός · ΕΦΚΑ · Φόρος</span>
+        </span>
+      </a>
 
       <nav>
-        <a href="#calculator">Υπολογιστής</a>
-        <a href="#articles" class="hide-mobile">Άρθρα</a>
-        <a href="#guide" class="hide-mobile">Οδηγός</a>
-        <a href="#digital-card" class="hide-mobile">Ψηφιακή Κάρτα</a>
-        <a href="#faq">FAQ</a>
-        <a href="/about.html" class="hide-mobile">About</a>
-        <a href="/contact.html" class="hide-mobile">Επικοινωνία</a>
+        <a href="/">Υπολογιστής</a>
+        <a href="/articles/">Άρθρα</a>
+        <a href="/guide.html">Οδηγός</a>
+        <a href="/digital-card.html">Ψηφιακή Κάρτα</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Επικοινωνία</a>
       </nav>
     </div>
   </header>
 
+  <section class="hero">
+    <h1 class="hero-title">
+      Υπολόγισε τον <span class="grad">καθαρό μισθό</span> σου
+    </h1>
+  </section>
+
   <main>
 
-    <div class="mobile-hero">
-      <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80" alt="Υπολογισμός μισθού">
-    </div>
-
-    <section id="articles" class="card">
-      <h2>Άρθρα & οδηγοί</h2>
-      <p class="muted">
-        Εκτός από τον υπολογιστή, υπάρχουν σύντομοι οδηγοί με παραδείγματα για φόρο, ΕΦΚΑ και εργασιακά.
-      </p>
-
-      <div class="article-grid">
-        <div class="article-card">
-          <a href="/articles/katotatos-misthos-2026.html">Κατώτατος μισθός 2026: τι αλλάζει</a>
-          <p>Πρακτική σύνοψη με παραδείγματα για καθαρά, εισφορές και κόστος εργοδότη.</p>
-        </div>
-
-        <div class="article-card">
-          <a href="/articles/katharos-misthos-odigos.html">Πώς υπολογίζεται ο καθαρός μισθός</a>
-          <p>Βήμα-βήμα: μικτά → εισφορές → φορολογητέο → παρακράτηση → καθαρά.</p>
-        </div>
-
-        <div class="article-card">
-          <a href="/articles/psifiaki-karta-ergani.html">Ψηφιακή Κάρτα Εργασίας & ΕΡΓΑΝΗ ΙΙ</a>
-          <p>Τι σημαίνει στην πράξη και τι να προσέχεις ως εργαζόμενος.</p>
-        </div>
-      </div>
-
-      <p class="small" style="margin-top:12px;">
-        Δες επίσης:
-        <a href="/privacy-policy.html">Privacy Policy</a> •
-        <a href="/terms.html">Όροι χρήσης</a>
-      </p>
-    </section>
-
-    <!-- Διαφήμιση Zenith — περισσότερος χώρος -->
+    <!-- Διαφήμιση Zenith — πάνω (αμετάβλητη) -->
     <section class="card ad-card">
       <script type="text/javascript" src="//go.linkwi.se/delivery/js/crl.js"></script>
       <script type="text/javascript">
@@ -605,8 +880,12 @@
 
     <div id="calculator" class="grid">
       <section class="card">
-        <h2></h2>
-        <p class="muted"></p>
+        <div class="card-title-row">
+          <span class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="3"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="13" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="13" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="10" y2="18"/><line x1="13" y1="18" x2="16" y2="18"/></svg>
+          </span>
+          <h2>Στοιχεία μισθού</h2>
+        </div>
 
         <label for="gross">Μικτός Μηνιαίος Μισθός (€)</label>
         <input id="gross" type="number" min="0" step="0.01" placeholder="π.χ. 1.200" inputmode="decimal" />
@@ -665,13 +944,13 @@
           <option value="engineer">Μηχανικός</option>
         </select>
 
-        <label>
+        <label class="checkbox-row">
           <input id="repat" type="checkbox" />
-          Επαναπατρισθείς άρθρο 5Γ — 50% απαλλαγή φόρου μισθωτών
+          <span><strong>Επαναπατρισθείς άρθρο 5Γ</strong> — 50% απαλλαγή φόρου μισθωτών</span>
         </label>
 
-        <details>
-          <summary><strong>Προχωρημένα (συντελεστές)</strong></summary>
+        <details class="advanced">
+          <summary>Προχωρημένες ρυθμίσεις (συντελεστές)</summary>
 
           <div class="row">
             <div>
@@ -693,21 +972,30 @@
 
         <div class="foot">
           <button id="resetBtn" class="btn secondary" type="button">Επαναφορά</button>
-          <button id="calcBtn" class="btn" type="button">Υπολογισμός καθαρού μισθού</button>
+          <button id="calcBtn" class="btn" type="button">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Υπολογισμός καθαρού μισθού
+          </button>
         </div>
 
-        <p class="small">
+        <p class="disclaimer">
           Οι υπολογισμοί είναι ενδεικτικοί και δεν αποτελούν φορολογική ή νομική συμβουλή.
         </p>
       </section>
 
       <section class="card">
-        <h2>Αποτελέσματα <span id="badge" class="pill">Έτος: 2026</span></h2>
+        <div class="card-title-row">
+          <span class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 5-7"/></svg>
+          </span>
+          <h2>Αποτελέσματα</h2>
+          <span id="badge" class="pill">Έτος: 2026</span>
+        </div>
         <div id="results"></div>
       </section>
     </div>
 
-    <!-- Κάτω διαφήμιση — 13117-141 -->
+    <!-- Κάτω διαφήμιση — 13117-141 (αμετάβλητη) -->
     <section class="card ad-card">
       <script type="text/javascript">
         try {
@@ -728,73 +1016,37 @@
       </noscript>
     </section>
 
-    <h2 id="guide" class="section-title">Οδηγός: Πώς υπολογίζεται ο καθαρός μισθός</h2>
-    <section class="card">
-      <p>
-        Ο καθαρός μισθός είναι το ποσό που απομένει μετά τις εισφορές εργαζομένου και την παρακράτηση φόρου.
-      </p>
-      <ul>
-        <li><strong>Καθαρός μισθός:</strong> Μικτός − εισφορές εργαζομένου − φόρος.</li>
-        <li><strong>Ετήσιες καθαρές αποδοχές:</strong> ετήσια μικτά − ετήσιες κρατήσεις.</li>
-        <li><strong>Κόστος εργοδότη:</strong> μικτός μισθός + εισφορές εργοδότη.</li>
-      </ul>
-    </section>
-
-    <h2 id="digital-card" class="section-title">Ψηφιακή Κάρτα Εργασίας & ΕΡΓΑΝΗ ΙΙ</h2>
-    <section class="card">
-      <p>
-        Η Ψηφιακή Κάρτα Εργασίας καταγράφει ηλεκτρονικά τα ωράρια και διασυνδέεται με το ΕΡΓΑΝΗ ΙΙ.
-      </p>
-      <ul>
-        <li>Έλεγξε ότι κάθε είσοδος και έξοδος καταγράφεται σωστά.</li>
-        <li>Σε πρόβλημα, ενημέρωσε HR ή λογιστήριο.</li>
-        <li>Κράτα screenshot αν υπάρχει ασυμφωνία.</li>
-      </ul>
-    </section>
-
-    <h2 id="faq" class="section-title">Συχνές ερωτήσεις</h2>
-    <section class="card">
-      <details>
-        <summary><strong>12 ή 14 μισθοί;</strong></summary>
-        <p>Με 14 μισθούς υπάρχουν δώρα και επιδόματα. Ο ετήσιος υπολογισμός εξαρτάται από την επιλογή.</p>
-      </details>
-
-      <details>
-        <summary><strong>Το εργαλείο αποτελεί φορολογική συμβουλή;</strong></summary>
-        <p>Όχι. Είναι ενημερωτικό εργαλείο. Για αποφάσεις χρειάζεται λογιστής ή φοροτεχνικός.</p>
-      </details>
-
-      <details>
-        <summary><strong>Τι είναι το άρθρο 5Γ;</strong></summary>
-        <p>Για επιλέξιμους επαναπατρισθέντες, φορολογείται το 50% του εισοδήματος από μισθωτή εργασία.</p>
-      </details>
-    </section>
-
   </main>
 
   <footer>
     <div class="footgrid">
       <div>
         <strong>misthos2026.gr</strong>
-        <p class="small">Υπολογιστής καθαρού μισθού και οδηγοί για μισθούς, ΕΦΚΑ και εργασιακά.</p>
+        <p>Δωρεάν υπολογιστής καθαρού μισθού και οδηγοί για μισθούς, ΕΦΚΑ και εργασιακά στην Ελλάδα.</p>
       </div>
 
       <div>
-        <strong>Χρήσιμες ενότητες</strong>
-        <ul class="small">
-          <li><a href="#calculator">Υπολογιστής</a></li>
-          <li><a href="#guide">Οδηγός μισθού</a></li>
-          <li><a href="#faq">FAQ</a></li>
+        <strong>Χρήσιμα</strong>
+        <ul>
+          <li><a href="/">Υπολογιστής</a></li>
+          <li><a href="/articles/">Άρθρα & οδηγοί</a></li>
+          <li><a href="/guide.html">Οδηγός μισθού</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
         </ul>
       </div>
 
       <div>
         <strong>Νομικά</strong>
-        <ul class="small">
+        <ul>
+          <li><a href="/about.html">Σχετικά</a></li>
+          <li><a href="/contact.html">Επικοινωνία</a></li>
           <li><a href="/privacy-policy.html">Privacy Policy</a></li>
           <li><a href="/terms.html">Όροι Χρήσης</a></li>
         </ul>
       </div>
+    </div>
+    <div class="footbar">
+      © 2026 misthos2026.gr — Όλα τα δικαιώματα διατηρούνται
     </div>
   </footer>
 
@@ -1023,14 +1275,16 @@
     zeroResults();
   </script>
 
-  <!-- Popup διαφήμιση — νέο creative 13117-140 -->
+  <!-- Popup διαφήμιση — creative 13117-140 (αμετάβλητη) -->
   <div id="adPopup" style="
     position:fixed;
     top:0;
     left:0;
     width:100%;
     height:100%;
-    background:rgba(0,0,0,0.6);
+    background:rgba(15,23,42,0.7);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     display:none;
     align-items:center;
     justify-content:center;
@@ -1038,20 +1292,29 @@
   ">
     <div style="
       background:#fff;
-      padding:20px;
-      border-radius:12px;
+      padding:24px;
+      border-radius:18px;
       max-width:90%;
       position:relative;
       text-align:center;
+      box-shadow:0 30px 80px rgba(0,0,0,.35);
     ">
       <button onclick="closeAd()" style="
         position:absolute;
-        top:5px;
+        top:8px;
         right:10px;
         border:none;
-        background:none;
-        font-size:20px;
+        background:rgba(15,23,42,.06);
+        width:32px;
+        height:32px;
+        border-radius:50%;
+        font-size:16px;
         cursor:pointer;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-weight:700;
+        color:#475569;
       ">✕</button>
 
       <script type="text/javascript" src="//go.linkwi.se/delivery/js/crl.js"></script>
