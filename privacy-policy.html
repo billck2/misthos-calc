@@ -1,28 +1,238 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="el">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Privacy Policy — misthos2026.gr</title>
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://misthos2026.gr/privacy-policy.html" />
-  <style>body{font-family:system-ui,Arial;margin:0;background:#f7f7fb;color:#0f172a}main{max-width:900px;margin:auto;padding:18px}a{color:#204a99}</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Πολιτική Απορρήτου — misthos2026.gr</title>
+<meta name="description" content="Πολιτική απορρήτου για το misthos2026.gr. Πώς διαχειριζόμαστε cookies, analytics, διαφημίσεις και προσωπικά δεδομένα σύμφωνα με το GDPR.">
+<link rel="canonical" href="https://misthos2026.gr/privacy-policy.html">
+<meta name="robots" content="index, follow">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#7c3aed">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:
+    radial-gradient(circle at 20% 0%,rgba(124,58,237,0.08) 0%,transparent 50%),
+    radial-gradient(circle at 80% 100%,rgba(236,72,153,0.08) 0%,transparent 50%),
+    linear-gradient(180deg,#fafafa 0%,#f4f4f5 100%);
+  min-height:100vh;color:#1e293b;line-height:1.7;
+}
+
+/* Header */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,0.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(0,0,0,0.06);
+}
+.header-inner{
+  max-width:1200px;margin:0 auto;padding:16px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.logo{
+  display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;
+  font-weight:700;font-size:16px;
+}
+.logo-icon{
+  width:32px;height:32px;border-radius:8px;
+  background:linear-gradient(135deg,#7c3aed 0%,#ec4899 100%);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-weight:800;font-size:16px;
+}
+.logo-text small{display:block;font-size:11px;font-weight:500;color:#64748b;margin-top:1px}
+.nav-links{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.nav-links a{
+  text-decoration:none;color:#475569;font-size:14px;font-weight:500;
+  padding:8px 14px;border-radius:8px;transition:all .2s;
+}
+.nav-links a:hover{background:rgba(124,58,237,0.08);color:#7c3aed}
+@media(max-width:720px){.nav-links{display:none}}
+
+/* Container */
+.container{max-width:840px;margin:0 auto;padding:48px 24px 80px}
+
+/* Hero */
+.page-hero{margin-bottom:40px}
+.eyebrow{
+  display:inline-block;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+  color:#7c3aed;margin-bottom:12px;
+}
+h1{
+  font-size:clamp(32px,5vw,44px);font-weight:800;line-height:1.15;letter-spacing:-0.02em;
+  background:linear-gradient(135deg,#7c3aed 0%,#ec4899 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  margin-bottom:12px;
+}
+.lead{font-size:17px;color:#64748b;max-width:640px}
+.updated{
+  display:inline-block;margin-top:16px;font-size:13px;color:#64748b;
+  padding:6px 12px;background:rgba(124,58,237,0.06);border-radius:20px;
+}
+
+/* Content card */
+.content-card{
+  background:rgba(255,255,255,0.75);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.8);border-radius:20px;padding:40px;
+  box-shadow:0 4px 24px rgba(0,0,0,0.04);
+}
+@media(max-width:600px){.content-card{padding:28px 22px}}
+
+h2{
+  font-size:22px;font-weight:700;color:#1e293b;
+  margin-top:36px;margin-bottom:14px;letter-spacing:-0.01em;
+}
+h2:first-child{margin-top:0}
+h3{font-size:17px;font-weight:600;color:#1e293b;margin-top:24px;margin-bottom:10px}
+p{margin-bottom:14px;color:#334155;font-size:15.5px}
+ul,ol{margin:10px 0 18px 22px;color:#334155;font-size:15.5px}
+li{margin-bottom:8px}
+strong{color:#1e293b;font-weight:600}
+a{color:#7c3aed;text-decoration:none;border-bottom:1px solid rgba(124,58,237,0.3)}
+a:hover{border-bottom-color:#7c3aed}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(0,0,0,0.08),transparent);margin:32px 0}
+
+.box{
+  background:rgba(124,58,237,0.05);border-left:3px solid #7c3aed;
+  padding:16px 20px;border-radius:10px;margin:20px 0;
+}
+.box p:last-child{margin-bottom:0}
+
+/* Footer */
+.site-footer{
+  border-top:1px solid rgba(0,0,0,0.06);background:rgba(255,255,255,0.5);
+  padding:32px 24px;text-align:center;color:#64748b;font-size:13px;
+}
+.footer-links{margin-bottom:12px;display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
+.footer-links a{color:#64748b;font-size:13px;border:none}
+.footer-links a:hover{color:#7c3aed}
+</style>
 </head>
 <body>
-<main>
-  <h1>Privacy Policy</h1>
-  <p>
-    Σεβόμαστε τα προσωπικά δεδομένα. Το site μπορεί να χρησιμοποιεί cookies για βασική λειτουργία,
-    στατιστικά και διαφημίσεις (π.χ. Google AdSense), σύμφωνα με τις ρυθμίσεις του browser και τις επιλογές συναίνεσης όπου εφαρμόζεται.
-  </p>
-  <h2>Δεδομένα</h2>
-  <ul>
-    <li>Δεν ζητάμε ευαίσθητα προσωπικά δεδομένα μέσω φορμών.</li>
-    <li>Οι υπολογισμοί γίνονται τοπικά στον browser (client-side) και δεν αποστέλλονται σε server από εμάς.</li>
-  </ul>
-  <h2>Επικοινωνία</h2>
-  <p>Για θέματα απορρήτου: <a href="/contact.html">Επικοινωνία</a></p>
-  <p><a href="/">← Επιστροφή στην αρχική</a></p>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <span class="logo-icon">€</span>
+      <span class="logo-text">misthos2026.gr<small>Καθαρός μισθός · ΕΦΚΑ · Φόρος</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="/">Υπολογιστής</a>
+      <a href="/articles/">Άρθρα</a>
+      <a href="/about.html">Σχετικά</a>
+      <a href="/contact.html">Επικοινωνία</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <div class="page-hero">
+    <span class="eyebrow">Νομικά</span>
+    <h1>Πολιτική Απορρήτου</h1>
+    <p class="lead">Πώς συλλέγουμε, χρησιμοποιούμε και προστατεύουμε τα δεδομένα σου όταν επισκέπτεσαι το misthos2026.gr.</p>
+    <span class="updated">Τελευταία ενημέρωση: 15 Ιουνίου 2026</span>
+  </div>
+
+  <article class="content-card">
+    <h2>1. Ποιοι είμαστε</h2>
+    <p>Το misthos2026.gr είναι ένα δωρεάν online εργαλείο υπολογισμού καθαρού μισθού στην Ελλάδα. Η παρούσα Πολιτική Απορρήτου εξηγεί πώς διαχειριζόμαστε τα δεδομένα των επισκεπτών της ιστοσελίδας μας, σύμφωνα με τον Γενικό Κανονισμό Προστασίας Δεδομένων (GDPR — Κανονισμός ΕΕ 2016/679) και τον N. 4624/2019.</p>
+
+    <h2>2. Τι δεδομένα συλλέγουμε</h2>
+
+    <h3>2.1 Δεδομένα που εισάγεις στον υπολογιστή</h3>
+    <p>Όταν χρησιμοποιείς τον υπολογιστή μισθού, εισάγεις στοιχεία όπως μικτός μισθός, ηλικία, αριθμός τέκνων και ειδικότητα. <strong>Αυτά τα δεδομένα δεν αποθηκεύονται πουθενά</strong>, δεν αποστέλλονται σε διακομιστή και δεν συνδέονται με την ταυτότητά σου. Ο υπολογισμός γίνεται εξ ολοκλήρου στον browser σου (client-side).</p>
+
+    <h3>2.2 Δεδομένα από τη φόρμα επικοινωνίας</h3>
+    <p>Όταν στέλνεις μήνυμα μέσω της φόρμας επικοινωνίας, συλλέγουμε το όνομα, το email και το μήνυμά σου ώστε να μπορέσουμε να σου απαντήσουμε. Τα δεδομένα αυτά τα διαχειρίζεται η πλατφόρμα Netlify Forms και διατηρούνται για όσο διάστημα χρειάζεται για την εξυπηρέτηση του αιτήματός σου.</p>
+
+    <h3>2.3 Δεδομένα περιήγησης</h3>
+    <p>Συλλέγουμε ανώνυμα δεδομένα μέσω εργαλείων στατιστικής ανάλυσης, όπως:</p>
+    <ul>
+      <li>Σελίδες που επισκέπτεσαι και χρόνος παραμονής</li>
+      <li>Τύπος συσκευής, λειτουργικού συστήματος και browser</li>
+      <li>Γενική γεωγραφική περιοχή (επίπεδο πόλης/χώρας)</li>
+      <li>Πηγή επισκεψιμότητας (π.χ. Google, direct, social media)</li>
+    </ul>
+
+    <h2>3. Cookies και παρόμοιες τεχνολογίες</h2>
+    <p>Χρησιμοποιούμε cookies για τους εξής σκοπούς:</p>
+    <ul>
+      <li><strong>Απαραίτητα cookies:</strong> Για τη βασική λειτουργία της ιστοσελίδας (δεν απαιτούν συγκατάθεση).</li>
+      <li><strong>Αναλυτικά cookies:</strong> Από υπηρεσίες όπως Google Search Console και Google Analytics για κατανόηση της χρήσης της σελίδας.</li>
+      <li><strong>Διαφημιστικά cookies:</strong> Από δίκτυα όπως Google AdSense και affiliate πλατφόρμες (Linkwise, Scramble), για προβολή σχετικών διαφημίσεων.</li>
+    </ul>
+    <p>Μπορείς να απενεργοποιήσεις τα cookies από τις ρυθμίσεις του browser σου, αλλά αυτό μπορεί να επηρεάσει τη λειτουργικότητα της σελίδας.</p>
+
+    <h2>4. Διαφημίσεις τρίτων</h2>
+    <p>Η ιστοσελίδα ενδέχεται να προβάλλει διαφημίσεις από τρίτους παρόχους, συμπεριλαμβανομένων:</p>
+    <ul>
+      <li><strong>Google AdSense:</strong> Η Google χρησιμοποιεί cookies για την προβολή προσωποποιημένων διαφημίσεων με βάση τις προηγούμενες επισκέψεις σου σε αυτή ή άλλες ιστοσελίδες. Μπορείς να εξαιρεθείς από την εξατομικευμένη διαφήμιση επισκεπτόμενος τις <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Ρυθμίσεις Διαφημίσεων της Google</a>.</li>
+      <li><strong>Affiliate networks:</strong> Συμμετέχουμε σε προγράμματα συνεργατών (όπως Linkwise, Scramble) τα οποία ενδέχεται να χρησιμοποιούν cookies για την παρακολούθηση των παραπομπών μας.</li>
+    </ul>
+    <div class="box">
+      <p>Πέρα από τους παραπάνω παρόχους, μπορείς να εξαιρεθείς γενικότερα από διαφημίσεις βάσει συμπεριφοράς μέσω της σελίδας <a href="https://www.youronlinechoices.com/gr/" target="_blank" rel="noopener">Your Online Choices</a>.</p>
+    </div>
+
+    <h2>5. Πώς χρησιμοποιούμε τα δεδομένα</h2>
+    <ul>
+      <li>Για τη βελτίωση της λειτουργίας και του περιεχομένου της ιστοσελίδας</li>
+      <li>Για την απάντηση σε ερωτήματα μέσω της φόρμας επικοινωνίας</li>
+      <li>Για στατιστική ανάλυση της χρήσης</li>
+      <li>Για την προβολή σχετικών διαφημίσεων</li>
+    </ul>
+    <p><strong>Δεν πωλούμε</strong> δεδομένα σε τρίτους και δεν τα χρησιμοποιούμε για άλλους σκοπούς πέραν αυτών που αναφέρονται.</p>
+
+    <h2>6. Τα δικαιώματά σου (GDPR)</h2>
+    <p>Σύμφωνα με τον GDPR, έχεις δικαίωμα:</p>
+    <ul>
+      <li><strong>Πρόσβασης</strong> στα προσωπικά δεδομένα που τηρούμε για εσένα</li>
+      <li><strong>Διόρθωσης</strong> ανακριβών δεδομένων</li>
+      <li><strong>Διαγραφής</strong> των δεδομένων σου ("δικαίωμα στη λήθη")</li>
+      <li><strong>Περιορισμού</strong> της επεξεργασίας</li>
+      <li><strong>Φορητότητας</strong> των δεδομένων</li>
+      <li><strong>Εναντίωσης</strong> στην επεξεργασία</li>
+      <li><strong>Καταγγελίας</strong> στην <a href="https://www.dpa.gr/" target="_blank" rel="noopener">Αρχή Προστασίας Δεδομένων Προσωπικού Χαρακτήρα</a></li>
+    </ul>
+    <p>Για να ασκήσεις τα δικαιώματά σου, επικοινώνησε μαζί μας μέσω της <a href="/contact.html">σελίδας επικοινωνίας</a>.</p>
+
+    <h2>7. Ασφάλεια δεδομένων</h2>
+    <p>Η ιστοσελίδα χρησιμοποιεί κρυπτογράφηση HTTPS/SSL για όλη τη μεταφορά δεδομένων. Λαμβάνουμε τα κατάλληλα τεχνικά μέτρα για την προστασία των πληροφοριών σου, αν και καμία μέθοδος μετάδοσης μέσω διαδικτύου δεν είναι 100% ασφαλής.</p>
+
+    <h2>8. Σύνδεσμοι προς τρίτους</h2>
+    <p>Η ιστοσελίδα μπορεί να περιέχει συνδέσμους προς τρίτους ιστότοπους. Δεν είμαστε υπεύθυνοι για τις πρακτικές απορρήτου τους. Σου συνιστούμε να διαβάζεις τις πολιτικές απορρήτου κάθε ιστοσελίδας που επισκέπτεσαι.</p>
+
+    <h2>9. Παιδιά</h2>
+    <p>Η ιστοσελίδα δεν απευθύνεται σε άτομα κάτω των 16 ετών και δεν συλλέγουμε εν γνώσει μας δεδομένα από ανήλικους.</p>
+
+    <h2>10. Αλλαγές στην πολιτική</h2>
+    <p>Διατηρούμε το δικαίωμα να ενημερώσουμε αυτή την πολιτική απορρήτου ανά πάσα στιγμή. Σημαντικές αλλαγές θα ανακοινώνονται στην παρούσα σελίδα με ενημέρωση της ημερομηνίας στην κορυφή.</p>
+
+    <h2>11. Επικοινωνία</h2>
+    <p>Για οποιαδήποτε ερώτηση σχετικά με την παρούσα Πολιτική Απορρήτου ή για την άσκηση των δικαιωμάτων σου, μπορείς να επικοινωνήσεις μέσω της <a href="/contact.html">φόρμας επικοινωνίας</a>.</p>
+  </article>
 </main>
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="/">Αρχική</a>
+    <a href="/articles/">Άρθρα</a>
+    <a href="/about.html">Σχετικά</a>
+    <a href="/contact.html">Επικοινωνία</a>
+    <a href="/privacy-policy.html">Απόρρητο</a>
+    <a href="/terms.html">Όροι Χρήσης</a>
+  </div>
+  © 2026 misthos2026.gr — Όλα τα δικαιώματα διατηρούνται
+</footer>
+
 </body>
 </html>

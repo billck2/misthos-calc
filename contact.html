@@ -1,22 +1,270 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="el">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Επικοινωνία — misthos2026.gr</title>
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://misthos2026.gr/contact.html" />
-  <style>body{font-family:system-ui,Arial;margin:0;background:#f7f7fb;color:#0f172a}main{max-width:900px;margin:auto;padding:18px}a{color:#204a99}.box{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:14px}</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Επικοινωνία — misthos2026.gr</title>
+<meta name="description" content="Επικοινώνησε με την ομάδα του misthos2026.gr. Στείλε μήνυμα μέσω της φόρμας επικοινωνίας για ερωτήσεις, παρατηρήσεις ή συνεργασίες.">
+<link rel="canonical" href="https://misthos2026.gr/contact.html">
+<meta name="robots" content="index, follow">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#7c3aed">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:
+    radial-gradient(circle at 20% 0%,rgba(124,58,237,0.08) 0%,transparent 50%),
+    radial-gradient(circle at 80% 100%,rgba(236,72,153,0.08) 0%,transparent 50%),
+    linear-gradient(180deg,#fafafa 0%,#f4f4f5 100%);
+  min-height:100vh;color:#1e293b;line-height:1.7;
+}
+.site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.06)}
+.header-inner{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;font-weight:700;font-size:16px}
+.logo-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#7c3aed 0%,#ec4899 100%);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px}
+.logo-text small{display:block;font-size:11px;font-weight:500;color:#64748b;margin-top:1px}
+.nav-links{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.nav-links a{text-decoration:none;color:#475569;font-size:14px;font-weight:500;padding:8px 14px;border-radius:8px;transition:all .2s}
+.nav-links a:hover{background:rgba(124,58,237,0.08);color:#7c3aed}
+@media(max-width:720px){.nav-links{display:none}}
+
+.container{max-width:1100px;margin:0 auto;padding:48px 24px 80px}
+.page-hero{margin-bottom:40px;text-align:center}
+.eyebrow{display:inline-block;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#7c3aed;margin-bottom:12px}
+h1{font-size:clamp(34px,5.5vw,48px);font-weight:800;line-height:1.1;letter-spacing:-0.02em;background:linear-gradient(135deg,#7c3aed 0%,#ec4899 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px}
+.lead{font-size:17px;color:#475569;max-width:580px;margin:0 auto}
+
+.grid{display:grid;grid-template-columns:1fr 1.4fr;gap:28px;align-items:start}
+@media(max-width:820px){.grid{grid-template-columns:1fr}}
+
+.info-card,.form-card{background:rgba(255,255,255,0.75);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.8);border-radius:20px;padding:32px;box-shadow:0 4px 24px rgba(0,0,0,0.04)}
+
+.info-card h2{font-size:18px;margin-bottom:20px;color:#1e293b}
+.info-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid rgba(0,0,0,0.05)}
+.info-item:last-child{border-bottom:none}
+.info-icon{flex-shrink:0;width:38px;height:38px;background:linear-gradient(135deg,rgba(124,58,237,0.12),rgba(236,72,153,0.12));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.info-text{flex:1}
+.info-text strong{display:block;font-size:14px;color:#1e293b;margin-bottom:2px}
+.info-text span{font-size:13.5px;color:#64748b;line-height:1.5}
+
+.form-card h2{font-size:20px;margin-bottom:6px;color:#1e293b}
+.form-card .form-sub{font-size:14px;color:#64748b;margin-bottom:24px}
+
+.field{margin-bottom:18px}
+.field label{display:block;font-size:13px;font-weight:600;color:#475569;margin-bottom:6px;letter-spacing:0.01em}
+.field label .req{color:#ec4899;margin-left:2px}
+.field input,.field textarea,.field select{
+  width:100%;padding:12px 14px;background:rgba(255,255,255,0.6);
+  border:1.5px solid rgba(0,0,0,0.08);border-radius:10px;
+  font-family:inherit;font-size:15px;color:#1e293b;
+  transition:all .2s;outline:none;
+}
+.field input:focus,.field textarea:focus,.field select:focus{
+  border-color:#7c3aed;background:#fff;box-shadow:0 0 0 4px rgba(124,58,237,0.08);
+}
+.field textarea{min-height:140px;resize:vertical}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:480px){.field-row{grid-template-columns:1fr}}
+
+/* honeypot field — hidden */
+.hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+.submit-btn{
+  width:100%;padding:14px;background:linear-gradient(135deg,#7c3aed 0%,#ec4899 100%);
+  color:#fff;border:none;border-radius:12px;font-family:inherit;font-size:15px;font-weight:600;
+  cursor:pointer;transition:all .2s;letter-spacing:0.01em;
+}
+.submit-btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(124,58,237,0.25)}
+.submit-btn:active{transform:translateY(0)}
+
+.consent{font-size:12.5px;color:#64748b;margin-top:14px;line-height:1.5}
+.consent a{color:#7c3aed;text-decoration:none;border-bottom:1px solid rgba(124,58,237,0.3)}
+
+/* Success message */
+.success-card{display:none;text-align:center;padding:60px 32px;background:rgba(255,255,255,0.75);backdrop-filter:blur(20px);border-radius:20px;border:1px solid rgba(124,58,237,0.15)}
+.success-card.show{display:block}
+.success-icon{width:64px;height:64px;background:linear-gradient(135deg,#7c3aed,#ec4899);border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px}
+.success-card h2{font-size:24px;color:#1e293b;margin-bottom:10px}
+.success-card p{color:#64748b;margin-bottom:24px}
+
+.site-footer{border-top:1px solid rgba(0,0,0,0.06);background:rgba(255,255,255,0.5);padding:32px 24px;text-align:center;color:#64748b;font-size:13px}
+.footer-links{margin-bottom:12px;display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
+.footer-links a{color:#64748b;font-size:13px;text-decoration:none}
+.footer-links a:hover{color:#7c3aed}
+</style>
 </head>
 <body>
-<main>
-  <h1>Επικοινωνία</h1>
-  <div class="box">
-    <p>Για ερωτήσεις/διορθώσεις στείλε email στο:</p>
-    <p><strong>info@misthos2026.gr</strong></p>
-    <p class="small">*(βάλε εδώ το πραγματικό email σου αν θες)*</p>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <span class="logo-icon">€</span>
+      <span class="logo-text">misthos2026.gr<small>Καθαρός μισθός · ΕΦΚΑ · Φόρος</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="/">Υπολογιστής</a>
+      <a href="/articles/">Άρθρα</a>
+      <a href="/about.html">Σχετικά</a>
+      <a href="/contact.html">Επικοινωνία</a>
+    </nav>
   </div>
-  <p><a href="/">← Επιστροφή στην αρχική</a></p>
+</header>
+
+<main class="container">
+  <div class="page-hero">
+    <span class="eyebrow">Επικοινωνία</span>
+    <h1>Πες μας τι σκέφτεσαι</h1>
+    <p class="lead">Έχεις πρόταση, παρατήρηση, ερώτηση ή ιδέα για συνεργασία; Στείλε μας μήνυμα — απαντάμε συνήθως μέσα σε 1–2 εργάσιμες ημέρες.</p>
+  </div>
+
+  <div class="grid">
+
+    <aside class="info-card">
+      <h2>Πληροφορίες</h2>
+
+      <div class="info-item">
+        <div class="info-icon">⚡</div>
+        <div class="info-text">
+          <strong>Χρόνος απάντησης</strong>
+          <span>1–2 εργάσιμες ημέρες (Δευτ.–Παρ.)</span>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">💬</div>
+        <div class="info-text">
+          <strong>Για τι μπορείς να γράψεις</strong>
+          <span>Σφάλματα υπολογισμού, προτάσεις βελτίωσης, αιτήματα συνεργασίας, διαφημιστικές προτάσεις, αναφορά προβλημάτων.</span>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">🔒</div>
+        <div class="info-text">
+          <strong>Απόρρητο</strong>
+          <span>Τα στοιχεία σου διαχειρίζονται σύμφωνα με την <a href="/privacy-policy.html" style="color:#7c3aed;border-bottom:1px solid rgba(124,58,237,0.3);text-decoration:none">πολιτική απορρήτου</a> μας.</span>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div class="info-text">
+          <strong>Έδρα</strong>
+          <span>Ελλάδα — online παρουσία</span>
+        </div>
+      </div>
+    </aside>
+
+    <section>
+      <div class="form-card" id="contactFormCard">
+        <h2>Φόρμα επικοινωνίας</h2>
+        <p class="form-sub">Συμπλήρωσε τα παρακάτω και πάτησε «Αποστολή».</p>
+
+        <!--
+          Netlify Forms setup:
+          - data-netlify="true" ενεργοποιεί την υπηρεσία
+          - netlify-honeypot="bot-field" αποτρέπει spam bots
+          - Hidden input name="form-name" είναι υποχρεωτικό
+          Τα μηνύματα θα φαίνονται στο Netlify dashboard → Forms.
+          Πας στις ρυθμίσεις και προσθέτεις το email σου για forwarding.
+        -->
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          action="/thanks.html"
+          id="contactForm"
+        >
+          <input type="hidden" name="form-name" value="contact">
+
+          <!-- Honeypot field (κρυφό από users, βλέπουν μόνο τα bots) -->
+          <p class="hp-field">
+            <label>Μην συμπληρώσεις αυτό το πεδίο: <input name="bot-field"></label>
+          </p>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Όνομα<span class="req">*</span></label>
+              <input type="text" id="name" name="name" required maxlength="80" autocomplete="name" placeholder="Π.χ. Γιώργος Παπαδόπουλος">
+            </div>
+            <div class="field">
+              <label for="email">Email<span class="req">*</span></label>
+              <input type="email" id="email" name="email" required maxlength="120" autocomplete="email" placeholder="onoma@example.com">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="subject">Θέμα<span class="req">*</span></label>
+            <select id="subject" name="subject" required>
+              <option value="">— Επίλεξε θέμα —</option>
+              <option value="Ερώτηση για υπολογισμό">Ερώτηση για υπολογισμό</option>
+              <option value="Σφάλμα / Bug report">Αναφορά σφάλματος / bug</option>
+              <option value="Πρόταση βελτίωσης">Πρόταση βελτίωσης</option>
+              <option value="Συνεργασία / Διαφήμιση">Συνεργασία / Διαφήμιση</option>
+              <option value="Νομικό / GDPR">Νομικό / GDPR</option>
+              <option value="Άλλο">Άλλο</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">Μήνυμα<span class="req">*</span></label>
+            <textarea id="message" name="message" required maxlength="2000" placeholder="Γράψε το μήνυμά σου εδώ..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Αποστολή μηνύματος</button>
+
+          <p class="consent">
+            Πατώντας «Αποστολή», συμφωνείς ότι μπορούμε να επικοινωνήσουμε μαζί σου με βάση την
+            <a href="/privacy-policy.html">πολιτική απορρήτου</a> μας.
+          </p>
+        </form>
+      </div>
+
+      <!-- Inline success message (εμφανίζεται αν επιστρέψει με ?success=true) -->
+      <div class="success-card" id="successCard">
+        <div class="success-icon">✓</div>
+        <h2>Ευχαριστούμε!</h2>
+        <p>Το μήνυμά σου στάλθηκε με επιτυχία. Θα σου απαντήσουμε σύντομα.</p>
+        <a href="/" style="display:inline-block;color:#7c3aed;text-decoration:none;font-weight:600;border-bottom:1px solid rgba(124,58,237,0.3)">← Επιστροφή στην αρχική</a>
+      </div>
+
+    </section>
+  </div>
 </main>
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="/">Αρχική</a>
+    <a href="/articles/">Άρθρα</a>
+    <a href="/about.html">Σχετικά</a>
+    <a href="/contact.html">Επικοινωνία</a>
+    <a href="/privacy-policy.html">Απόρρητο</a>
+    <a href="/terms.html">Όροι Χρήσης</a>
+  </div>
+  © 2026 misthos2026.gr — Όλα τα δικαιώματα διατηρούνται
+</footer>
+
+<script>
+  // Αν επιστρέψει με ?success=true (από το thanks.html), δείξε το inline success
+  if (new URLSearchParams(window.location.search).get('success') === 'true') {
+    document.getElementById('contactFormCard').style.display = 'none';
+    document.getElementById('successCard').classList.add('show');
+    document.querySelector('.info-card').style.display = 'none';
+    window.history.replaceState({}, '', '/contact.html');
+  }
+</script>
+
 </body>
 </html>

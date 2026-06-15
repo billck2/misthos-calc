@@ -1,24 +1,208 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="el">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About — misthos2026.gr</title>
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://misthos2026.gr/about.html" />
-  <style>body{font-family:system-ui,Arial;margin:0;background:#f7f7fb;color:#0f172a}main{max-width:900px;margin:auto;padding:18px}a{color:#204a99}</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Σχετικά με εμάς — misthos2026.gr</title>
+<meta name="description" content="Γνώρισε το misthos2026.gr: τη δωρεάν online πλατφόρμα για υπολογισμό καθαρού μισθού, ΕΦΚΑ, φόρου και κόστους εργοδότη στην Ελλάδα για το 2026.">
+<link rel="canonical" href="https://misthos2026.gr/about.html">
+<meta name="robots" content="index, follow">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#7c3aed">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:
+    radial-gradient(circle at 20% 0%,rgba(124,58,237,0.08) 0%,transparent 50%),
+    radial-gradient(circle at 80% 100%,rgba(236,72,153,0.08) 0%,transparent 50%),
+    linear-gradient(180deg,#fafafa 0%,#f4f4f5 100%);
+  min-height:100vh;color:#1e293b;line-height:1.7;
+}
+.site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.06)}
+.header-inner{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;font-weight:700;font-size:16px}
+.logo-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#7c3aed 0%,#ec4899 100%);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px}
+.logo-text small{display:block;font-size:11px;font-weight:500;color:#64748b;margin-top:1px}
+.nav-links{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.nav-links a{text-decoration:none;color:#475569;font-size:14px;font-weight:500;padding:8px 14px;border-radius:8px;transition:all .2s}
+.nav-links a:hover{background:rgba(124,58,237,0.08);color:#7c3aed}
+@media(max-width:720px){.nav-links{display:none}}
+.container{max-width:880px;margin:0 auto;padding:48px 24px 80px}
+.page-hero{margin-bottom:40px}
+.eyebrow{display:inline-block;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#7c3aed;margin-bottom:12px}
+h1{font-size:clamp(34px,5.5vw,48px);font-weight:800;line-height:1.1;letter-spacing:-0.02em;background:linear-gradient(135deg,#7c3aed 0%,#ec4899 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px}
+.lead{font-size:18px;color:#475569;max-width:680px;line-height:1.6}
+.content-card{background:rgba(255,255,255,0.75);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.8);border-radius:20px;padding:44px;box-shadow:0 4px 24px rgba(0,0,0,0.04)}
+@media(max-width:600px){.content-card{padding:28px 22px}}
+h2{font-size:24px;font-weight:700;color:#1e293b;margin-top:40px;margin-bottom:16px;letter-spacing:-0.01em}
+h2:first-child{margin-top:0}
+p{margin-bottom:16px;color:#334155;font-size:16px}
+ul{margin:10px 0 20px 22px;color:#334155;font-size:16px}
+li{margin-bottom:10px}
+strong{color:#1e293b;font-weight:600}
+a{color:#7c3aed;text-decoration:none;border-bottom:1px solid rgba(124,58,237,0.3)}
+a:hover{border-bottom-color:#7c3aed}
+
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:24px 0}
+.stat{background:linear-gradient(135deg,rgba(124,58,237,0.06) 0%,rgba(236,72,153,0.06) 100%);padding:20px;border-radius:14px;border:1px solid rgba(124,58,237,0.1)}
+.stat-num{font-size:28px;font-weight:800;background:linear-gradient(135deg,#7c3aed,#ec4899);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.stat-lbl{font-size:13px;color:#64748b;margin-top:6px;font-weight:500}
+
+.feature-list{display:grid;gap:14px;margin:20px 0}
+.feature{display:flex;gap:14px;padding:16px 18px;background:rgba(124,58,237,0.04);border-radius:12px;border-left:3px solid #7c3aed}
+.feature-icon{flex-shrink:0;width:32px;height:32px;background:linear-gradient(135deg,#7c3aed,#ec4899);border-radius:8px;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px}
+.feature-text{flex:1}
+.feature-text strong{display:block;margin-bottom:2px;color:#1e293b}
+.feature-text span{font-size:14.5px;color:#475569}
+
+.cta-box{margin-top:32px;padding:28px;background:linear-gradient(135deg,#7c3aed 0%,#ec4899 100%);border-radius:16px;color:#fff;text-align:center}
+.cta-box h3{font-size:20px;margin-bottom:10px;color:#fff}
+.cta-box p{color:rgba(255,255,255,0.9);margin-bottom:18px}
+.cta-btn{display:inline-block;background:#fff;color:#7c3aed;padding:12px 28px;border-radius:10px;font-weight:600;text-decoration:none;border:none;transition:transform .2s}
+.cta-btn:hover{transform:translateY(-2px);border:none}
+
+.site-footer{border-top:1px solid rgba(0,0,0,0.06);background:rgba(255,255,255,0.5);padding:32px 24px;text-align:center;color:#64748b;font-size:13px}
+.footer-links{margin-bottom:12px;display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
+.footer-links a{color:#64748b;font-size:13px;border:none}
+.footer-links a:hover{color:#7c3aed}
+</style>
 </head>
 <body>
-<main>
-  <h1>About</h1>
-  <p>
-    Το misthos2026.gr είναι ένα ενημερωτικό site με εργαλεία και οδηγούς για μισθούς στην Ελλάδα.
-    Στόχος είναι να εξηγεί με απλό τρόπο πώς προκύπτουν τα καθαρά, οι κρατήσεις (ΕΦΚΑ) και η παρακράτηση φόρου.
-  </p>
-  <p>
-    Οι υπολογισμοί είναι ενδεικτικοί και δεν αποτελούν φορολογική ή νομική συμβουλή.
-  </p>
-  <p><a href="/">← Επιστροφή στην αρχική</a></p>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <span class="logo-icon">€</span>
+      <span class="logo-text">misthos2026.gr<small>Καθαρός μισθός · ΕΦΚΑ · Φόρος</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="/">Υπολογιστής</a>
+      <a href="/articles/">Άρθρα</a>
+      <a href="/about.html">Σχετικά</a>
+      <a href="/contact.html">Επικοινωνία</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <div class="page-hero">
+    <span class="eyebrow">Σχετικά</span>
+    <h1>Διαφάνεια στον μισθό. Δωρεάν, πάντα.</h1>
+    <p class="lead">Το misthos2026.gr είναι ένα ανεξάρτητο online εργαλείο που βοηθάει εργαζόμενους, εργοδότες και φοιτητές στην Ελλάδα να καταλάβουν πραγματικά τι σημαίνει "μικτός" και "καθαρός" μισθός — χωρίς εγγραφές, χωρίς λογιστικές γνώσεις, χωρίς δεσμεύσεις.</p>
+  </div>
+
+  <article class="content-card">
+
+    <h2>Η αποστολή μας</h2>
+    <p>Στην Ελλάδα, ο υπολογισμός του καθαρού μισθού είναι πιο πολύπλοκος απ' όσο φαίνεται. Ασφαλιστικές εισφορές, φορολογικές κλίμακες, εκπτώσεις φόρου, εξαρτώμενα τέκνα, ηλικιακές ζώνες, ειδικότητες — όλα αυτά επηρεάζουν το ποσό που τελικά μπαίνει στον τραπεζικό λογαριασμό.</p>
+    <p>Το misthos2026.gr υπάρχει για έναν λόγο: <strong>να δώσει σε όλους τη δυνατότητα να υπολογίσουν τον μισθό τους μέσα σε δευτερόλεπτα</strong>, με τα τελευταία στοιχεία του 2026, χωρίς να χρειάζεται να ξέρουν τη διαφορά μεταξύ ΦΜΥ και ΕΦΚΑ.</p>
+
+    <div class="stat-grid">
+      <div class="stat">
+        <div class="stat-num">14χιλ.+</div>
+        <div class="stat-lbl">Επισκέπτες/μήνα</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-lbl">Δωρεάν, χωρίς εγγραφή</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">2026</div>
+        <div class="stat-lbl">Ενημερωμένο για το τρέχον έτος</div>
+      </div>
+    </div>
+
+    <h2>Τι προσφέρουμε</h2>
+    <div class="feature-list">
+      <div class="feature">
+        <div class="feature-icon">€</div>
+        <div class="feature-text">
+          <strong>Υπολογιστής μισθού</strong>
+          <span>Μικτά σε καθαρά και αντίστροφα, με ΕΦΚΑ 13,37%, φόρο εισοδήματος βάσει κλιμάκων 2026 και έκπτωση φόρου.</span>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">14</div>
+        <div class="feature-text">
+          <strong>Δώρα και επιδόματα</strong>
+          <span>Επιλογή 12 ή 14 μισθοί, με αυτόματο υπολογισμό Δώρου Χριστουγέννων, Πάσχα και επιδόματος αδείας.</span>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">+</div>
+        <div class="feature-text">
+          <strong>Εξατομικευμένες παράμετροι</strong>
+          <span>Λαμβάνουμε υπόψη ηλικία (έως 25 / 25-30 / 30+), εξαρτώμενα τέκνα, ειδικότητα και ειδικά καθεστώτα όπως το άρθρο 5Γ για επαναπατριζόμενους.</span>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">B</div>
+        <div class="feature-text">
+          <strong>Κόστος εργοδότη</strong>
+          <span>Για εργοδότες και HR: συνολικό κόστος ανά υπάλληλο, εργοδοτικές εισφορές 21,79%, ανώτατο πλαφόν ασφαλιστέων.</span>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">i</div>
+        <div class="feature-text">
+          <strong>Οδηγοί και άρθρα</strong>
+          <span>Πρακτικοί οδηγοί για φόρους, εισφορές, Ψηφιακή Κάρτα Εργασίας, ΕΡΓΑΝΗ ΙΙ και αλλαγές στον κατώτατο μισθό.</span>
+        </div>
+      </div>
+    </div>
+
+    <h2>Γιατί να μας εμπιστευτείς</h2>
+    <p>Δεν είμαστε ένα generic salary calculator. Το misthos2026.gr ενημερώνεται διαρκώς από επαγγελματίες που εργάζονται καθημερινά με ελληνικό payroll και τη μισθοδοτική πραγματικότητα της χώρας:</p>
+    <ul>
+      <li><strong>Ενεργή εμπειρία σε ΕΡΓΑΝΗ ΙΙ</strong> και e-ΕΦΚΑ — οι παράμετροι του υπολογιστή προέρχονται από πραγματικές δηλώσεις ΑΠΔ.</li>
+      <li><strong>Άμεση ενημέρωση</strong> σε αλλαγές νομοθεσίας (φορολογικές κλίμακες, ποσοστά ΕΦΚΑ, κατώτατος μισθός).</li>
+      <li><strong>Διαφάνεια στους υπολογισμούς</strong> — κάθε ποσοστό φαίνεται καθαρά, χωρίς "μαύρα κουτιά".</li>
+      <li><strong>Καμία αποθήκευση δεδομένων</strong> — οι υπολογισμοί γίνονται αποκλειστικά στον browser σου.</li>
+    </ul>
+
+    <h2>Πώς χρηματοδοτούμαστε</h2>
+    <p>Το misthos2026.gr παρέχεται <strong>εντελώς δωρεάν</strong>. Για να διατηρήσουμε τη σελίδα και να συνεχίσουμε να την ενημερώνουμε, εμφανίζουμε διαφημίσεις τρίτων και ενδέχεται να συμπεριλαμβάνουμε συνδέσμους affiliate. Οποιαδήποτε προμήθεια λαμβάνουμε από αυτούς δεν επιβαρύνει εσένα, και δεν επηρεάζει το περιεχόμενο των υπολογισμών μας.</p>
+
+    <h2>Σε ποιους απευθυνόμαστε</h2>
+    <ul>
+      <li><strong>Εργαζόμενους</strong> που θέλουν να ξέρουν τι θα πάρουν καθαρά πριν δεχτούν μια προσφορά εργασίας</li>
+      <li><strong>Υποψήφιους εργοδότες</strong> που θέλουν να υπολογίσουν το πραγματικό κόστος μιας πρόσληψης</li>
+      <li><strong>Λογιστές και HR</strong> για γρήγορες εκτιμήσεις</li>
+      <li><strong>Φοιτητές και πρωτοδιόριστους</strong> που έρχονται για πρώτη φορά σε επαφή με το ελληνικό φορολογικό σύστημα</li>
+      <li><strong>Επαγγελματίες που σκέφτονται μετακίνηση</strong> και θέλουν να συγκρίνουν προσφορές</li>
+    </ul>
+
+    <div class="cta-box">
+      <h3>Έτοιμος να υπολογίσεις τον μισθό σου;</h3>
+      <p>Δωρεάν, χωρίς εγγραφή, σε λιγότερο από 30 δευτερόλεπτα.</p>
+      <a href="/" class="cta-btn">Άνοιξε τον υπολογιστή →</a>
+    </div>
+
+  </article>
 </main>
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="/">Αρχική</a>
+    <a href="/articles/">Άρθρα</a>
+    <a href="/about.html">Σχετικά</a>
+    <a href="/contact.html">Επικοινωνία</a>
+    <a href="/privacy-policy.html">Απόρρητο</a>
+    <a href="/terms.html">Όροι Χρήσης</a>
+  </div>
+  © 2026 misthos2026.gr — Όλα τα δικαιώματα διατηρούνται
+</footer>
+
 </body>
 </html>
