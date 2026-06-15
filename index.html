@@ -835,11 +835,11 @@
       }
     }
 
-    /* ═══════════ SCRAMBLE POPUP ═══════════ */
-    .scramble-popup{
+    /* ═══════════ FREEDOM24 POPUP ═══════════ */
+    .f24-popup{
       position:fixed;
       inset:0;
-      background:rgba(15,23,42,0.78);
+      background:rgba(15,23,42,0.55);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       display:flex;
@@ -852,44 +852,46 @@
       transition: opacity .25s ease, visibility .25s ease;
     }
 
-    .scramble-popup.scr-open{
+    .f24-popup.f24-open{
       opacity:1;
       visibility:visible;
     }
 
-    .scramble-card{
+    .f24-card{
       position:relative;
       width:100%;
-      max-width:430px;
+      max-width:440px;
       background:
-        radial-gradient(120% 80% at 100% 0%, rgba(236,72,153,.35), transparent 55%),
-        radial-gradient(120% 80% at 0% 0%, rgba(99,102,241,.45), transparent 55%),
-        linear-gradient(180deg, #1e1b4b 0%, #0f0c2a 100%);
-      color:#fff;
+        radial-gradient(110% 70% at 100% 0%, rgba(139,92,246,.18), transparent 55%),
+        radial-gradient(110% 70% at 0% 0%, rgba(99,102,241,.22), transparent 55%),
+        rgba(255,255,255,.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      color:var(--ink);
+      border:1px solid rgba(226,232,240,.8);
       border-radius:24px;
-      padding:28px 24px 22px;
-      text-align:center;
+      padding:28px 26px 22px;
       box-shadow:
-        0 30px 80px rgba(0,0,0,.55),
-        0 0 0 1px rgba(255,255,255,.08) inset;
+        0 30px 80px rgba(15,23,42,.35),
+        0 1px 0 rgba(255,255,255,.6) inset;
       overflow:hidden;
-      transform: scale(.92) translateY(10px);
+      transform: scale(.94) translateY(10px);
       transition: transform .35s cubic-bezier(.18,.89,.32,1.28);
     }
 
-    .scramble-popup.scr-open .scramble-card{
+    .f24-popup.f24-open .f24-card{
       transform: scale(1) translateY(0);
     }
 
-    .scr-close{
+    .f24-close{
       position:absolute;
       top:12px;
       right:12px;
       width:32px;
       height:32px;
       border:none;
-      background:rgba(255,255,255,.1);
-      color:#fff;
+      background:rgba(99,102,241,.08);
+      color:var(--mut);
       border-radius:50%;
       font-size:14px;
       cursor:pointer;
@@ -898,156 +900,161 @@
       justify-content:center;
       font-weight:700;
       z-index:3;
-      transition: background .15s;
+      transition: background .15s, color .15s;
     }
 
-    .scr-close:hover{
-      background:rgba(255,255,255,.2);
+    .f24-close:hover{
+      background:rgba(99,102,241,.16);
+      color:var(--pri);
       box-shadow:none;
       transform:none;
     }
 
-    .scr-tag{
+    .f24-tag{
       display:inline-block;
       font-size:10px;
       letter-spacing:1.5px;
       text-transform:uppercase;
-      color:rgba(255,255,255,.55);
+      color:var(--mut);
       font-weight:700;
-      margin-bottom:18px;
+      margin-bottom:14px;
     }
 
-    /* Confetti στο background */
-    .scr-confetti{
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      overflow:hidden;
-    }
-
-    .scr-confetti span{
-      position:absolute;
-      width:8px;
-      height:8px;
-      border-radius:2px;
-      opacity:.65;
-      animation: scr-float 6s ease-in-out infinite;
-    }
-
-    .scr-confetti span:nth-child(1){ top:15%; left:8%;  background:#fbbf24; transform:rotate(15deg); animation-delay:0s; }
-    .scr-confetti span:nth-child(2){ top:25%; left:88%; background:#ec4899; transform:rotate(-20deg); animation-delay:.5s; }
-    .scr-confetti span:nth-child(3){ top:55%; left:5%;  background:#8b5cf6; transform:rotate(45deg); animation-delay:1s; border-radius:50%; }
-    .scr-confetti span:nth-child(4){ top:70%; left:92%; background:#22d3ee; transform:rotate(-10deg); animation-delay:1.5s; }
-    .scr-confetti span:nth-child(5){ top:40%; left:15%; background:#34d399; transform:rotate(30deg); animation-delay:2s; }
-    .scr-confetti span:nth-child(6){ top:80%; left:20%; background:#f472b6; transform:rotate(-30deg); animation-delay:2.5s; border-radius:50%; }
-    .scr-confetti span:nth-child(7){ top:10%; left:50%; background:#60a5fa; transform:rotate(20deg); animation-delay:3s; }
-    .scr-confetti span:nth-child(8){ top:88%; left:60%; background:#fbbf24; transform:rotate(-15deg); animation-delay:3.5s; border-radius:50%; }
-
-    @keyframes scr-float{
-      0%, 100% { transform: translateY(0) rotate(0deg); opacity:.65; }
-      50%      { transform: translateY(-14px) rotate(180deg); opacity:.3; }
-    }
-
-    .scr-bonus-badge{
-      position:relative;
+    .f24-eyebrow{
       display:inline-flex;
-      align-items:baseline;
+      align-items:center;
       gap:8px;
-      padding:9px 18px;
-      background: linear-gradient(135deg, #fde68a 0%, #fbbf24 50%, #f59e0b 100%);
-      color:#451a03;
+      padding:6px 14px;
+      background: linear-gradient(135deg, rgba(16,185,129,.12), rgba(16,185,129,.06));
+      border:1px solid rgba(16,185,129,.25);
       border-radius:999px;
-      font-weight:800;
-      margin-bottom:18px;
-      box-shadow: 0 8px 22px rgba(251,191,36,.45), inset 0 1px 0 rgba(255,255,255,.5);
-      animation: scr-pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes scr-pulse{
-      0%, 100% { transform: scale(1); }
-      50%      { transform: scale(1.04); }
-    }
-
-    .scr-bonus-amount{
-      font-size:20px;
-      font-weight:900;
-      letter-spacing:-.5px;
-    }
-
-    .scr-bonus-label{
-      font-size:12px;
+      color:#047857;
+      font-size:11px;
       font-weight:700;
-      letter-spacing:.2px;
+      letter-spacing:.4px;
+      text-transform:uppercase;
+      margin-bottom:14px;
     }
 
-    .scr-title{
-      position:relative;
-      margin:0 0 12px;
-      font-size:24px;
+    .f24-eyebrow .f24-dot{
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background:var(--green);
+      box-shadow:0 0 0 4px rgba(16,185,129,.18);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .f24-title{
+      margin:0 0 10px;
+      font-size:22px;
       font-weight:900;
       line-height:1.2;
       letter-spacing:-.5px;
-      color:#fff;
+      color:var(--ink);
     }
 
-    .scr-grad{
-      background: linear-gradient(135deg, #fde047 0%, #fb923c 50%, #ec4899 100%);
+    .f24-title .f24-grad{
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
       -webkit-background-clip:text;
       background-clip:text;
       color:transparent;
     }
 
-    .scr-sub{
-      position:relative;
-      margin:0 0 20px;
+    .f24-sub{
+      margin:0 0 18px;
       font-size:14px;
-      color:rgba(255,255,255,.78);
+      color:var(--mut);
       line-height:1.5;
     }
 
-    .scr-sub strong{
-      color:#fff;
-      font-weight:700;
+    .f24-amount-box{
+      position:relative;
+      padding:18px 16px;
+      margin-bottom:14px;
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+      border:1px solid var(--green-border);
+      border-radius:16px;
+      text-align:center;
+      box-shadow: 0 4px 14px -4px rgba(16,185,129,.25);
     }
 
-    .scr-stats{
-      position:relative;
+    .f24-amount-label{
+      font-size:11px;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      font-weight:700;
+      color:#065f46;
+      margin-bottom:4px;
+    }
+
+    .f24-amount-val{
+      font-size:38px;
+      font-weight:900;
+      letter-spacing:-1px;
+      color:#047857;
+      font-variant-numeric:tabular-nums;
+      line-height:1.05;
+    }
+
+    .f24-amount-val .f24-cur{
+      font-size:22px;
+      margin-left:2px;
+    }
+
+    .f24-amount-detail{
+      margin-top:6px;
+      font-size:12px;
+      color:#065f46;
+      font-weight:600;
+    }
+
+    .f24-amount-detail strong{
+      color:#047857;
+      font-weight:800;
+    }
+
+    .f24-stats{
       display:grid;
       grid-template-columns:repeat(3, 1fr);
       gap:8px;
-      padding:14px 8px;
-      margin-bottom:20px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.1);
-      border-radius:14px;
+      padding:12px 8px;
+      margin-bottom:18px;
+      background:rgba(99,102,241,.04);
+      border:1px solid rgba(99,102,241,.12);
+      border-radius:12px;
     }
 
-    .scr-stat-val{
-      font-size:20px;
+    .f24-stat{
+      text-align:center;
+    }
+
+    .f24-stat-val{
+      font-size:16px;
       font-weight:900;
-      letter-spacing:-.5px;
-      color:#fff;
+      letter-spacing:-.3px;
+      color:var(--pri-dark);
       line-height:1.1;
       font-variant-numeric: tabular-nums;
     }
 
-    .scr-stat-val span{
-      font-size:14px;
-      color:#fbbf24;
+    .f24-stat-val span{
+      font-size:11px;
+      color:var(--pri);
       margin-left:1px;
     }
 
-    .scr-stat-lbl{
+    .f24-stat-lbl{
       margin-top:4px;
       font-size:10px;
-      color:rgba(255,255,255,.6);
+      color:var(--mut);
       text-transform:uppercase;
-      letter-spacing:.5px;
+      letter-spacing:.4px;
       font-weight:600;
       line-height:1.2;
     }
 
-    .scr-cta{
+    .f24-cta{
       position:relative;
       display:inline-flex;
       align-items:center;
@@ -1055,7 +1062,7 @@
       gap:10px;
       width:100%;
       padding:15px 20px;
-      background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
       color:#fff;
       font-family:inherit;
       font-size:15px;
@@ -1066,71 +1073,71 @@
       border-radius:14px;
       cursor:pointer;
       box-shadow:
-        0 10px 30px -6px rgba(236,72,153,.55),
+        0 10px 28px -6px rgba(99,102,241,.55),
         inset 0 1px 0 rgba(255,255,255,.25);
       transition: transform .15s, box-shadow .15s;
     }
 
-    .scr-cta:hover{
+    .f24-cta:hover{
       transform:translateY(-2px);
       box-shadow:
-        0 14px 34px -6px rgba(236,72,153,.65),
+        0 14px 34px -6px rgba(139,92,246,.65),
         inset 0 1px 0 rgba(255,255,255,.3);
     }
 
-    .scr-cta svg{
+    .f24-cta svg{
       transition: transform .2s;
     }
 
-    .scr-cta:hover svg{
+    .f24-cta:hover svg{
       transform: translateX(3px);
     }
 
-    .scr-disclaimer{
-      position:relative;
+    .f24-disclosure{
       margin:14px 0 0;
       font-size:10.5px;
-      color:rgba(255,255,255,.45);
-      line-height:1.45;
+      color:var(--mut-2);
+      line-height:1.5;
+      text-align:center;
     }
 
     @media(max-width:480px){
-      .scramble-card{
+      .f24-card{
         padding:24px 18px 18px;
         border-radius:20px;
       }
 
-      .scr-title{
-        font-size:21px;
+      .f24-title{
+        font-size:19px;
       }
 
-      .scr-sub{
+      .f24-sub{
         font-size:13px;
       }
 
-      .scr-stat-val{
-        font-size:17px;
+      .f24-amount-val{
+        font-size:32px;
       }
 
-      .scr-stat-val span{
-        font-size:12px;
+      .f24-amount-val .f24-cur{
+        font-size:19px;
       }
 
-      .scr-stat-lbl{
+      .f24-stat-val{
+        font-size:14px;
+      }
+
+      .f24-stat-val span{
+        font-size:10px;
+      }
+
+      .f24-stat-lbl{
         font-size:9px;
       }
 
-      .scr-cta{
+      .f24-cta{
         font-size:14px;
         padding:14px 16px;
-      }
-
-      .scr-bonus-amount{
-        font-size:18px;
-      }
-
-      .scr-bonus-label{
-        font-size:11px;
       }
     }
   </style>
@@ -1367,12 +1374,46 @@
   </footer>
 
   <script>
-    function showAdPopup(){
-      document.getElementById("adPopup").classList.add("scr-open");
+    function showAdPopup(netSalary){
+      // Υπολογισμός future value (25% του μισθού/μήνα, 12 μήνες, 2.9% D-account, μηνιαίος ανατοκισμός)
+      const savingsPct = 0.25;
+      const annualRate = 0.029;
+      const months = 12;
+
+      const monthlySaving = (netSalary || 0) * savingsPct;
+      const r = annualRate / 12;
+      const fv = r === 0 ? monthlySaving * months
+                         : monthlySaving * ((Math.pow(1 + r, months) - 1) / r);
+      const totalDeposited = monthlySaving * months;
+      const interest = Math.max(0, fv - totalDeposited);
+
+      // Άνοιγμα popup
+      document.getElementById("adPopup").classList.add("f24-open");
+
+      // Animation count-up
+      const amountEl = document.getElementById("f24Amount");
+      const interestEl = document.getElementById("f24Interest");
+      const fmt0 = new Intl.NumberFormat('el-GR', {maximumFractionDigits:0});
+
+      function animateTo(el, to, duration){
+        const start = performance.now();
+        function frame(now){
+          const t = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - t, 3);
+          el.textContent = fmt0.format(Math.round(to * eased));
+          if(t < 1) requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+      }
+
+      amountEl.textContent = '0';
+      interestEl.textContent = '0';
+      animateTo(amountEl, fv, 1100);
+      animateTo(interestEl, interest, 1300);
     }
 
     function closeAd(){
-      document.getElementById("adPopup").classList.remove("scr-open");
+      document.getElementById("adPopup").classList.remove("f24-open");
     }
 
     const fmt = new Intl.NumberFormat('el-GR', {
@@ -1559,6 +1600,7 @@
       const monthlyTax = r2(annualTax / payMonths);
 
       const netMonthly = r2(gross - employeeContribMonthly - monthlyTax);
+      window.__lastNetSalary = netMonthly;
       const netAnnual = r2(annualGross - annualContrib - annualTax);
       const employerMonthlyCost = r2(gross + employerContribMonthly);
       const employerAnnualCost = r2(employerMonthlyCost * payMonths);
@@ -1608,8 +1650,8 @@
     document.getElementById('calcBtn').addEventListener('click', function(){
       calc();
       setTimeout(function(){
-        showAdPopup();
-      }, 7000);
+        showAdPopup(window.__lastNetSalary || 0);
+      }, 6280);
     });
 
     document.getElementById('resetBtn').addEventListener('click', function(){
@@ -1634,54 +1676,55 @@
     zeroResults();
   </script>
 
-  <!-- Popup: Scramble custom creative -->
-  <div id="adPopup" class="scramble-popup" role="dialog" aria-modal="true" aria-labelledby="scrTitle">
-    <div class="scramble-card">
-      <button onclick="closeAd()" class="scr-close" aria-label="Κλείσιμο">✕</button>
+  <!-- Popup: Freedom24 D-account creative -->
+  <div id="adPopup" class="f24-popup" role="dialog" aria-modal="true" aria-labelledby="f24Title">
+    <div class="f24-card">
+      <button onclick="closeAd()" class="f24-close" aria-label="Κλείσιμο">✕</button>
 
-      <span class="scr-tag">Sponsored</span>
+      <span class="f24-tag">Sponsored</span>
 
-      <div class="scr-confetti" aria-hidden="true">
-        <span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span>
+      <div class="f24-eyebrow">
+        <span class="f24-dot"></span>
+        D-account · 2,9% ετησίως
       </div>
 
-      <div class="scr-bonus-badge">
-        <span class="scr-bonus-amount">+€5</span>
-        <span class="scr-bonus-label">δώρο σε κάθε €100</span>
-      </div>
-
-      <h3 id="scrTitle" class="scr-title">
+      <h3 id="f24Title" class="f24-title">
         Είδες τον μισθό σου.<br>
-        Τώρα βάλ' τον <span class="scr-grad">να δουλέψει.</span>
+        Τώρα <span class="f24-grad">κάν' τον να αποδίδει.</span>
       </h3>
 
-      <p class="scr-sub">
-        Επένδυσε σε ταχέως αναπτυσσόμενα brands της Ευρώπης από <strong>μόλις €10</strong>. Νέος γύρος κάθε 1η του μήνα.
+      <p class="f24-sub">
+        Αν αποταμίευες <strong>25% του μισθού σου</strong> σε D-account Freedom24, σε <strong>12 μήνες</strong> θα είχες:
       </p>
 
-      <div class="scr-stats">
-        <div class="scr-stat">
-          <div class="scr-stat-val">16,32<span>%</span></div>
-          <div class="scr-stat-lbl">μέσος τόκος</div>
+      <div class="f24-amount-box">
+        <div class="f24-amount-label">Συνολικό υπόλοιπο σε 1 έτος</div>
+        <div class="f24-amount-val"><span id="f24Amount">0</span><span class="f24-cur">€</span></div>
+        <div class="f24-amount-detail">+ <strong><span id="f24Interest">0</span>€</strong> δωρεάν τόκος</div>
+      </div>
+
+      <div class="f24-stats">
+        <div class="f24-stat">
+          <div class="f24-stat-val">2,9<span>%</span></div>
+          <div class="f24-stat-lbl">EUR ετήσιος τόκος</div>
         </div>
-        <div class="scr-stat">
-          <div class="scr-stat-val">€45M<span>+</span></div>
-          <div class="scr-stat-lbl">έχουν επενδυθεί</div>
+        <div class="f24-stat">
+          <div class="f24-stat-val">0<span>€</span></div>
+          <div class="f24-stat-lbl">ελάχιστο deposit</div>
         </div>
-        <div class="scr-stat">
-          <div class="scr-stat-val">12K<span>+</span></div>
-          <div class="scr-stat-lbl">επενδυτές</div>
+        <div class="f24-stat">
+          <div class="f24-stat-val">CySEC<span></span></div>
+          <div class="f24-stat-lbl">εποπτευόμενος</div>
         </div>
       </div>
 
-      <a href="https://scrambleup.com?ref=5c6eb87b" target="_blank" rel="noopener sponsored" class="scr-cta" onclick="closeAd()">
-        Ξεκίνα με €10 και πάρε το bonus
+      <a href="https://freedom24.com/invite_from/1999269" target="_blank" rel="noopener nofollow sponsored" class="f24-cta" onclick="closeAd()">
+        Άνοιξε λογαριασμό Freedom24
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
 
-      <p class="scr-disclaimer">
-        Το κεφάλαιο ενδέχεται να εκτεθεί σε κίνδυνο. Αξιολόγησε προσεκτικά πριν επενδύσεις.
+      <p class="f24-disclosure">
+        Χρησιμοποιώντας τις υπηρεσίες αυτής της πλατφόρμας, θα έχετε πρόσβαση σε ένα ευρύ φάσμα χρηματοοικονομικών μέσων και επενδυτικών ευκαιριών. Επενδύσεις ενέχουν κίνδυνο.
       </p>
     </div>
   </div>
