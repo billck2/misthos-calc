@@ -1,136 +1,320 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="el">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Πώς υπολογίζεται ο καθαρός μισθός στην Ελλάδα — αναλυτικός οδηγός</title>
-  <meta name="description" content="Αναλυτικός οδηγός για τον υπολογισμό καθαρού μισθού στην Ελλάδα. Παράδειγμα με 1.200€ μικτά, ηλικία, παιδιά και σύγκριση με κόστος εργοδότη." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://misthos2026.gr/articles/katharos-misthos-odigos.html" />
-  <style>
-    body{font-family:system-ui,Arial;margin:0;background:#f7f7fb;color:#0f172a;line-height:1.6}
-    main{max-width:900px;margin:auto;padding:18px}
-    a{color:#204a99}
-    .card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px}
-    h1{margin:0 0 8px}
-    h2{margin:18px 0 8px;color:#204a99}
-    ul{margin:8px 0 8px 20px}
-    .note{background:#e0f2fe;border:1px solid #bae6fd;border-radius:10px;padding:12px;margin:14px 0}
-    .warn{background:#fff4e5;border:1px solid #fed7aa;border-radius:10px;padding:12px;margin:14px 0}
-    .small{font-size:12px;color:#64748b}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Πώς Υπολογίζεται ο Καθαρός Μισθός στην Ελλάδα (2026) — Βήμα-Βήμα Οδηγός</title>
+<meta name="description" content="Αναλυτικός οδηγός υπολογισμού καθαρού μισθού 2026. ΕΦΚΑ 13,37%, φορολογικές κλίμακες, εκπτώσεις φόρου, παραδείγματα με 1.000€, 1.500€, 2.000€ μικτά.">
+<link rel="canonical" href="https://misthos2026.gr/articles/katharos-misthos-odigos.html">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Πώς Υπολογίζεται ο Καθαρός Μισθός στην Ελλάδα (2026)">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://misthos2026.gr/articles/katharos-misthos-odigos.html">
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<meta name="theme-color" content="#7c3aed">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:radial-gradient(circle at 20% 0%,rgba(124,58,237,0.08) 0%,transparent 50%),radial-gradient(circle at 80% 100%,rgba(236,72,153,0.08) 0%,transparent 50%),linear-gradient(180deg,#fafafa 0%,#f4f4f5 100%);min-height:100vh;color:#1e293b;line-height:1.75}
+.site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.06)}
+.header-inner{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;font-weight:700;font-size:16px}
+.logo-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#7c3aed 0%,#ec4899 100%);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px}
+.logo-text small{display:block;font-size:11px;font-weight:500;color:#64748b;margin-top:1px}
+.nav-links{display:flex;gap:4px;flex-wrap:wrap}
+.nav-links a{text-decoration:none;color:#475569;font-size:14px;font-weight:500;padding:8px 14px;border-radius:8px;transition:all .2s}
+.nav-links a:hover{background:rgba(124,58,237,0.08);color:#7c3aed}
+@media(max-width:720px){.nav-links{display:none}}
+.container{max-width:780px;margin:0 auto;padding:48px 24px 80px}
+.breadcrumbs{font-size:13px;color:#64748b;margin-bottom:20px}
+.breadcrumbs a{color:#7c3aed;text-decoration:none}
+.breadcrumbs span{margin:0 8px;color:#cbd5e1}
+.eyebrow{display:inline-block;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#7c3aed;margin-bottom:14px;padding:4px 12px;background:rgba(124,58,237,0.08);border-radius:20px}
+h1{font-size:clamp(30px,4.8vw,42px);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1e293b;margin-bottom:18px}
+.meta{display:flex;gap:16px;font-size:13.5px;color:#64748b;flex-wrap:wrap;margin-bottom:32px}
+.article-card{background:rgba(255,255,255,0.75);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.8);border-radius:20px;padding:44px;box-shadow:0 4px 24px rgba(0,0,0,0.04)}
+@media(max-width:600px){.article-card{padding:28px 22px}}
+.tldr{background:linear-gradient(135deg,rgba(124,58,237,0.06),rgba(236,72,153,0.06));border:1px solid rgba(124,58,237,0.15);border-radius:14px;padding:20px 24px;margin-bottom:32px}
+.tldr-title{font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#7c3aed;margin-bottom:10px}
+.tldr p{margin:0;font-size:15px;color:#334155}
+h2{font-size:24px;font-weight:700;color:#1e293b;margin-top:40px;margin-bottom:14px;letter-spacing:-0.01em}
+h2:first-child{margin-top:0}
+h3{font-size:18px;font-weight:600;color:#1e293b;margin-top:28px;margin-bottom:10px}
+p{margin-bottom:16px;color:#334155;font-size:16px}
+ul,ol{margin:10px 0 20px 24px;color:#334155;font-size:16px}
+li{margin-bottom:8px}
+strong{color:#1e293b;font-weight:600}
+a{color:#7c3aed;text-decoration:none;border-bottom:1px solid rgba(124,58,237,0.3)}
+a:hover{border-bottom-color:#7c3aed}
+.step{display:flex;gap:18px;margin:20px 0;padding:20px;background:rgba(255,255,255,0.6);border-radius:14px;border:1px solid rgba(0,0,0,0.05)}
+.step-num{flex-shrink:0;width:40px;height:40px;background:linear-gradient(135deg,#7c3aed,#ec4899);border-radius:10px;color:#fff;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center}
+.step-body h4{font-size:16px;font-weight:700;color:#1e293b;margin-bottom:6px}
+.step-body p{margin:0;font-size:15px;color:#475569}
+.example-card{background:#fff;border:1px solid rgba(124,58,237,0.18);border-left:4px solid #7c3aed;border-radius:12px;padding:22px 24px;margin:24px 0}
+.example-card .label{font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#7c3aed;margin-bottom:10px}
+.example-card h4{font-size:17px;color:#1e293b;margin-bottom:14px}
+.calc-line{display:flex;justify-content:space-between;padding:6px 0;font-size:14.5px;color:#475569;border-bottom:1px dashed rgba(0,0,0,0.06)}
+.calc-line:last-of-type{border-bottom:none}
+.calc-line span:last-child{font-weight:600;color:#1e293b}
+.calc-total{margin-top:10px;padding-top:12px;border-top:2px solid rgba(124,58,237,0.2);display:flex;justify-content:space-between;font-weight:700;font-size:16px}
+.calc-total span:last-child{background:linear-gradient(135deg,#7c3aed,#ec4899);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-size:20px}
+.box-info{background:rgba(59,130,246,0.06);border-left:3px solid #3b82f6;padding:16px 20px;border-radius:10px;margin:20px 0}
+.box-green{background:rgba(16,185,129,0.06);border-left:3px solid #10b981;padding:16px 20px;border-radius:10px;margin:20px 0}
+.box-info p:last-child,.box-green p:last-child{margin-bottom:0}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14.5px;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+th{background:linear-gradient(135deg,#7c3aed,#ec4899);color:#fff;padding:12px 14px;text-align:left;font-weight:600;font-size:13.5px}
+td{padding:11px 14px;border-bottom:1px solid rgba(0,0,0,0.05);color:#334155}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:rgba(124,58,237,0.02)}
+.compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:24px 0}
+.compare-box{background:rgba(255,255,255,0.7);border:1px solid rgba(124,58,237,0.12);border-radius:14px;padding:20px;text-align:center}
+.compare-box .cnum{font-size:28px;font-weight:800;background:linear-gradient(135deg,#7c3aed,#ec4899);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.compare-box .clbl{font-size:13px;color:#64748b;margin-top:4px}
+.compare-box .cnet{font-size:18px;font-weight:700;color:#1e293b;margin-top:8px}
+.cta-block{margin-top:40px;padding:28px;background:linear-gradient(135deg,#7c3aed,#ec4899);border-radius:16px;color:#fff;text-align:center}
+.cta-block h3{color:#fff;font-size:20px;margin-bottom:8px}
+.cta-block p{color:rgba(255,255,255,0.9);margin-bottom:16px;font-size:15px}
+.cta-btn{display:inline-block;background:#fff;color:#7c3aed;padding:12px 28px;border-radius:10px;font-weight:600;text-decoration:none;border:none}
+.related{margin-top:40px}
+.related h3{font-size:18px;margin-bottom:14px}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.related-card{background:rgba(255,255,255,0.6);border:1px solid rgba(0,0,0,0.06);border-radius:12px;padding:18px;text-decoration:none;color:inherit;transition:all .2s;display:block}
+.related-card:hover{background:#fff;transform:translateY(-2px);box-shadow:0 4px 12px rgba(124,58,237,0.08);border-color:rgba(124,58,237,0.2)}
+.related-card strong{display:block;font-size:14.5px;color:#1e293b;margin-bottom:4px}
+.related-card span{font-size:13px;color:#64748b}
+.disclaimer{margin-top:32px;padding:16px 20px;background:rgba(0,0,0,0.03);border-radius:10px;font-size:13px;color:#64748b;line-height:1.6}
+.site-footer{border-top:1px solid rgba(0,0,0,0.06);background:rgba(255,255,255,0.5);padding:32px 24px;text-align:center;color:#64748b;font-size:13px}
+.footer-links{margin-bottom:12px;display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
+.footer-links a{color:#64748b;font-size:13px;text-decoration:none;border:none}
+.footer-links a:hover{color:#7c3aed}
+</style>
 </head>
 <body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <span class="logo-icon">€</span>
+      <span class="logo-text">misthos2026.gr<small>Καθαρός μισθός · ΕΦΚΑ · Φόρος</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="/">Υπολογιστής</a><a href="/articles/">Άρθρα</a><a href="/about.html">Σχετικά</a><a href="/contact.html">Επικοινωνία</a>
+    </nav>
+  </div>
+</header>
 
-<main>
-  <article class="card">
-    <h1>Πώς υπολογίζεται ο καθαρός μισθός στην Ελλάδα</h1>
-    <p class="small">
-      Ενημερωτικός οδηγός για εργαζόμενους • Δεν αποτελεί φορολογική ή νομική συμβουλή.
-    </p>
+<main class="container">
+  <nav class="breadcrumbs"><a href="/">Αρχική</a><span>›</span><a href="/articles/">Άρθρα</a><span>›</span>Οδηγός καθαρού μισθού</nav>
 
-    <h2>Τι είναι ο καθαρός μισθός</h2>
-    <p>
-      <strong>Καθαρός μισθός</strong> είναι το ποσό που τελικά λαμβάνει ο εργαζόμενος στον τραπεζικό του λογαριασμό.
-      Προκύπτει αφού αφαιρεθούν από τον <strong>μικτό μισθό</strong> οι εισφορές κοινωνικής ασφάλισης (ΕΦΚΑ)
-      και ο φόρος εισοδήματος.
-    </p>
-    <p>
-      Πολλοί εργαζόμενοι βλέπουν μια σημαντική διαφορά μεταξύ μικτών και καθαρών αποδοχών, χωρίς να είναι πάντα
-      ξεκάθαρο πού “χάνονται” τα χρήματα. Παρακάτω εξηγούμε βήμα-βήμα τη διαδικασία.
-    </p>
+  <span class="eyebrow">Υπολογισμός · Οδηγός</span>
+  <h1>Πώς Υπολογίζεται ο Καθαρός Μισθός στην Ελλάδα (2026)</h1>
+  <div class="meta"><span>📅 Ενημέρωση: Ιούνιος 2026</span><span>⏱️ 8 λεπτά ανάγνωση</span></div>
 
-    <h2>Πώς υπολογίζεται ο καθαρός μισθός (γενικά)</h2>
-    <p>Η βασική λογική είναι η εξής:</p>
-    <ul>
-      <li><strong>Μικτός μισθός</strong></li>
-      <li>− Εισφορές εργαζομένου (ΕΦΚΑ)</li>
-      <li>= Φορολογητέο εισόδημα</li>
-      <li>− Φόρος εισοδήματος (με βάση κλίμακες & έκπτωση φόρου)</li>
-      <li>= <strong>Καθαρός μισθός</strong></li>
-    </ul>
-
-    <h2>Αναλυτικό παράδειγμα: 1.200€ μικτά</h2>
-    <p>
-      Ας δούμε ένα <strong>πρακτικό παράδειγμα</strong>:
-    </p>
-    <ul>
-      <li>Μικτός μισθός: <strong>1.200€</strong></li>
-      <li>Ηλικία: <strong>30 ετών</strong></li>
-      <li>Πλήρης απασχόληση</li>
-      <li>Μισθοί ανά έτος: 14</li>
-    </ul>
-
-    <p>
-      Οι εισφορές εργαζομένου (ΕΦΚΑ) είναι περίπου <strong>13–14%</strong>.
-      Αυτό σημαίνει ότι από τα 1.200€ αφαιρούνται περίπου <strong>160€</strong>
-      για ασφαλιστικές εισφορές.
-    </p>
-
-    <p>
-      Το ποσό που απομένει (~1.040€) αποτελεί τη βάση για τον υπολογισμό του φόρου.
-      Ο φόρος υπολογίζεται ετησίως και κατανέμεται στους μισθούς, λαμβάνοντας υπόψη
-      την <strong>έκπτωση φόρου (άρθρο 16)</strong>.
-    </p>
-
-    <p>
-      Στο συγκεκριμένο παράδειγμα, ο μηνιαίος φόρος είναι σχετικά χαμηλός,
-      με αποτέλεσμα ο <strong>καθαρός μισθός</strong> να διαμορφώνεται περίπου στα
-      <strong>900–950€</strong>.
-    </p>
-
-    <h2>Τι αλλάζει αν υπάρχουν παιδιά</h2>
-    <p>
-      Τα <strong>εξαρτώμενα τέκνα</strong> μειώνουν τον φόρο μέσω μεγαλύτερης έκπτωσης.
-      Για παράδειγμα:
-    </p>
-    <ul>
-      <li>0 παιδιά → μικρότερη έκπτωση φόρου</li>
-      <li>1–2 παιδιά → αισθητή μείωση φόρου</li>
-      <li>3+ παιδιά → ακόμα χαμηλότερη παρακράτηση</li>
-    </ul>
-    <p>
-      Έτσι, ένας εργαζόμενος με 2 παιδιά και 1.200€ μικτά μπορεί να έχει
-      <strong>20–40€</strong> παραπάνω καθαρά τον μήνα σε σχέση με κάποιον χωρίς παιδιά.
-    </p>
-
-    <h2>Διαφορετικές περιπτώσεις εργαζομένων</h2>
-    <ul>
-      <li><strong>Νεότεροι έως 25 ετών:</strong> ευνοϊκότερη φορολογία στα πρώτα εισοδήματα.</li>
-      <li><strong>Μερική απασχόληση:</strong> οι κρατήσεις γίνονται αναλογικά.</li>
-      <li><strong>Επαναπατρισθέντες (άρθρο 5Γ):</strong> φορολογείται μόνο το 50% του εισοδήματος.</li>
-      <li><strong>Ειδικότητες (π.χ. μηχανικοί):</strong> επιπλέον εισφορές επικουρικής/πρόνοιας.</li>
-    </ul>
-
-    <h2>Καθαρός μισθός vs κόστος εργοδότη</h2>
-    <p>
-      Ένα σημείο που συχνά προκαλεί εντύπωση είναι η διαφορά ανάμεσα στο
-      <strong>τι πληρώνει ο εργοδότης</strong> και στο <strong>τι “μπαίνει στην τσέπη”</strong>.
-    </p>
-    <p>
-      Για μισθό 1.200€ μικτά, ο εργοδότης πληρώνει επιπλέον περίπου <strong>22%</strong>
-      σε εργοδοτικές εισφορές. Δηλαδή:
-    </p>
-    <ul>
-      <li>Μικτός μισθός: 1.200€</li>
-      <li>Εισφορές εργοδότη: ~260€</li>
-      <li><strong>Συνολικό κόστος εργοδότη:</strong> ~1.460€</li>
-    </ul>
-
-    <div class="warn">
-      ⚠️ Παρατηρείται συχνά ότι από τα ~1.460€ που κοστίζει ένας εργαζόμενος,
-      ο ίδιος λαμβάνει καθαρά ~900–950€.
+  <article class="article-card">
+    <div class="tldr">
+      <div class="tldr-title">Σύντομη απάντηση</div>
+      <p>Ο καθαρός μισθός = μικτός μισθός <strong>− εισφορές ΕΦΚΑ (13,37%)</strong> − <strong>φόρος εισοδήματος (ΦΜΥ)</strong>. Για μισθό 1.200€ μικτά με 0 παιδιά, ο καθαρός είναι περίπου <strong>1.013€</strong>. Υπάρχουν εξαρτώμενα τέκνα, ειδικά καθεστώτα και ηλικιακές παράμετροι που επηρεάζουν το τελικό ποσό.</p>
     </div>
 
-    <p>
-      Για ακριβή εικόνα στη δική σου περίπτωση, χρησιμοποίησε τον
-      <a href="/#calculator">υπολογιστή καθαρού μισθού</a> και δες αναλυτικά
-      εισφορές, φόρο και κόστος εργοδότη.
-    </p>
+    <h2>Βήμα-βήμα: Πώς φτάνουμε από μικτό σε καθαρό</h2>
 
-    <p class="small">© 2026 misthos2026.gr</p>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>Ξεκινάμε από τον μικτό μισθό</h4>
+        <p>Ο μικτός μισθός (ή «ονομαστικός») είναι αυτός που αναφέρεται στη σύμβαση εργασίας σου. Είναι το ποσό <em>πριν</em> από οποιαδήποτε κράτηση.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>Αφαιρούμε τις εισφορές ΕΦΚΑ εργαζομένου</h4>
+        <p>Για το 2026, οι ασφαλιστικές εισφορές εργαζομένου ανέρχονται σε <strong>13,37%</strong> επί του μικτού μισθού. Καλύπτουν σύνταξη, ασθένεια, ανεργία και λοιπές ασφαλίσεις.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>Υπολογισμός φορολογητέου εισοδήματος</h4>
+        <p>Από τον μικτό μισθό αφαιρούμε τις εισφορές ΕΦΚΑ — το αποτέλεσμα είναι η <strong>φορολογητέα βάση</strong>, δηλαδή το ποσό επί του οποίου εφαρμόζεται η φορολογική κλίμακα.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>Εφαρμογή φορολογικής κλίμακας 2026</h4>
+        <p>Ο φόρος εισοδήματος (ΦΜΥ) υπολογίζεται προοδευτικά βάσει ετήσιου εισοδήματος. Ο μηνιαίος φόρος είναι το 1/12 του ετήσιου.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <h4>Αφαίρεση έκπτωσης φόρου</h4>
+        <p>Οι μισθωτοί δικαιούνται <strong>έκπτωση φόρου</strong> που ανάγεται σε ετήσιο ποσό ανάλογα με τον αριθμό τέκνων και τη βάση εισοδήματος. Αυτή μειώνει σημαντικά ή μηδενίζει τον φόρο για χαμηλά εισοδήματα.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-body">
+        <h4>Αποτέλεσμα: Καθαρός μισθός</h4>
+        <p><strong>Καθαρός = Μικτός − ΕΦΚΑ − Φόρος</strong>. Αυτό είναι το ποσό που μπαίνει στο τραπεζικό σου λογαριασμό κάθε μήνα.</p>
+      </div>
+    </div>
+
+    <h2>Φορολογικές κλίμακες 2026 (ετήσιο εισόδημα)</h2>
+    <p>Η νέα φορολογική κλίμακα για μισθωτούς, σύμφωνα με τον Ν. 5246/2025 που ισχύει από 1/1/2026:</p>
+
+    <table>
+      <thead><tr><th>Εισόδημα (ετήσιο)</th><th>Φορολογικός συντελεστής</th></tr></thead>
+      <tbody>
+        <tr><td>0 – 10.000 €</td><td>9%</td></tr>
+        <tr><td>10.001 – 20.000 €</td><td>22%</td></tr>
+        <tr><td>20.001 – 30.000 €</td><td>28%</td></tr>
+        <tr><td>30.001 – 40.000 €</td><td>36%</td></tr>
+        <tr><td>Άνω των 40.000 €</td><td>44%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="box-info">
+      <p><strong>Σημαντικό:</strong> Η κλίμακα εφαρμόζεται <strong>προοδευτικά</strong> — δηλαδή ο υψηλότερος συντελεστής ισχύει μόνο για το τμήμα του εισοδήματος που ξεπερνά το κατώφλι, όχι για το σύνολο.</p>
+    </div>
+
+    <h2>Έκπτωση φόρου μισθωτών 2026</h2>
+    <p>Οι μισθωτοί δικαιούνται ετήσια έκπτωση φόρου που αφαιρείται από τον αναλογούντα φόρο:</p>
+
+    <table>
+      <thead><tr><th>Εξαρτώμενα τέκνα</th><th>Ετήσια έκπτωση φόρου</th><th>Μηνιαία εξοικονόμηση</th></tr></thead>
+      <tbody>
+        <tr><td>0 τέκνα</td><td>900 €</td><td>75 €</td></tr>
+        <tr><td>1 τέκνο</td><td>1.120 €</td><td>93,33 €</td></tr>
+        <tr><td>2 τέκνα</td><td>1.340 €</td><td>111,67 €</td></tr>
+        <tr><td>3 τέκνα</td><td>1.560 €</td><td>130 €</td></tr>
+        <tr><td>4+ τέκνα</td><td>+220 € ανά τέκνο</td><td>+18,33 € ανά τέκνο</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Παραδείγματα υπολογισμού</h2>
+
+    <div class="example-card">
+      <div class="label">Παράδειγμα 1</div>
+      <h4>Μισθός 1.000€ μικτά — 0 παιδιά</h4>
+      <div class="calc-line"><span>Μικτός μισθός</span><span>1.000,00 €</span></div>
+      <div class="calc-line"><span>ΕΦΚΑ εργαζομένου (13,37%)</span><span>−133,70 €</span></div>
+      <div class="calc-line"><span>Φορολογητέα βάση/μήνα</span><span>866,30 €</span></div>
+      <div class="calc-line"><span>Φόρος πριν έκπτωση (ετήσιο ~9%)</span><span>−93,96 €</span></div>
+      <div class="calc-line"><span>Έκπτωση φόρου (75€/μήνα)</span><span>+75,00 €</span></div>
+      <div class="calc-line"><span>Φόρος μετά έκπτωση</span><span>−18,96 €</span></div>
+      <div class="calc-total"><span>Καθαρός μισθός</span><span>~847,34 €</span></div>
+    </div>
+
+    <div class="example-card">
+      <div class="label">Παράδειγμα 2</div>
+      <h4>Μισθός 1.500€ μικτά — 1 παιδί</h4>
+      <div class="calc-line"><span>Μικτός μισθός</span><span>1.500,00 €</span></div>
+      <div class="calc-line"><span>ΕΦΚΑ εργαζομένου (13,37%)</span><span>−200,55 €</span></div>
+      <div class="calc-line"><span>Φορολογητέα βάση/μήνα</span><span>1.299,45 €</span></div>
+      <div class="calc-line"><span>Φόρος πριν έκπτωση (μεικτός ~14%)</span><span>−181,92 €</span></div>
+      <div class="calc-line"><span>Έκπτωση φόρου (93,33€/μήνα για 1 τέκνο)</span><span>+93,33 €</span></div>
+      <div class="calc-line"><span>Φόρος μετά έκπτωση</span><span>−88,59 €</span></div>
+      <div class="calc-total"><span>Καθαρός μισθός</span><span>~1.210,86 €</span></div>
+    </div>
+
+    <div class="example-card">
+      <div class="label">Παράδειγμα 3</div>
+      <h4>Μισθός 2.000€ μικτά — 0 παιδιά</h4>
+      <div class="calc-line"><span>Μικτός μισθός</span><span>2.000,00 €</span></div>
+      <div class="calc-line"><span>ΕΦΚΑ εργαζομένου (13,37%)</span><span>−267,40 €</span></div>
+      <div class="calc-line"><span>Φορολογητέα βάση/μήνα</span><span>1.732,60 €</span></div>
+      <div class="calc-line"><span>Φόρος πριν έκπτωση (μεικτός ~20%)</span><span>−346,52 €</span></div>
+      <div class="calc-line"><span>Έκπτωση φόρου (75€/μήνα)</span><span>+75,00 €</span></div>
+      <div class="calc-line"><span>Φόρος μετά έκπτωση</span><span>−271,52 €</span></div>
+      <div class="calc-total"><span>Καθαρός μισθός</span><span>~1.461,08 €</span></div>
+    </div>
+
+    <h2>Σύγκριση μικτού vs καθαρού</h2>
+    <div class="compare-grid">
+      <div class="compare-box">
+        <div class="cnum">920€</div>
+        <div class="clbl">Μικτός (κατώτατος)</div>
+        <div class="cnet">≈ 797€ καθαρά</div>
+      </div>
+      <div class="compare-box">
+        <div class="cnum">1.200€</div>
+        <div class="clbl">Μικτός</div>
+        <div class="cnet">≈ 1.013€ καθαρά</div>
+      </div>
+      <div class="compare-box">
+        <div class="cnum">1.500€</div>
+        <div class="clbl">Μικτός</div>
+        <div class="cnet">≈ 1.211€ καθαρά</div>
+      </div>
+      <div class="compare-box">
+        <div class="cnum">2.000€</div>
+        <div class="clbl">Μικτός</div>
+        <div class="cnet">≈ 1.461€ καθαρά</div>
+      </div>
+    </div>
+
+    <h2>Τι επηρεάζει τον καθαρό μισθό</h2>
+    <p>Ο καθαρός μισθός δεν είναι ένας «σταθερός» αριθμός για κάθε μικτό ποσό. Επηρεάζεται από:</p>
+    <ul>
+      <li><strong>Εξαρτώμενα τέκνα:</strong> Κάθε παιδί αυξάνει την έκπτωση φόρου και άρα τον καθαρό μισθό</li>
+      <li><strong>Ηλικία:</strong> Ειδικά καθεστώτα για εργαζόμενους κάτω των 30 ετών</li>
+      <li><strong>Ειδικότητα:</strong> Ορισμένα επαγγέλματα έχουν διαφορετικά ποσοστά ΕΦΚΑ</li>
+      <li><strong>Άρθρο 5Γ ΚΦΕ:</strong> Για επαναπατριζόμενους — αφορολόγητο 50% επί 7 χρόνια</li>
+      <li><strong>Δώρα και επιδόματα:</strong> Αλλάζουν τη μηνιαία ΦΜΥ παρακράτηση</li>
+    </ul>
+
+    <div class="box-green">
+      <p>Για ακριβή αποτέλεσμα βάσει της δικής σου κατάστασης, χρησιμοποίησε τον <a href="/">δωρεάν υπολογιστή μισθού</a>. Υπολογίζει αυτόματα ΕΦΚΑ, ΦΜΥ, έκπτωση φόρου και δείχνει αναλυτικά κάθε κράτηση.</p>
+    </div>
+
+    <h2>Κόστος εργοδότη: το πλήρες εικόνα</h2>
+    <p>Ο εργοδότης πληρώνει επιπλέον <strong>21,79%</strong> επί του μικτού μισθού ως εργοδοτικές εισφορές ΕΦΚΑ. Αυτό σημαίνει ότι το πραγματικό κόστος πρόσληψης είναι πάντα υψηλότερο από τον μικτό μισθό:</p>
+
+    <table>
+      <thead><tr><th>Μικτός μισθός</th><th>Εισφορές εργοδότη (21,79%)</th><th>Συνολικό κόστος</th></tr></thead>
+      <tbody>
+        <tr><td>920 €</td><td>200,47 €</td><td>1.120,47 €</td></tr>
+        <tr><td>1.200 €</td><td>261,48 €</td><td>1.461,48 €</td></tr>
+        <tr><td>1.500 €</td><td>326,85 €</td><td>1.826,85 €</td></tr>
+        <tr><td>2.000 €</td><td>435,80 €</td><td>2.435,80 €</td></tr>
+      </tbody>
+    </table>
+
+    <div class="cta-block">
+      <h3>Υπολόγισε τον δικό σου μισθό τώρα</h3>
+      <p>Δωρεάν, σε 30 δευτερόλεπτα, με ακριβή αποτελέσματα για το 2026.</p>
+      <a href="/" class="cta-btn">Άνοιξε τον υπολογιστή →</a>
+    </div>
+
+    <div class="related">
+      <h3>Σχετικά άρθρα</h3>
+      <div class="related-grid">
+        <a href="/articles/katotatos-misthos-2026.html" class="related-card"><strong>Κατώτατος Μισθός 2026</strong><span>920€ από 1/4 — όλα τα ποσά</span></a>
+        <a href="/articles/epidoma-adeias-2026.html" class="related-card"><strong>Επίδομα Αδείας 2026</strong><span>Υπολογισμός & πότε καταβάλλεται</span></a>
+        <a href="/articles/doro-xristougennon-pasxa-2026.html" class="related-card"><strong>Δώρο Χριστουγέννων & Πάσχα</strong><span>Ποσά και υπολογισμός</span></a>
+      </div>
+    </div>
+
+    <div class="disclaimer"><strong>Σημείωση:</strong> Οι υπολογισμοί είναι ενδεικτικοί. Το ακριβές ποσό εξαρτάται από πολλούς παράγοντες. Για επίσημη βεβαίωση αποδοχών, απευθύνσου στον λογιστή σου ή στη μισθοδοσία της εταιρείας σου.</div>
   </article>
 </main>
 
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="/">Αρχική</a><a href="/articles/">Άρθρα</a><a href="/about.html">Σχετικά</a><a href="/contact.html">Επικοινωνία</a><a href="/privacy-policy.html">Απόρρητο</a><a href="/terms.html">Όροι Χρήσης</a>
+  </div>
+  © 2026 misthos2026.gr — Όλα τα δικαιώματα διατηρούνται
+</footer>
 </body>
 </html>
