@@ -1,7 +1,11 @@
-# Ezoic Ads.txt
-# Auto-managed by Ezoic - https://www.ezoic.com
-# Last Updated: 2026-06-15
+# Ads.txt — misthos2026.gr
+# Συνδυασμός Google AdSense (direct) + Ezoic (reseller network)
+# Last Updated: 2026-06-17
 
+# Google AdSense — direct (ο δικός σου λογαριασμός)
+google.com, pub-4164020794215422, DIRECT, f08c47fec0942fa0
+
+# Ezoic network partners
 google.com, pub-2490386312082925, RESELLER, f08c47fec0942fa0
 appnexus.com, 1360, RESELLER, f5ab79cb980f11d1
 openx.com, 83-d27e211f, RESELLER, 6a698e965929cef
