@@ -41,7 +41,7 @@
   <!-- Listing άρθρων -->
   <url>
     <loc>https://misthos2026.gr/articles/</loc>
-    <lastmod>2026-06-15</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -92,6 +92,13 @@
   <url>
     <loc>https://misthos2026.gr/articles/titlos-ktisis-2026.html</loc>
     <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://misthos2026.gr/articles/psifiaki-karta-ergani.html</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
