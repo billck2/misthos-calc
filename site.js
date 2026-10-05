@@ -35,6 +35,30 @@
     try { localStorage.setItem(key, String(Date.now())); } catch (e) {}
   }
 
+  /*
+   * «Κάποιος το είδε»: ένα +1 στους ημερήσιους μετρητές του WorkFactor, για να
+   * φαίνεται στην κονσόλα πόσοι είδαν, πόσοι πάτησαν, πόσοι γράφτηκαν. Δεν
+   * στέλνεται τίποτα για τον επισκέπτη — μόνο ποιο από τα δύο εμφανίστηκε.
+   */
+  function seen(place) {
+    try {
+      fetch("https://app.workfactor.gr/api/note?k=" + place, { method: "POST", mode: "no-cors", keepalive: true }).catch(function () {});
+    } catch (e) {}
+  }
+  /* Μετριέται όταν φαίνεται πράγματι στην οθόνη, όχι όταν απλώς μπήκε στη σελίδα. */
+  function seenWhenVisible(el, place) {
+    if (!("IntersectionObserver" in window)) return seen(place);
+    var watcher = new IntersectionObserver(
+      function (entries) {
+        if (!entries[0].isIntersecting) return;
+        watcher.disconnect();
+        seen(place);
+      },
+      { threshold: 0.5 }
+    );
+    watcher.observe(el);
+  }
+
   var showCard = !closedRecently(CARD_KEY, 7);
   var showTip = !closedRecently(TIP_KEY, 3);
   if (!showCard && !showTip) return;
@@ -200,6 +224,7 @@
       shown = true;
       window.removeEventListener("scroll", onScroll);
       document.body.appendChild(tip);
+      seen("popup");
       requestAnimationFrame(function () {
         requestAnimationFrame(function () { tip.classList.add("mx-in"); });
       });
@@ -234,6 +259,7 @@
         if (showCard) {
           card = buildCard();
           placeCard(card);
+          seenWhenVisible(card, "card");
         }
         if (showTip) armTip(card);
       });
