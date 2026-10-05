@@ -138,12 +138,12 @@
     box.innerHTML =
       '<button type="button" class="mx-note-x" aria-label="Κλείσιμο">×</button>' +
       '<div class="mx-note-main">' +
-      '<p class="mx-note-top"><span class="mx-note-free">' + (free ? "Δωρεάν για όλο το 2026" : "Από 29,99 € τον χρόνο") + "</span>" +
+      '<p class="mx-note-top"><span class="mx-note-free">' + (free ? "Δωρεάν για όλο το 2026 · πληρωμή το 2027" : "Από 29,99 € τον χρόνο") + "</span>" +
       '<span class="mx-note-brand">' + MARK + "WorkFactor</span></p>" +
-      '<p class="mx-note-title">Ψηφιακή κάρτα εργασίας που δηλώνεται μόνη της στην ΕΡΓΑΝΗ</p>' +
+      '<p class="mx-note-title">Πρόγραμμα για την ψηφιακή κάρτα εργασίας</p>' +
       '<p class="mx-note-text">Έχεις επιχείρηση; Οι εργαζόμενοι χτυπούν από το κινητό και κάθε κίνηση φεύγει αυτόματα στην ΕΡΓΑΝΗ. ' +
-      "Ωράρια, άδειες και μισθοδοσία στο ίδιο σημείο.</p>" +
-      '<ul class="mx-note-list"><li>Χωρίς κάρτα πληρωμής</li><li>Έτοιμο σε λίγα λεπτά</li>' +
+      "Άμεσες αλλαγές ωραρίου.</p>" +
+      '<ul class="mx-note-list"><li>Χωρίς κάρτα πληρωμής</li><li>Έτοιμο σε 3 λεπτά</li>' +
       (free ? "<li>Μετά από 29,99 € τον χρόνο</li>" : "<li>Από τον browser, χωρίς εγκατάσταση</li>") + "</ul>" +
       "</div>" +
       '<div class="mx-note-side"><a class="mx-note-go" href="' + BASE + 'card" target="_blank" rel="noopener">' +
@@ -187,7 +187,7 @@
     tip.innerHTML =
       '<button type="button" class="mx-tip-x" aria-label="Κλείσιμο">×</button>' +
       '<p class="mx-tip-free">' + (free ? "<b>Δωρεάν</b> για όλο το 2026" : "Από <b>29,99 €</b> τον χρόνο") + "</p>" +
-      '<p class="mx-tip-text">Έχεις επιχείρηση; Κάρτα εργασίας με αυτόματη δήλωση στην ΕΡΓΑΝΗ.</p>' +
+      '<p class="mx-tip-text">Πρόγραμμα για την ψηφιακή κάρτα εργασίας' + (free ? ". Πληρωμή το 2027." : ", με αυτόματη δήλωση στην ΕΡΓΑΝΗ.") + "</p>" +
       '<div class="mx-tip-row"><a class="mx-tip-go" href="' + BASE + 'popup" target="_blank" rel="noopener">' +
       (free ? "Ξεκίνα δωρεάν →" : "Δες το →") + "</a>" +
       (free ? '<span class="mx-tip-small">' + LEFT + "</span>" : "") + "</div>";
