@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://misthos2026.gr/sitemap.xml
