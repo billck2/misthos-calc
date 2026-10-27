@@ -796,6 +796,51 @@
       margin-top:14px;
     }
 
+    /* Πλαίσιο πληροφοριών που ανοίγει όταν διαλέγεις τριετίες */
+    .info-box{
+      margin-top:10px;
+      padding:12px 14px 12px 40px;
+      position:relative;
+      font-size:13px;
+      line-height:1.55;
+      color:var(--ink-2);
+      background:linear-gradient(135deg, #eff6ff 0%, #eef2ff 100%);
+      border:1px solid rgba(99,102,241,.25);
+      border-radius:12px;
+      animation:rowIn .35s cubic-bezier(.2,.7,.2,1) both;
+    }
+
+    .info-box::before{
+      content:"i";
+      position:absolute;
+      left:12px;
+      top:12px;
+      width:18px;
+      height:18px;
+      border-radius:50%;
+      background:var(--pri);
+      color:#fff;
+      font:800 12px/18px Georgia, serif;
+      text-align:center;
+    }
+
+    .info-box p{
+      margin:0 0 6px;
+    }
+
+    .info-box p:last-child{
+      margin-bottom:0;
+    }
+
+    .info-box a{
+      color:var(--pri-dark);
+      font-weight:700;
+    }
+
+    #trietiesWrap > label{
+      margin-top:14px;
+    }
+
     .help + .row,
     .row + .row,
     #militaryFields,

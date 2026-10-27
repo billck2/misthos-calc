@@ -795,6 +795,51 @@
       margin-top:14px;
     }
 
+    /* Πλαίσιο πληροφοριών που ανοίγει όταν διαλέγεις τριετίες */
+    .info-box{
+      margin-top:10px;
+      padding:12px 14px 12px 40px;
+      position:relative;
+      font-size:13px;
+      line-height:1.55;
+      color:var(--ink-2);
+      background:linear-gradient(135deg, #eff6ff 0%, #eef2ff 100%);
+      border:1px solid rgba(99,102,241,.25);
+      border-radius:12px;
+      animation:rowIn .35s cubic-bezier(.2,.7,.2,1) both;
+    }
+
+    .info-box::before{
+      content:"i";
+      position:absolute;
+      left:12px;
+      top:12px;
+      width:18px;
+      height:18px;
+      border-radius:50%;
+      background:var(--pri);
+      color:#fff;
+      font:800 12px/18px Georgia, serif;
+      text-align:center;
+    }
+
+    .info-box p{
+      margin:0 0 6px;
+    }
+
+    .info-box p:last-child{
+      margin-bottom:0;
+    }
+
+    .info-box a{
+      color:var(--pri-dark);
+      font-weight:700;
+    }
+
+    #trietiesWrap > label{
+      margin-top:14px;
+    }
+
     .help + .row,
     .row + .row,
     #militaryFields,
@@ -1491,6 +1536,27 @@
           <div class="help">Σύμφωνα με εγκύκλιο e-ΕΦΚΑ 4/2026. Η επικουρική επιμερίζεται 50% / 50% εργαζομένου-εργοδότη, η πρόνοια βαρύνει εξ ολοκλήρου τον ασφαλισμένο.</div>
         </div>
 
+        <div id="trietiesWrap">
+          <label for="trieties">Τριετίες (προϋπηρεσία στον κατώτατο)</label>
+          <select id="trieties">
+            <option value="0" selected>Καμία ή δεν με αφορά</option>
+            <optgroup label="Υπάλληλοι: +10% ανά τριετία">
+              <option value="0.10">1 τριετία (3–6 έτη): +10%</option>
+              <option value="0.20">2 τριετίες (6–9 έτη): +20%</option>
+              <option value="0.30">3 τριετίες (9+ έτη): +30%</option>
+            </optgroup>
+            <optgroup label="Εργατοτεχνίτες: +5% ανά τριετία">
+              <option value="w0.05">1 τριετία (3–6 έτη): +5%</option>
+              <option value="w0.10">2 τριετίες (6–9 έτη): +10%</option>
+              <option value="w0.15">3 τριετίες (9–12 έτη): +15%</option>
+              <option value="w0.20">4 τριετίες (12–15 έτη): +20%</option>
+              <option value="w0.25">5 τριετίες (15–18 έτη): +25%</option>
+              <option value="w0.30">6 τριετίες (18+ έτη): +30%</option>
+            </optgroup>
+          </select>
+          <div class="info-box" id="trietiesInfo" role="note" style="display:none;"></div>
+        </div>
+
         <label class="checkbox-row">
           <input id="repat" type="checkbox" />
           <span><strong>Επαναπατρισθείς άρθρο 5Γ</strong> — 50% απαλλαγή φόρου μισθωτών</span>
@@ -1767,6 +1833,15 @@
     // (σχέδιο νόμου ΥΠΕΘΟΟ, άρθρο 20 · προσχέδιο προϋπολογισμού 2027). Ιανουάριος-Μάρτιος με τον παλιό.
     const DYPA_CUT_2027 = 0.005;
     const MONTHS_BEFORE_CUT_2027 = 3;
+
+    // Κατώτατος μισθός από 1/4/2026. Οι τριετίες υπολογίζονται επάνω του (ξεπάγωμα από 1/1/2024,
+    // εγκύκλιος υπ. Εργασίας): υπάλληλοι 10% ανά τριετία έως 3, εργατοτεχνίτες 5% έως 6.
+    // Ο μισθός που είναι ήδη πάνω από το όριο συμψηφίζεται: ανεβαίνει μόνο όσο λείπει.
+    const MIN_WAGE = 920;
+
+    function trietiesFloor(p){
+      return p.trieties ? r2(MIN_WAGE * (1 + p.trieties)) : 0;
+    }
 
     // Σταθερά μηνιαία ποσά εισφορών μηχανικών ανά ασφαλιστική κλάση
     // (e-ΕΦΚΑ εγκύκλιος 4/2026, ισχύς από 01/01/2026)
@@ -2097,6 +2172,8 @@
         role: val('role'),
         engClass: n(val('engClass'), 1),
         repat: document.getElementById('repat').checked,
+        trieties: n(val('trieties').replace('w', ''), 0),
+        trietiesWorker: val('trieties').startsWith('w'),
         empRate: n(val('efkaEmployee'), 0.1337),
         employerRate: n(val('efkaEmployer'), 0.2179),
         cap: n(val('efkaCap'), 7761.94),
@@ -2405,7 +2482,19 @@
         if(r.family) html += row('Οικογενειακή παροχή', euro(r.family));
         html += row('Μικτές μηνιαίες αποδοχές', euro(r.gross));
       } else if(!reverse){
+        const floor = !isPublic ? trietiesFloor(p) : 0;
+        if(floor){
+          html += p.amount
+            ? row('Μισθός που έγραψες', euro(p.amount))
+            : row('Κατώτατος μισθός', euro(MIN_WAGE));
+          html += row(`Κατώτατος με τριετίες (+${Math.round(p.trieties * 100)}%)`, euro(floor));
+        }
         html += row('Μικτός μηνιαίος', euro(r.gross));
+        if(floor){
+          html += `<div class="note">${p.amount >= floor
+            ? 'Ο μισθός σου είναι ήδη πάνω από τον κατώτατο με τις τριετίες, οπότε η τριετία συμψηφίζεται και ο μισθός δεν αλλάζει.'
+            : `Η τριετία ανεβάζει τον μικτό κατά ${euro(floor - (p.amount || MIN_WAGE))} τον μήνα, στα ${euro(floor)}.`}</div>`;
+        }
       }
 
       if(isPublic){
@@ -2481,6 +2570,7 @@
         }
       } else {
         if(p.repat) parts.push('5Γ');
+        if(p.trieties && p.direction !== 'net') parts.push(`Τριετίες +${Math.round(p.trieties * 100)}%`);
         if(p.role === 'engineer') parts.push(`Μηχ. κλ.${p.engClass}`);
       }
       if(p.direction === 'net' && !fixedPublicPay(p)) parts.push('Καθαρά → μικτά');
@@ -2496,7 +2586,8 @@
       } else if(p.direction === 'net'){
         r = computeFor(p, grossForNet(p, p.amount));
       } else {
-        r = computeFor(p, p.amount);
+        // Με τριετίες ο μικτός δεν μπορεί να είναι κάτω από τον κατώτατο με την προσαύξηση.
+        r = computeFor(p, p.sector === 'private' ? Math.max(p.amount, trietiesFloor(p)) : p.amount);
       }
 
       window.__lastNetSalary = r.netMonthly;
@@ -2636,6 +2727,23 @@
 
       show('privateFields', !isPublic);
       show('payMonthsWrap', !isPublic);
+
+      // Τριετίες: μόνο στον ιδιωτικό, από μικτά σε καθαρά, με πλαίσιο που εξηγεί τι αφορούν.
+      show('trietiesWrap', !isPublic && p.direction !== 'net');
+      const trietiesInfo = document.getElementById('trietiesInfo');
+      if(p.trieties && !isPublic){
+        const floor = trietiesFloor(p);
+        const kind = p.trietiesWorker
+          ? 'εργατοτεχνίτες: 5% ανά τριετία, έως 6 τριετίες'
+          : 'υπάλληλοι: 10% ανά τριετία, έως 3 τριετίες';
+        trietiesInfo.innerHTML =
+          `<p><strong>Τι είναι:</strong> προσαύξηση στον κατώτατο μισθό για κάθε 3 χρόνια προϋπηρεσίας (${kind}). Με την επιλογή σου ο μικτός πρέπει να είναι τουλάχιστον <strong>${euro(floor)}</strong> (${euro(MIN_WAGE)} + ${Math.round(p.trieties * 100)}%).</p>` +
+          `<p><strong>Ποιους αφορά:</strong> όσους αμείβονται με τον νόμιμο κατώτατο. Μετράει η προϋπηρεσία σε οποιονδήποτε εργοδότη πριν από τις 14/2/2012 και από 1/1/2024· το διάστημα 2012–2023 δεν μετράει. Όποιος δουλεύει από 1/1/2024 κλείνει την πρώτη τριετία την <strong>1/1/2027</strong>.</p>` +
+          `<p><strong>Αν παίρνεις ήδη περισσότερα,</strong> η τριετία συμψηφίζεται: ο μισθός ανεβαίνει μόνο όσο λείπει μέχρι τα ${euro(floor)}. Με κλαδική σύμβαση ισχύουν οι δικές της κλίμακες. <a href="https://misthos2027.gr/articles/trieties-2027.html">Όλα για τις τριετίες 2027 →</a></p>`;
+        trietiesInfo.style.display = '';
+      } else {
+        trietiesInfo.style.display = 'none';
+      }
       show('publicFields', isPublic);
       show('unifiedFields', mode === 'unified');
       show('militaryFields', mode === 'military');
@@ -2689,7 +2797,7 @@
       });
     });
 
-    ['publicMode', 'taxYear', 'teacherStatus', 'teacherCat', 'teacherDegree'].forEach(id => document.getElementById(id).addEventListener('change', syncForm));
+    ['publicMode', 'taxYear', 'teacherStatus', 'teacherCat', 'teacherDegree', 'trieties'].forEach(id => document.getElementById(id).addEventListener('change', syncForm));
     document.getElementById('teacherYears').addEventListener('input', syncForm);
 
     // 14 ↔ 12 μισθοί: το ποσό αλλάζει ώστε να μένουν ίδιες οι ετήσιες αποδοχές
@@ -2789,6 +2897,7 @@
       document.getElementById('engClass').value = '1';
       document.getElementById('engClassWrap').style.display = 'none';
       document.getElementById('repat').checked = false;
+      document.getElementById('trieties').value = '0';
       document.getElementById('efkaEmployee').value = '0.1337';
       document.getElementById('efkaEmployer').value = '0.2179';
       document.getElementById('efkaCap').value = '7761.94';
