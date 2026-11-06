@@ -25,6 +25,13 @@
  * ή κλικ έξω από αυτό) και δεν το ξαναβλέπει για ημέρες.
  */
 (function () {
+  /*
+   * Σε παύση από 06/11/2026: «να μην εμφανίζονται προς το παρόν διαφημίσεις για
+   * WorkFactor». Για να ξαναβγεί: false εδώ και νέο ?v= σε όλες τις σελίδες.
+   */
+  var PAUSED = true;
+  if (PAUSED) return;
+
   var DAY = 24 * 60 * 60 * 1000;
   var CARD_KEY = "mx-note-closed";
   var TIP_KEY = "mx-tip-closed";
