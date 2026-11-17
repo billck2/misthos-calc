@@ -34,50 +34,51 @@
     "&{position:relative;box-sizing:border-box;display:block;max-width:1160px;margin:26px auto 10px;padding:24px 26px 18px;" +
     "border-radius:22px;overflow:hidden;color:#fff;font-family:inherit;font-size:15px;line-height:1.45;text-align:left;" +
     "container-type:inline-size;" +
-    "background:radial-gradient(120% 140% at 0% 0%,#2b3a8f 0%,rgba(43,58,143,0) 55%)," +
-    "radial-gradient(90% 120% at 100% 100%,#0f766e 0%,rgba(15,118,110,0) 60%),#0b1226;" +
-    "box-shadow:0 18px 46px rgba(11,18,38,.28),inset 0 0 0 1px rgba(255,255,255,.08)}" +
+    "background:radial-gradient(60% 90% at 100% 0%,rgba(113,255,143,.22) 0%,rgba(113,255,143,0) 70%)," +
+    "linear-gradient(135deg,#6873fc 0%,#5c66ea 45%,#4f59c8 100%);" +
+    "box-shadow:0 18px 46px rgba(79,89,200,.38),inset 0 0 0 1px rgba(255,255,255,.14)}" +
     "& *{box-sizing:border-box}" +
     "& p,& ol,& li{margin:0;padding:0;font-family:inherit;line-height:1.4;letter-spacing:normal}" +
     "& .sn-in{display:flex;flex-wrap:wrap;align-items:center;gap:18px 24px}" +
     /* Το κέρμα των 10 € */
     "& .sn-coin{flex:none;position:relative;width:96px;height:96px;border-radius:50%;display:flex;flex-direction:column;" +
-    "align-items:center;justify-content:center;color:#3b2500;" +
-    "background:radial-gradient(circle at 32% 28%,#fff3b8 0%,#ffd65c 32%,#f2a516 70%,#c97c06 100%);" +
-    "box-shadow:inset 0 -6px 0 rgba(0,0,0,.14),inset 0 0 0 5px rgba(255,255,255,.28),0 10px 26px rgba(242,165,22,.45);" +
+    "align-items:center;justify-content:center;color:#101010;" +
+    "background:radial-gradient(circle at 32% 28%,#d6ffde 0%,#9dffb1 30%,#71ff8f 62%,#3fd862 100%);" +
+    "box-shadow:inset 0 -6px 0 rgba(16,16,16,.12),inset 0 0 0 5px rgba(255,255,255,.35),0 10px 26px rgba(16,16,16,.28);" +
     "animation:sn-float 3.2s ease-in-out infinite}" +
-    "& .sn-coin:before{content:'';position:absolute;inset:9px;border-radius:50%;border:2px dashed rgba(120,72,0,.35)}" +
+    "& .sn-coin:before{content:'';position:absolute;inset:9px;border-radius:50%;border:2px dashed rgba(16,16,16,.28)}" +
     "& .sn-coin-amt{font-size:30px;font-weight:900;letter-spacing:-.04em;line-height:1}" +
     "& .sn-coin-lbl{margin-top:3px;font-size:10.5px;font-weight:800;letter-spacing:.14em;line-height:1}" +
     "@keyframes sn-float{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-5px) rotate(4deg)}}" +
     /* Κείμενο */
     "& .sn-main{flex:1 1 320px;min-width:0}" +
-    "& .sn-tag{margin:0 0 6px;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#93c5fd}" +
+    "& .sn-tag{display:inline-block;margin:0 0 8px;padding:4px 10px;border-radius:999px;background:#101010;" +
+    "font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#71ff8f}" +
     "& .sn-title{margin:0 0 12px;padding-right:22px;font-size:23px;font-weight:800;letter-spacing:-.02em;line-height:1.2;color:#fff}" +
-    "& .sn-title b{color:#ffd65c;font-weight:800}" +
+    "& .sn-title b{color:#71ff8f;font-weight:800}" +
     "& .sn-steps{display:flex;flex-wrap:wrap;gap:8px;list-style:none;counter-reset:sn}" +
     "& .sn-steps li{counter-increment:sn;display:flex;align-items:center;gap:8px;padding:6px 12px 6px 6px;border-radius:999px;" +
-    "background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);font-size:13.5px;font-weight:600;color:#e2e8f0;" +
+    "background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);font-size:13.5px;font-weight:600;color:#fff;" +
     "list-style:none}" +
     "& .sn-steps li:before{content:counter(sn);flex:none;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;" +
-    "justify-content:center;background:#ffd65c;color:#3b2500;font-size:12px;font-weight:900}" +
+    "justify-content:center;background:#101010;color:#71ff8f;font-size:12px;font-weight:900}" +
     /* Κουμπί */
     "& .sn-side{flex:0 1 auto;text-align:center}" +
-    "& .sn-go{display:inline-block;padding:15px 26px;border-radius:14px;font-size:17px;font-weight:800;line-height:1.2;white-space:nowrap;" +
-    "text-decoration:none!important;border:0!important;color:#2a1a00!important;" +
-    "background:linear-gradient(180deg,#ffe07a 0%,#f2a516 100%);" +
-    "box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 10px 24px rgba(242,165,22,.42);" +
-    "transition:transform .12s ease,filter .12s ease;animation:sn-nudge 1.2s ease-in-out 1.5s 2}" +
-    "& .sn-go:hover{filter:brightness(1.05);transform:translateY(-1px)}" +
-    "& .sn-go:focus-visible{outline:3px solid #fff;outline-offset:3px}" +
+    "& .sn-go{display:inline-block;padding:15px 26px;border-radius:8px;font-size:17px;font-weight:800;line-height:1.2;white-space:nowrap;" +
+    "text-decoration:none!important;border:0!important;color:#101010!important;background:#71ff8f;" +
+    "box-shadow:0 10px 24px rgba(16,16,16,.28);" +
+    "transition:transform .12s ease,background .12s ease;animation:sn-nudge 1.2s ease-in-out 1.5s 2}" +
+    "& .sn-go:hover{background:#8dffa5;transform:translateY(-1px)}" +
+    "& .sn-go:focus-visible{outline:0;box-shadow:0 0 0 3px rgba(113,255,143,.45),0 10px 24px rgba(16,16,16,.28)}" +
     "@keyframes sn-nudge{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}" +
-    "& .sn-sub{display:block;margin-top:8px;font-size:12.5px;font-weight:600;color:#a7f3d0}" +
+    "& .sn-sub{display:block;margin-top:8px;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.88)}" +
     /* Ψιλά γράμματα */
-    "& .sn-fine{flex:1 1 100%;margin:2px 0 0;padding-top:12px;border-top:1px solid rgba(255,255,255,.1);font-size:12px;color:#94a3b8}" +
-    "& .sn-fine a{color:#cbd5e1!important;text-decoration:underline!important;border:0!important;font-weight:600}" +
+    "& .sn-fine{flex:1 1 100%;margin:2px 0 0;padding-top:12px;border-top:1px solid rgba(255,255,255,.25);font-size:12px;" +
+    "color:rgba(255,255,255,.88)}" +
+    "& .sn-fine a{color:#fff!important;text-decoration:underline!important;border:0!important;font-weight:700}" +
     "& .sn-x{position:absolute;top:10px;right:10px;z-index:1;width:30px;height:30px;padding:0;border:0;border-radius:50%;" +
-    "background:transparent;color:#94a3b8;font-size:20px;line-height:1;cursor:pointer;box-shadow:none}" +
-    "& .sn-x:hover{background:rgba(255,255,255,.12);color:#fff}" +
+    "background:transparent;color:rgba(255,255,255,.85);font-size:20px;line-height:1;cursor:pointer;box-shadow:none}" +
+    "& .sn-x:hover{background:rgba(16,16,16,.18);color:#fff}" +
     /* Στενό μπάνερ (κινητό, ή μέσα σε άρθρο): όλα το ένα κάτω από το άλλο, στη μέση */
     "@container (max-width:560px){" +
     "& .sn-in{flex-direction:column;align-items:stretch;gap:14px;text-align:center}" +
